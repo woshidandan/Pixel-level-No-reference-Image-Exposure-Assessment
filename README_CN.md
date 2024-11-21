@@ -11,11 +11,13 @@ Rethinking No-reference Image Exposure Assessment from Holism to Pixel: Models, 
 </h1>
 <h4>
 <b>
+  
 Shuai He, Shuntian Zheng, Anlong Ming,  Banyu Wu, Huadong Ma
   
 Beijing University of Posts and Telecommunications
 
 University of Warwick
+
 </b>
 </h4>
 </div>

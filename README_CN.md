@@ -40,22 +40,22 @@ University of Warwick
 
 
 # 代码环境
-tqdm==4.66.2
-torchvision==0.16.2+cu121
-torchsummary==1.5.1
-torch==2.1.2+cu121
-timm==0.6.13
-tensorboard==2.14.0
-scipy==1.10.1
-scikit-learn==1.3.2
-PyYAML==6.0.1
-pytorch-ssim==0.1
-pytorch-msssim==1.0.0
-pillow==10.2.0
-pandas==2.0.3
-opencv-python==4.9.0.80
-numpy==1.24.4
-matplotlib==3.7.5
+* tqdm==4.66.2
+* torchvision==0.16.2+cu121
+* torchsummary==1.5.1
+* torch==2.1.2+cu121
+* timm==0.6.13
+* tensorboard==2.14.0
+* scipy==1.10.1
+* scikit-learn==1.3.2
+* PyYAML==6.0.1
+* pytorch-ssim==0.1
+* pytorch-msssim==1.0.0
+* pillow==10.2.0
+* pandas==2.0.3
+* opencv-python==4.9.0.80
+* numpy==1.24.4
+* matplotlib==3.7.5
 
 # 代码使用说明
 训练目标：给定一张待测图，网络预测其每个像素距离理想曝光图像素的差距，本文称之为残差图（这个是灰度图）；
@@ -72,6 +72,8 @@ matplotlib==3.7.5
 
 ![image](https://github.com/user-attachments/assets/3e941f0c-0818-4133-a391-8bb907d11001)
 
+*图像增强算法增强器：没错，我们这项工作也能作为loss函数，继承到一些低光增强或曝光纠正算法里，作为一个reward辅助模型训练出更好的视觉效果，甚至能提升模型性能：
+![微信截图_20241122111813](https://github.com/user-attachments/assets/50fefa45-1b38-4367-9972-819d7fd6c706)
 
 
 

@@ -18,7 +18,7 @@ Beijing University of Posts and Telecommunications
 
 [[国内的小伙伴请看更详细的中文说明]](https://github.com/woshidandan/Pixel-level-No-reference-Image-Exposure-Assessment/blob/main/README_CN.md)
 This repo contains the official implementation and the new dataset IEA40K of the **NIPS 2024** paper.
-More details will be released soon. 最近太忙了，等camera ready版本的论文提交了，再把论文和相关说明补上，老铁们点点Star啊，这篇工作做了5年，目前已在一个实际的落地项目里继续打磨。
+More details will be released soon.
 
 <div align="center">
 <img src="https://github.com/user-attachments/assets/c849349c-bb9a-44bf-a6a0-285b637d4251" alt="Image text" width="300px" />

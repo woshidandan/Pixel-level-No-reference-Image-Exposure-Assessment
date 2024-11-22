@@ -59,7 +59,7 @@ University of Warwick
 
 # 代码使用说明
 训练目标：给定一张待测图，网络预测其每个像素距离理想曝光图像素的差距，本文称之为残差图（这个是灰度图）；
-训练：先从![Google网盘](https://drive.google.com/file/d/1zZPRgHvhr6OTr-wuhJYcs8H2DOVtL62Y/view)下载数据集（链接挂了cue我），数据集内.npy文件为待测图像对应的残差图，也即网络预测的目标，用train_wavelet.py进行训练；
+训练：先从[Google网盘](https://drive.google.com/file/d/1zZPRgHvhr6OTr-wuhJYcs8H2DOVtL62Y/view)下载数据集（链接挂了cue我），数据集内.npy文件为待测图像对应的残差图，也即网络预测的目标，用train_wavelet.py进行训练；
 推理：为了测试网络在多幅图像上的预测能力，运行python make_heatmap.py文件，它会读取img_to_pred文件夹中的所有jpg文件进行预测，然后将预测结果的热力图（这个是我们把灰度图进行颜色映射后的图，颜色映射的代码可以自己调整），保存在img_to_pred文件夹中。
 
 
@@ -74,7 +74,7 @@ University of Warwick
 ![微信截图_20241122112041](https://github.com/user-attachments/assets/0bc7ae1f-acc8-4041-9d53-5192e5b14c92)
 
 
-*图像增强算法增强器：没错，我们这项工作也能作为loss函数，继承到一些低光增强或曝光纠正算法里，作为一个reward辅助模型训练出更好的视觉效果，甚至能提升模型性能：
+*图像增强算法增强器：没错，我们这项工作也能作为loss函数，集成到一些低光增强或曝光纠正算法里，作为一个reward辅助模型训练出更好的视觉效果，甚至能提升模型性能：
 
 <div align="center">
   

@@ -22,8 +22,13 @@ University of Warwick
 </h4>
 </div>
 
+![过曝](https://github.com/user-attachments/assets/c849349c-bb9a-44bf-a6a0-285b637d4251)
 
-![Visual](https://github.com/user-attachments/assets/31ba3311-fb0b-4321-bce8-326fc5821354)
+
+
+https://github.com/user-attachments/assets/a3087568-0927-4de0-abf5-62b5fa40097d
+
+
 
 
 
@@ -58,10 +63,13 @@ University of Warwick
 * matplotlib==3.7.5
 
 # 代码使用说明
-训练目标：给定一张待测图，网络预测其每个像素距离理想曝光图像素的差距，本文称之为残差图（这个是灰度图）；
-训练：先从[Google网盘](https://drive.google.com/file/d/1zZPRgHvhr6OTr-wuhJYcs8H2DOVtL62Y/view)下载数据集（链接挂了cue我），数据集内.npy文件为待测图像对应的残差图，也即网络预测的目标，用train_wavelet.py进行训练；
-推理：为了测试网络在多幅图像上的预测能力，运行python make_heatmap.py文件，它会读取img_to_pred文件夹中的所有jpg文件进行预测，然后将预测结果的热力图（这个是我们把灰度图进行颜色映射后的图，颜色映射的代码可以自己调整），保存在img_to_pred文件夹中。
+* 训练目标：给定一张待测图，网络预测其每个像素距离理想曝光图像素的差距，本文称之为残差图（这个是灰度图）；
 
+* 训练：先从[Google网盘](https://drive.google.com/file/d/1zZPRgHvhr6OTr-wuhJYcs8H2DOVtL62Y/view)下载数据集（链接挂了cue我），数据集内.npy文件为待测图像对应的残差图，也即网络预测的目标，用train_wavelet.py进行训练；
+
+* 推理：为了测试网络在多幅图像上的预测能力，运行python make_heatmap.py文件，它会读取img_to_pred文件夹中的所有jpg文件进行预测，然后将预测结果的热力图（这个是我们把灰度图进行颜色映射后的图，颜色映射的代码可以自己调整），保存在img_to_pred文件夹中。
+
+![Visual](https://github.com/user-attachments/assets/31ba3311-fb0b-4321-bce8-326fc5821354)
 
 # 潜在应用方向
 *图像增强算法效果判别器：以低光增强这一超卷方向为例，各同仁在刷到SOTA后，想在一些开放场景与其它同类场景进行效果的横向比较，但开放场景一般没有参考图，所以增强后的效果好不好，只能靠人眼来看，简单定性分析，比如这样：

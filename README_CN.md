@@ -77,7 +77,9 @@ University of Warwick
 *图像增强算法增强器：没错，我们这项工作也能作为loss函数，继承到一些低光增强或曝光纠正算法里，作为一个reward辅助模型训练出更好的视觉效果，甚至能提升模型性能：
 
 <div align="center">
+  
 ![微信截图_20241122112157](https://github.com/user-attachments/assets/2935704b-a972-428e-b64f-ee7d6e23cf32)
+
 </div>
 
 

@@ -1,5 +1,3 @@
-
-https://github.com/user-attachments/assets/ea760bfa-644e-418b-a15f-289960c6770a
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Framework](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?&logo=PyTorch&logoColor=white)](https://pytorch.org/)
 

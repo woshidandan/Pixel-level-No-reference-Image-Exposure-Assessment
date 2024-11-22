@@ -40,9 +40,36 @@ University of Warwick
 
 
 # 代码环境
+tqdm==4.66.2
+torchvision==0.16.2+cu121
+torchsummary==1.5.1
+torch==2.1.2+cu121
+timm==0.6.13
+tensorboard==2.14.0
+scipy==1.10.1
+scikit-learn==1.3.2
+PyYAML==6.0.1
+pytorch-ssim==0.1
+pytorch-msssim==1.0.0
+pillow==10.2.0
+pandas==2.0.3
+opencv-python==4.9.0.80
+numpy==1.24.4
+matplotlib==3.7.5
+
+# 代码使用说明
+训练目标：给定一张待测图，网络预测其每个像素距离理想曝光图像素的差距，本文称之为残差图（这个是灰度图）；
+训练：先从![Google网盘](https://drive.google.com/file/d/1zZPRgHvhr6OTr-wuhJYcs8H2DOVtL62Y/view)下载数据集（链接挂了cue我），数据集内.npy文件为待测图像对应的残差图，也即网络预测的目标，用train_wavelet.py进行训练；
+推理：为了测试网络在多幅图像上的预测能力，运行python make_heatmap.py文件，它会读取img_to_pred文件夹中的所有jpg文件进行预测，然后将预测结果的热力图（这个是我们把灰度图进行颜色映射后的图，颜色映射的代码可以自己调整），保存在img_to_pred文件夹中。
 
 
-# 怎么使用代码
+# 潜在应用方向
+*图像增强算法效果判别器：以低光增强这一超卷方向为例，各同仁在刷到SOTA后，想在一些开放场景与其它同类场景进行效果的横向比较，但开放场景一般没有参考图，所以增强后的效果好不好，只能靠人眼来看，简单定性分析，比如这样：
+![微信截图_20241122110854](https://github.com/user-attachments/assets/a3033689-8e07-4cb0-b4d5-fa82b9114e32)
+说实在的，有时候很难看出来区别。我们这项工作，可以作为效果的判别器，既可以通过残差图（或热力图）的形式，更加直观的分析各算法增强后效果的优劣，比如下图，越黑代表增强效果越好，也能把残差图转为数值（求个MAE），进行定量的分析。
+![image](https://github.com/user-attachments/assets/3e941f0c-0818-4133-a391-8bb907d11001)
+
+
 
 
 # 如果你觉得这篇工作对你有帮助，请引用，不要白嫖-_-:

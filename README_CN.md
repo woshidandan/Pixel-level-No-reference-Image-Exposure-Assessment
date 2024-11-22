@@ -26,11 +26,6 @@ University of Warwick
 
 
 
-https://github.com/user-attachments/assets/a3087568-0927-4de0-abf5-62b5fa40097d
-
-
-
-
 
 # 工作介绍
 * 简要版：实现对图像中每个像素曝光观感的判断。

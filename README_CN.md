@@ -85,10 +85,19 @@ University of Warwick
 
 
 # 如果你觉得这篇工作对你有帮助，请引用，不要白嫖-_-:
-
+```
+@article{herethinkingIEA,
+  title={Rethinking No-reference Image Exposure Assessment from Holism to Pixel: Models, Datasets and Benchmarks},
+  author={He, Shuai and Zheng, Shuntian and Ming, Anlong and Wu, Banyu and Ma, Huadong},
+  journal={Advances in Neural Information Processing Systems (NIPS)},
+  year={2024},
+}
+```
 
 # 组内其它同类型工作:
-
++ "Thinking Image Color Aesthetics Assessment: Models, Datasets and Benchmarks.", [[pdf]](https://openaccess.thecvf.com/content/ICCV2023/papers/He_Thinking_Image_Color_Aesthetics_Assessment_Models_Datasets_and_Benchmarks_ICCV_2023_paper.pdf) [[code]](https://github.com/woshidandan/Image-Color-Aesthetics-Assessment), ICCV, 2023.
++ "Rethinking Image Aesthetics Assessment: Models, Datasets and Benchmarks.", [[pdf]](https://www.ijcai.org/proceedings/2022/0132.pdf) [[code]](https://github.com/woshidandan/TANet), IJCAI, 2022.
++ "EAT: An Enhancer for Aesthetics-Oriented Transformers.", [[pdf]](https://github.com/woshidandan/Image-Aesthetics-Assessment/blob/main/Paper_ID_847_EAT%20An%20Enhancer%20for%20Aesthetics-Oriented%20Transformers.pdf) [[code]](https://github.com/woshidandan/Image-Aesthetics-Assessment/tree/main) ACMMM2023.
 
 # 其它
 * 我们实验室的主页：[视觉机器人与智能技术实验室](http://www.mrobotit.cn/Default.aspx)。

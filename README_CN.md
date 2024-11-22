@@ -22,8 +22,12 @@ University of Warwick
 </h4>
 </div>
 
-![过曝](https://github.com/user-attachments/assets/c849349c-bb9a-44bf-a6a0-285b637d4251)
 
+<div align="center">
+<img src="https://github.com/user-attachments/assets/c849349c-bb9a-44bf-a6a0-285b637d4251" alt="Image text" width="300px" />
+<img src="https://github.com/user-attachments/assets/72cf4333-cadd-49ee-9e88-aa19aa7e5693" alt="Image text" width="300px" />
+<img src="https://github.com/user-attachments/assets/6c7e21d5-8924-484e-a5ce-6053088470c9" alt="Image text" width="300px" />
+</div>
 
 
 

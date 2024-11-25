@@ -31,7 +31,7 @@ University of Warwick
 
 
 
-# 工作介绍
+## 工作介绍
 * 简要版：实现对图像中每个像素曝光观感的判断。
 * 太长不看版：各位同仁，若细看图像曝光评估（IEA）这一领域，则不难发现几个问题：
   * 当前IEA工作的评估细致度不足。例如，在画面同时出现欠曝、过曝及正常曝光时，如何准确评价整体曝光观感？对于局部欠曝，如何量化其程度？显然，传统打分或简单定性分析的方法难以应对此类复杂情况。
@@ -43,7 +43,7 @@ University of Warwick
   * 像素级标注数据可支持更粗粒度的评估。已知各像素曝光质量后，不同厂商仅需根据各自标准重新映射分数。例如，A厂商规定画面20%过曝扣10分，B厂商则扣30分。在此情况下，本文所述的像素级IEA数据集和算法均可复用。
   
 
-# 网络结构P-IEANet
+## 网络结构P-IEANet
 * 简要版：将图像曝光解耦为亮度和结构信息，分别进行处理，并计算曝光残差（待测图像与理想图像逐像素的差距）。
 * 太长不看版：在网络结构设计这块，参考了挺多低光增强和曝光纠正领域的文章，最终结合实际效果（+好说故事）选择采用Haar DWT作为backbone。为什么要从频域将曝光解耦为亮度和结构信息呢？因为我们发现把欠曝和过曝的图像低频分量换一下，欠曝的图像从观感上变成了过曝！
   当然，过曝的图像存在一些死白，导致纹理信息无法恢复，则存在于高频分量中。因此，IEA如果能搞定这两个分量，则评估欠过曝会容易很多。其它一些细节的设计和论证，请参考论文正文和附录把。（注：开源的这版代码有做简化，与原论文略有不同，但训练起来会更容易一些）
@@ -51,25 +51,9 @@ University of Warwick
 <img src="https://github.com/user-attachments/assets/c80c05f3-8c85-4248-b1f3-e616e4b69290" alt="Image text" width="700px" />
 </div>
 
-# 代码环境
-* tqdm==4.66.2
-* torchvision==0.16.2+cu121
-* torchsummary==1.5.1
-* torch==2.1.2+cu121
-* timm==0.6.13
-* tensorboard==2.14.0
-* scipy==1.10.1
-* scikit-learn==1.3.2
-* PyYAML==6.0.1
-* pytorch-ssim==0.1
-* pytorch-msssim==1.0.0
-* pillow==10.2.0
-* pandas==2.0.3
-* opencv-python==4.9.0.80
-* numpy==1.24.4
-* matplotlib==3.7.5
 
-# 代码使用说明
+
+## 代码使用说明
 * 训练目标：给定一张待测图，网络预测其每个像素距离理想曝光图像素的差距，本文称之为残差图（这个是灰度图）；
 
 * 训练：先从[Google网盘](https://drive.google.com/file/d/1zZPRgHvhr6OTr-wuhJYcs8H2DOVtL62Y/view)下载数据集（链接挂了cue我），数据集内.npy文件为待测图像对应的残差图，也即网络预测的目标，用train_wavelet.py进行训练；
@@ -78,7 +62,7 @@ University of Warwick
 
 ![Visual](https://github.com/user-attachments/assets/31ba3311-fb0b-4321-bce8-326fc5821354)
 
-# 潜在应用方向
+## 潜在应用方向
 *图像增强算法效果判别器：以低光增强这一超卷方向为例，各同仁在刷到SOTA后，想在一些开放场景与其它同类场景进行效果的横向比较，但开放场景一般没有参考图，所以增强后的效果好不好，只能靠人眼来看，简单定性分析，比如这样：
 
 ![微信截图_20241122112006](https://github.com/user-attachments/assets/77351a3b-64aa-48bb-8469-56b031a484e7)
@@ -97,9 +81,25 @@ University of Warwick
 
 </div>
 
+## 代码环境
+* tqdm==4.66.2
+* torchvision==0.16.2+cu121
+* torchsummary==1.5.1
+* torch==2.1.2+cu121
+* timm==0.6.13
+* tensorboard==2.14.0
+* scipy==1.10.1
+* scikit-learn==1.3.2
+* PyYAML==6.0.1
+* pytorch-ssim==0.1
+* pytorch-msssim==1.0.0
+* pillow==10.2.0
+* pandas==2.0.3
+* opencv-python==4.9.0.80
+* numpy==1.24.4
+* matplotlib==3.7.5
 
-
-# 如果你觉得这篇工作对你有帮助，请引用，不要白嫖-_-:
+## 如果你觉得这篇工作对你有帮助，请引用，不要白嫖-_-:
 ```
 @article{herethinkingIEA,
   title={Rethinking No-reference Image Exposure Assessment from Holism to Pixel: Models, Datasets and Benchmarks},
@@ -109,7 +109,7 @@ University of Warwick
 }
 ```
 
-# 组内其它同类型工作:
+## 组内其它同类型工作:
 + "Thinking Image Color Aesthetics Assessment: Models, Datasets and Benchmarks.", [[pdf]](https://openaccess.thecvf.com/content/ICCV2023/papers/He_Thinking_Image_Color_Aesthetics_Assessment_Models_Datasets_and_Benchmarks_ICCV_2023_paper.pdf) [[code]](https://github.com/woshidandan/Image-Color-Aesthetics-Assessment), ICCV, 2023.
 + "Rethinking Image Aesthetics Assessment: Models, Datasets and Benchmarks.", [[pdf]](https://www.ijcai.org/proceedings/2022/0132.pdf) [[code]](https://github.com/woshidandan/TANet), IJCAI, 2022.
 + "EAT: An Enhancer for Aesthetics-Oriented Transformers.", [[pdf]](https://github.com/woshidandan/Image-Aesthetics-Assessment/blob/main/Paper_ID_847_EAT%20An%20Enhancer%20for%20Aesthetics-Oriented%20Transformers.pdf) [[code]](https://github.com/woshidandan/Image-Aesthetics-Assessment/tree/main) ACMMM2023.

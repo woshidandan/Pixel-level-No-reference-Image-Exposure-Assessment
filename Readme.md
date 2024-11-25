@@ -46,11 +46,76 @@ To address these issues, we propose a new concept of pixel-level IEA. This appro
     
   * Pixel-level annotated data can support coarser-grained assessments. Once the exposure quality of each pixel is known, manufacturers can simply remap the scores according to their standards. For example, Manufacturer A might deduct 10 points for 20% overexposure in the image, while Manufacturer B might deduct 30 points. Under such circumstances, the pixel-level IEA datasets and algorithms described in this paper can be reused effectively.
 
+<div align="center">
+<img src="https://github.com/user-attachments/assets/31ba3311-fb0b-4321-bce8-326fc5821354" alt="Image text" width="700px" />
+</div>
 
-![Visual](https://github.com/user-attachments/assets/31ba3311-fb0b-4321-bce8-326fc5821354)
+## Network
+* **Brief Version**: Decouple image exposure into brightness and structural information, process them separately, and compute the exposure residual (pixel-wise difference between the test image and the ideal image).
 
+* **DR Version**: 
+  In terms of network architecture design, we referred to several works in the fields of low-light enhancement and exposure correction. Ultimately, based on practical performance (and to build a coherent narrative), we chose Haar DWT as the backbone. 
+  Why decouple exposure into brightness and structural information in the frequency domain? Because we discovered that swapping the low-frequency components of underexposed and overexposed images makes the underexposed image appear overexposed from a perceptual perspective! 
+  Of course, overexposed images often have "dead white" areas where texture information cannot be recovered, and this issue resides in the high-frequency components. Therefore, if IEA can address these two components, evaluating underexposure and overexposure becomes much simpler. 
+  For more details on the design and justification, please refer to the paper. (Note: the open-source version of the code is slightly simplified compared to the original paper to make training easier.)
 
+<div align="center">
+<img src="https://github.com/user-attachments/assets/c80c05f3-8c85-4248-b1f3-e616e4b69290" alt="Image text" width="700px" />
+</div>
 
+## Dataset
+Constructing a pixel-level IEA dataset is extremely challenging, as pixel-by-pixel annotation is impractical. Therefore, we adopted an unsupervised approach combined with expert assistance to accomplish this task. The workflow is illustrated in the figure below:
 
+<div align="center">
+<img src="https://github.com/user-attachments/assets/835e05e6-7a89-46c8-8889-45a1eece8948" alt="Image text" width="700px" />
+</div>
 
+First, we captured or collected (e.g., from the Adobe FiveK dataset) a set of images of the same scene under different exposure conditions. For the normally exposed images, we further refined them manually in Photoshop to ensure all regions in the images are in an ideal exposure state. 
+Next, we subtracted the ideal images from their poorly exposed counterparts of the same scene to obtain the initial residual values. However, these initial residuals might contain sporadic annotation errors or discrete outliers. 
+Finally, experts corrected the errors in the residual values to generate the final residuals, which serve as the annotation data.
 
+<div align="center">
+<img src="https://github.com/user-attachments/assets/dd2ddfdd-f805-4f59-abb4-a977c12b8b09" alt="Image text" width="700px" />
+</div>
+
+## Code Usage Instructions
+### **Training Objective**
+The goal is to predict the residual map (a grayscale image) for each pixel of a test image, representing the pixel-wise difference between the test image and the ideal exposure image.
+
+### **Training Steps**
+1. Download the dataset from [Google Drive](https://drive.google.com/file/d/1zZPRgHvhr6OTr-wuhJYcs8H2DOVtL62Y/view) (if the link is broken, let me know).
+2. The `.npy` files in the dataset represent the residual maps corresponding to the test images, which are the target outputs for the network.
+3. Use `train_wavelet.py` to train the network.
+
+### **Inference**
+1. To test the network's prediction ability on multiple images, run the script `make_heatmap.py`.
+2. The script will read all `.jpg` files in the `img_to_pred` folder for prediction.
+3. The predicted heatmaps (color-mapped versions of the grayscale residual maps) will be saved in the same `img_to_pred` folder. You can customize the color-mapping code as needed.
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/31ba3311-fb0b-4321-bce8-326fc5821354" alt="Image text" width="700px" />
+</div>
+
+## Potential Application Directions
+
+### **1. Evaluator for Image Enhancement Algorithms**
+Taking low-light enhancement as an example within this trending field, researchers often seek to perform cross-comparisons of enhancement results across various scenarios after achieving SOTA (state-of-the-art) results. However, open scenarios usually lack reference images, leaving the assessment of enhancement quality to human visual judgment or simple qualitative analyses. For instance:
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/77351a3b-64aa-48bb-8469-56b031a484e7" alt="Image text" width="700px" />
+</div>
+
+In practice, it can be difficult to distinguish differences. Our method serves as an evaluator, providing a more intuitive analysis of enhancement performance through residual maps (or heatmaps). For example, in the figure below, darker areas indicate better enhancement performance. Additionally, residual maps can be converted into numerical values (e.g., by calculating MAE) for quantitative analysis.
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/0bc7ae1f-acc8-4041-9d53-5192e5b14c92" alt="Image text" width="700px" />
+</div>
+
+---
+
+### **2. Enhancer for Image Enhancement Algorithms**
+Our work can also be used as a loss function, integrated into low-light enhancement or exposure correction algorithms. It can act as a reward, helping to train models for better visual effects and even improve their performance:
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/2935704b-a972-428e-b64f-ee7d6e23cf32" alt="Image text" width="700px" />
+</div>

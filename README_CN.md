@@ -51,6 +51,15 @@ University of Warwick
 <img src="https://github.com/user-attachments/assets/c80c05f3-8c85-4248-b1f3-e616e4b69290" alt="Image text" width="700px" />
 </div>
 
+## 数据集构建
+* 构建一个像素级的IEA数据集是极其困难的，逐像素标注不太现实。因此，我们采用了无监督+专家辅助的方式来完成这一任务，其流程如下图所示：
+<div align="center">
+<img src="https://github.com/user-attachments/assets/835e05e6-7a89-46c8-8889-45a1eece8948" alt="Image text" width="700px" />
+</div>
+首先，我们通过拍摄或收集（例如Adobe FiveK数据集）一批同一场景不同曝光的图像，对于其中正常曝光的图像使用人工进一步PS，确保其图像所有区域处于理想曝光的状态；其次，将理想图像与同场景曝光欠佳图像相减，得到初始的残差值，但初始的残差值中，会存在零星的标注错误或离散的异常点；最后，专家修正残差值中的错误，形成最终的残差值作为标注信息。
+<div align="center">
+<img src="https://github.com/user-attachments/assets/dd2ddfdd-f805-4f59-abb4-a977c12b8b09" alt="Image text" width="700px" />
+</div>
 
 
 ## 代码使用说明

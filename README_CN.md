@@ -48,7 +48,7 @@ University of Warwick
 * 太长不看版：在网络结构设计这块，参考了挺多低光增强和曝光纠正领域的文章，最终结合实际效果（+好说故事）选择采用Haar DWT作为backbone。为什么要从频域将曝光解耦为亮度和结构信息呢？因为我们发现把欠曝和过曝的图像低频分量换一下，欠曝的图像从观感上变成了过曝！
   当然，过曝的图像存在一些死白，导致纹理信息无法恢复，则存在于高频分量中。因此，IEA如果能搞定这两个分量，则评估欠过曝会容易很多。其它一些细节的设计和论证，请参考论文正文和附录把。（注：开源的这版代码有做简化，与原论文略有不同，但训练起来会更容易一些）
 <div align="center">
-<img src="https://github.com/user-attachments/assets/c80c05f3-8c85-4248-b1f3-e616e4b69290" alt="Image text" width="900px" />
+<img src="https://github.com/user-attachments/assets/c80c05f3-8c85-4248-b1f3-e616e4b69290" alt="Image text" width="700px" />
 </div>
 
 # 代码环境

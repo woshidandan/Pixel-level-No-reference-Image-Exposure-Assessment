@@ -169,7 +169,6 @@ Our work can also be used as a loss function, integrated into low-light enhancem
 
 ---
 
-{% include https://github.com/woshidandan/woshidandan/edit/master/README.md %}
 
 
 ## Additional Information

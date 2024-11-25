@@ -79,15 +79,15 @@ Finally, experts corrected the errors in the residual values to generate the fin
 </div>
 
 ## Code Usage Instructions
-### **Training Objective**
+* ### **Training Objective**
 The goal is to predict the residual map (a grayscale image) for each pixel of a test image, representing the pixel-wise difference between the test image and the ideal exposure image.
 
-### **Training Steps**
+* ### **Training Steps**
 1. Download the dataset from [Google Drive](https://drive.google.com/file/d/1zZPRgHvhr6OTr-wuhJYcs8H2DOVtL62Y/view) (if the link is broken, let me know).
 2. The `.npy` files in the dataset represent the residual maps corresponding to the test images, which are the target outputs for the network.
 3. Use `train_wavelet.py` to train the network.
 
-### **Inference**
+* ### **Inference**
 1. To test the network's prediction ability on multiple images, run the script `make_heatmap.py`.
 2. The script will read all `.jpg` files in the `img_to_pred` folder for prediction.
 3. The predicted heatmaps (color-mapped versions of the grayscale residual maps) will be saved in the same `img_to_pred` folder. You can customize the color-mapping code as needed.
@@ -119,3 +119,59 @@ Our work can also be used as a loss function, integrated into low-light enhancem
 <div align="center">
 <img src="https://github.com/user-attachments/assets/2935704b-a972-428e-b64f-ee7d6e23cf32" alt="Image text" width="700px" />
 </div>
+
+## Environment Installation
+```
+* tqdm==4.66.2
+* torchvision==0.16.2+cu121
+* torchsummary==1.5.1
+* torch==2.1.2+cu121
+* timm==0.6.13
+* tensorboard==2.14.0
+* scipy==1.10.1
+* scikit-learn==1.3.2
+* PyYAML==6.0.1
+* pytorch-ssim==0.1
+* pytorch-msssim==1.0.0
+* pillow==10.2.0
+* pandas==2.0.3
+* opencv-python==4.9.0.80
+* numpy==1.24.4
+* matplotlib==3.7.5
+```
+
+## If you find our work is useful, pleaes cite our paper:
+```
+@article{herethinkingIEA,
+  title={Rethinking No-reference Image Exposure Assessment from Holism to Pixel: Models, Datasets and Benchmarks},
+  author={He, Shuai and Zheng, Shuntian and Ming, Anlong and Wu, Banyu and Ma, Huadong},
+  journal={Advances in Neural Information Processing Systems (NIPS)},
+  year={2024},
+}
+```
+
+## Related Work from Our Group
+
+- **"Thinking Image Color Aesthetics Assessment: Models, Datasets and Benchmarks."**  
+  [[PDF]](https://openaccess.thecvf.com/content/ICCV2023/papers/He_Thinking_Image_Color_Aesthetics_Assessment_Models_Datasets_and_Benchmarks_ICCV_2023_paper.pdf)  
+  [[Code]](https://github.com/woshidandan/Image-Color-Aesthetics-Assessment)  
+  *ICCV 2023*  
+
+- **"Rethinking Image Aesthetics Assessment: Models, Datasets and Benchmarks."**  
+  [[PDF]](https://www.ijcai.org/proceedings/2022/0132.pdf)  
+  [[Code]](https://github.com/woshidandan/TANet)  
+  *IJCAI 2022*  
+
+- **"EAT: An Enhancer for Aesthetics-Oriented Transformers."**  
+  [[PDF]](https://github.com/woshidandan/Image-Aesthetics-Assessment/blob/main/Paper_ID_847_EAT%20An%20Enhancer%20for%20Aesthetics-Oriented%20Transformers.pdf)  
+  [[Code]](https://github.com/woshidandan/Image-Aesthetics-Assessment/tree/main)  
+  *ACMMM 2023*  
+
+---
+
+## Additional Information
+
+- **Lab Homepage**: [Visual Robotics and Intelligent Technology Laboratory](http://www.mrobotit.cn/Default.aspx)  
+- **My Personal Pages**:  
+  - [Blog](https://xiaohegithub.cn/)  
+  - [Zhihu](https://www.zhihu.com/people/wo-shi-dan-dan-87)  

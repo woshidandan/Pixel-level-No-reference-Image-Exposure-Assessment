@@ -96,7 +96,7 @@ The goal is to predict the residual map (a grayscale image) for each pixel of a 
 <img src="https://github.com/user-attachments/assets/31ba3311-fb0b-4321-bce8-326fc5821354" alt="Image text" width="700px" />
 </div>
 
-## Potential Application Directions
+## Potential Application Directions 
 
 ### **1. Evaluator for Image Enhancement Algorithms**
 Taking low-light enhancement as an example within this trending field, researchers often seek to perform cross-comparisons of enhancement results across various scenarios after achieving SOTA (state-of-the-art) results. However, open scenarios usually lack reference images, leaving the assessment of enhancement quality to human visual judgment or simple qualitative analyses. For instance:

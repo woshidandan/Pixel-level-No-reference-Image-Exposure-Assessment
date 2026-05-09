@@ -1,0 +1,21 @@
+--2025-07-06 21:23:31--  https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth
+Resolving github.com (github.com)... 20.205.243.166
+Connecting to github.com (github.com)|20.205.243.166|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/611591640/f221e500-c2fc-4fd3-b84e-8ad92a6923f3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250706T132332Z&X-Amz-Expires=1800&X-Amz-Signature=2ca9ef3207b6faefd22e1c77f0a770b41b2ab596ea057469f5cdc93859009772&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dgroundingdino_swint_ogc.pth&response-content-type=application%2Foctet-stream [following]
+--2025-07-06 21:23:32--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/611591640/f221e500-c2fc-4fd3-b84e-8ad92a6923f3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250706T132332Z&X-Amz-Expires=1800&X-Amz-Signature=2ca9ef3207b6faefd22e1c77f0a770b41b2ab596ea057469f5cdc93859009772&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dgroundingdino_swint_ogc.pth&response-content-type=application%2Foctet-stream
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.110.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 693997677 (662M) [application/octet-stream]
+Saving to: ‘groundingdino_swint_ogc.pth.2’
+
+groundingdino_swint_og   3%[>                         ]  25.55M  91.4 B/s    in 3h 27m  
+
+2025-07-07 01:06:29 (2.10 KB/s) - Read error at byte 26792381/693997677 (Success). Retrying.
+
+--2025-07-07 01:06:30--  (try: 2)  https://objects.githubusercontent.com/github-production-release-asset-2e65be/611591640/f221e500-c2fc-4fd3-b84e-8ad92a6923f3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250706T132332Z&X-Amz-Expires=1800&X-Amz-Signature=2ca9ef3207b6faefd22e1c77f0a770b41b2ab596ea057469f5cdc93859009772&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dgroundingdino_swint_ogc.pth&response-content-type=application%2Foctet-stream
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 401 Unauthorized
+
+Username/Password Authentication Failed.

@@ -1,0 +1,48 @@
+{
+  "semantic_regions": [
+    {
+      "region_id": 0,
+      "mask_filename": "a0001-jmac_DSC1459_P0_grounded_000_c7a15809.png",
+      "semantic_label": "Sky Area",
+      "exposure_score": -45.186391042204995,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The 'Sky Area' is slightly too bright, causing a loss of subtle texture in the white clouds and a somewhat washed-out blue tone.",
+      "local_adjustment_suggestion": "Decrease highlights and slightly lower the overall exposure for the sky to recover cloud details and deepen the blue color."
+    },
+    {
+      "region_id": 1,
+      "mask_filename": "a0001-jmac_DSC1459_P0_grounded_001_c7a15809.png",
+      "semantic_label": "Desert Vegetation",
+      "exposure_score": -12.938270915889937,
+      "exposure_trend": "Exposure Mostly Normal",
+      "exposure_comment": "The 'Desert Vegetation' and surrounding soil are well-exposed, retaining good detail in the shrubs and foreground textures.",
+      "local_adjustment_suggestion": "Maintain current settings; perhaps a minor increase in contrast to further define the textures of the shrubs."
+    },
+    {
+      "region_id": 2,
+      "mask_filename": "a0001-jmac_DSC1459_P0_grounded_002_c7a15809.png",
+      "semantic_label": "Desert Ground",
+      "exposure_score": -31.089730588976895,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The 'Desert Ground' area, consisting of red soil, is slightly overexposed, which can reduce the perceived richness of the desert's natural red hues.",
+      "local_adjustment_suggestion": "Moderately reduce exposure or whites to bring out the saturated red tones of the soil."
+    },
+    {
+      "region_id": 3,
+      "mask_filename": "a0001-jmac_DSC1459_P0_grounded_003_c7a15809.png",
+      "semantic_label": "Rock Formations",
+      "exposure_score": -23.99131055826687,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The 'Rock Formations' show slight overexposure on their sun-facing surfaces, which softens the rugged geological textures.",
+      "local_adjustment_suggestion": "Slightly reduce highlights to better define the crevices and vertical lines of the rock formations."
+    }
+  ],
+  "global_saliency_analysis": {
+    "primary_distortion_region_id": 0,
+    "primary_distortion_reason": "The 'Sky Area' is the most significantly overexposed region according to the metrics. Given its large area in the upper half of the image, the loss of cloud detail and color saturation notably impacts the overall visual balance."
+  },
+  "global_exposure_strategy": {
+    "global_exposure_suggestion": "The overall image is slightly bright, leaning towards overexposure. A slight reduction in global exposure and highlights would benefit the image quality.",
+    "regional_balance_strategy": "Prioritize recovering highlights in the 'Sky Area' and 'Rock Formations' to enhance structural detail, while keeping the 'Desert Vegetation' mostly unchanged to maintain foreground clarity."
+  }
+}

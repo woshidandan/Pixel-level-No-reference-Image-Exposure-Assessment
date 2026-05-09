@@ -1,0 +1,1 @@
+Tested on Python 3.10 with PyTorch CUDA, Transformers, and PEFT. See pip_freeze_image_analysis.txt for the package list.

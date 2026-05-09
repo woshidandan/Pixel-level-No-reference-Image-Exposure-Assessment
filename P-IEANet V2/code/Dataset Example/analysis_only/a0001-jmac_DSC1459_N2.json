@@ -1,0 +1,30 @@
+{
+  "semantic_regions": [
+    {
+      "region_id": 1,
+      "mask_filename": "a0001-jmac_DSC1459_N2_grounded_000_51930e7a.png",
+      "semantic_label": "Large rock formation and terrain",
+      "exposure_score": 57.32491471052498,
+      "exposure_trend": "Slightly Underexposed",
+      "exposure_comment": "The 'Large rock formation and terrain' region is slightly underexposed, leading to a loss of fine detail in the shadowed areas of the cliffs and the darker patches of the foreground vegetation and soil.",
+      "local_adjustment_suggestion": "Increase shadows and midtones for this region to recover texture on the rock faces and bring more vibrancy to the red earth tones."
+    },
+    {
+      "region_id": 2,
+      "mask_filename": "a0001-jmac_DSC1459_N2_grounded_001_51930e7a.png",
+      "semantic_label": "Sky",
+      "exposure_score": 45.06143933728355,
+      "exposure_trend": "Slightly Underexposed",
+      "exposure_comment": "The 'Sky' region appears a bit dark, which suppresses the brightness of the clouds and makes the blue of the sky feel overly deep for a midday landscape.",
+      "local_adjustment_suggestion": "Slightly boost the exposure and highlights in the sky to make the white clouds stand out more clearly against the blue background."
+    }
+  ],
+  "global_saliency_analysis": {
+    "primary_distortion_region_id": 1,
+    "primary_distortion_reason": "The 'Large rock formation and terrain' is the primary subject of the image. Its slight underexposure is the most significant issue as it hides the majestic details of the geological structures and makes the overall scene feel gloomier than intended."
+  },
+  "global_exposure_strategy": {
+    "global_exposure_suggestion": "Apply a moderate global exposure increase to brighten the entire scene, reflecting a more typical daylight condition.",
+    "regional_balance_strategy": "A global lift is appropriate here since both major regions are underexposed. Afterward, a targeted shadow boost specifically for the 'Large rock formation and terrain' will ensure that details in the rock textures are fully visible without over-brightening the 'Sky'."
+  }
+}

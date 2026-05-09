@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "segment_anything"
+version = "1.0"
+description = "Segment Anything Model (SAM)"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Meta Platforms, Inc."}
+]
+dependencies = []
+
+[project.optional-dependencies]
+all = [
+    "matplotlib",
+    "pycocotools", 
+    "opencv-python",
+    "onnx",
+    "onnxruntime"
+]
+dev = [
+    "flake8",
+    "isort", 
+    "black",
+    "mypy"
+]
+
+[tool.setuptools.packages.find]
+exclude = ["notebooks*"]

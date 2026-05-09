@@ -1,0 +1,21 @@
+{
+  "semantic_regions": [
+    {
+      "region_id": 1,
+      "mask_filename": "a0001-jmac_DSC1459_P3_grounded_000_746a89c7.png",
+      "semantic_label": "Rock Formation",
+      "exposure_score": -116.63885761302616,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The 'Rock Formation' appears washed out with reduced color saturation. Detail in the bright vertical rock faces is compromised due to the excess brightness.",
+      "local_adjustment_suggestion": "Decrease highlights and overall exposure for the 'Rock Formation' to recover the deep red tones and texture of the sandstone."
+    }
+  ],
+  "global_saliency_analysis": {
+    "primary_distortion_region_id": 1,
+    "primary_distortion_reason": "The 'Rock Formation' is the central subject of the composition, yet its impact is diminished by the overexposure which flattens its dimensionality and washes out its color."
+  },
+  "global_exposure_strategy": {
+    "global_exposure_suggestion": "The entire image is significantly high-key. A global reduction in exposure is necessary to bring the scene back to a natural dynamic range.",
+    "regional_balance_strategy": "Significantly lower the global exposure, then fine-tune the 'Rock Formation' specifically to ensure its shadows don't become blocked up as the overall brightness is reduced."
+  }
+}

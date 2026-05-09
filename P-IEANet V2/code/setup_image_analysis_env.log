@@ -1,0 +1,907 @@
+===== setup started Thu May  7 08:41:52 CST 2026 =====
+PROJECT=/root/autodl-tmp/Image_Analysis_Workflow
+ENV=/root/autodl-tmp/conda_envs/image_analysis
+Retrieving notices: ...working... done
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /root/autodl-tmp/conda_envs/image_analysis
+
+  added / updated specs:
+    - ninja
+    - pip
+    - python=3.10
+    - setuptools
+    - wheel
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    libexpat-2.8.0             |       h7354ed3_0         123 KB  defaults
+    ninja-1.13.1               |       h06a4308_0           8 KB  defaults
+    ninja-base-1.13.1          |       h0f57076_0         163 KB  defaults
+    ------------------------------------------------------------
+                                           Total:         294 KB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      anaconda/pkgs/main/linux-64::_libgcc_mutex-0.1-main 
+  _openmp_mutex      anaconda/pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu 
+  bzip2              anaconda/pkgs/main/linux-64::bzip2-1.0.8-h5eee18b_6 
+  ca-certificates    anaconda/pkgs/main/linux-64::ca-certificates-2026.3.19-h06a4308_0 
+  ld_impl_linux-64   anaconda/pkgs/main/linux-64::ld_impl_linux-64-2.44-h9e0c5a2_3 
+  libexpat           anaconda/pkgs/main/linux-64::libexpat-2.8.0-h7354ed3_0 
+  libffi             anaconda/pkgs/main/linux-64::libffi-3.4.8-hc5d346e_2 
+  libgcc             anaconda/pkgs/main/linux-64::libgcc-15.2.0-h69a1729_7 
+  libgcc-ng          anaconda/pkgs/main/linux-64::libgcc-ng-15.2.0-h166f726_7 
+  libgomp            anaconda/pkgs/main/linux-64::libgomp-15.2.0-h4751f2c_7 
+  libnsl             anaconda/pkgs/main/linux-64::libnsl-2.0.0-h5eee18b_0 
+  libstdcxx          anaconda/pkgs/main/linux-64::libstdcxx-15.2.0-h39759b7_7 
+  libuuid            anaconda/pkgs/main/linux-64::libuuid-1.41.5-h5eee18b_0 
+  libxcb             anaconda/pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0 
+  libzlib            anaconda/pkgs/main/linux-64::libzlib-1.3.1-h47b2149_1 
+  ncurses            anaconda/pkgs/main/linux-64::ncurses-6.5-h7934f7d_0 
+  ninja              anaconda/pkgs/main/linux-64::ninja-1.13.1-h06a4308_0 
+  ninja-base         anaconda/pkgs/main/linux-64::ninja-base-1.13.1-h0f57076_0 
+  openssl            anaconda/pkgs/main/linux-64::openssl-3.5.6-h1b28b03_0 
+  packaging          anaconda/pkgs/main/linux-64::packaging-26.0-py310h06a4308_0 
+  pip                anaconda/pkgs/main/noarch::pip-26.0.1-pyhc872135_1 
+  pthread-stubs      anaconda/pkgs/main/linux-64::pthread-stubs-0.3-h0ce48e5_1 
+  python             anaconda/pkgs/main/linux-64::python-3.10.20-h741d88c_0 
+  readline           anaconda/pkgs/main/linux-64::readline-8.3-hc2a1206_0 
+  setuptools         anaconda/pkgs/main/linux-64::setuptools-82.0.1-py310h06a4308_0 
+  sqlite             anaconda/pkgs/main/linux-64::sqlite-3.51.2-h3e8d24a_0 
+  tk                 anaconda/pkgs/main/linux-64::tk-8.6.15-h54e0aa7_0 
+  tzdata             anaconda/pkgs/main/noarch::tzdata-2026a-he532380_0 
+  wheel              anaconda/pkgs/main/linux-64::wheel-0.46.3-py310h06a4308_0 
+  xorg-libx11        anaconda/pkgs/main/linux-64::xorg-libx11-1.8.12-h9b100fa_1 
+  xorg-libxau        anaconda/pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0 
+  xorg-libxdmcp      anaconda/pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0 
+  xorg-xorgproto     anaconda/pkgs/main/linux-64::xorg-xorgproto-2024.1-h5eee18b_1 
+  xz                 anaconda/pkgs/main/linux-64::xz-5.8.2-h448239c_0 
+  zlib               anaconda/pkgs/main/linux-64::zlib-1.3.1-h47b2149_1 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+#
+# To activate this environment, use
+#
+#     $ conda activate /root/autodl-tmp/conda_envs/image_analysis
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Python 3.10.20
+Looking in indexes: https://mirror.nju.edu.cn/pypi/web/simple
+Requirement already satisfied: pip in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (26.0.1)
+Collecting pip
+  Downloading https://mirror.nju.edu.cn/pypi/web/packages/3a/eb/fea4d1d51c49832120f7f285d07306db3960f423a2612c6057caf3e8196f/pip-26.1.1-py3-none-any.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 19.7 MB/s  0:00:00
+Requirement already satisfied: setuptools in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (82.0.1)
+Requirement already satisfied: wheel in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (0.46.3)
+Collecting wheel
+  Downloading https://mirror.nju.edu.cn/pypi/web/packages/87/1b/9e33c09813d65e248f7f773119148a612516a4bea93e9c6f545f78455b7c/wheel-0.47.0-py3-none-any.whl (32 kB)
+Requirement already satisfied: packaging>=24.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from wheel) (26.0)
+Installing collected packages: wheel, pip
+  Attempting uninstall: wheel
+    Found existing installation: wheel 0.46.3
+    Uninstalling wheel-0.46.3:
+      Successfully uninstalled wheel-0.46.3
+  Attempting uninstall: pip
+    Found existing installation: pip 26.0.1
+    Uninstalling pip-26.0.1:
+      Successfully uninstalled pip-26.0.1
+
+Successfully installed pip-26.1.1 wheel-0.47.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Looking in indexes: https://download.pytorch.org/whl/cu128
+Collecting torch
+  Downloading torch-2.11.0%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (29 kB)
+Collecting torchvision
+  Downloading torchvision-0.26.0%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+Collecting filelock (from torch)
+  Downloading filelock-3.25.2-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.10.0 (from torch)
+  Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting setuptools<82 (from torch)
+  Downloading setuptools-70.2.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting sympy>=1.13.3 (from torch)
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx>=2.5.1 (from torch)
+  Downloading networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+Collecting jinja2 (from torch)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=0.8.5 (from torch)
+  Downloading fsspec-2026.2.0-py3-none-any.whl.metadata (10 kB)
+Collecting cuda-toolkit==12.8.1 (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Using cached cuda_toolkit-12.8.1-py2.py3-none-any.whl (2.3 kB)
+Collecting cuda-bindings<13,>=12.9.4 (from torch)
+  Downloading cuda_bindings-12.9.4-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (2.6 kB)
+Collecting nvidia-cudnn-cu12==9.19.0.56 (from torch)
+  Using cached nvidia_cudnn_cu12-9.19.0.56-py3-none-manylinux_2_27_x86_64.whl (657.9 MB)
+Collecting nvidia-cusparselt-cu12==0.7.1 (from torch)
+  Using cached nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl (287.2 MB)
+Collecting nvidia-nccl-cu12==2.28.9 (from torch)
+  Using cached nvidia_nccl_cu12-2.28.9-py3-none-manylinux_2_18_x86_64.whl (296.8 MB)
+Collecting nvidia-nvshmem-cu12==3.4.5 (from torch)
+  Using cached nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (139.1 MB)
+Collecting triton==3.6.0 (from torch)
+  Downloading triton-3.6.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-nvrtc-cu12==12.8.93.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Using cached nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (88.0 MB)
+Collecting nvidia-cusparse-cu12==12.5.8.93.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Downloading nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (288.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 288.2/288.2 MB 13.8 MB/s  0:00:20
+Collecting nvidia-nvjitlink-cu12==12.8.93.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Downloading nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.3/39.3 MB 14.9 MB/s  0:00:02
+Collecting nvidia-cublas-cu12==12.8.4.1.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Using cached nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl (594.3 MB)
+Collecting nvidia-curand-cu12==10.3.9.90.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Using cached nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl (63.6 MB)
+Collecting nvidia-cusolver-cu12==11.7.3.90.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Using cached nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl (267.5 MB)
+Collecting nvidia-cufile-cu12==1.13.1.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Using cached nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+Collecting nvidia-cuda-runtime-cu12==12.8.90.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Using cached nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (954 kB)
+Collecting nvidia-cufft-cu12==11.3.3.83.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Using cached nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (193.1 MB)
+Collecting nvidia-nvtx-cu12==12.8.90.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Using cached nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)
+Collecting nvidia-cuda-cupti-cu12==12.8.90.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch)
+  Using cached nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (10.2 MB)
+Collecting cuda-pathfinder~=1.1 (from cuda-bindings<13,>=12.9.4->torch)
+  Downloading cuda_pathfinder-1.2.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting numpy (from torchvision)
+  Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Collecting pillow!=8.3.*,>=5.3.0 (from torchvision)
+  Downloading pillow-12.1.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch)
+  Downloading markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Downloading torch-2.11.0%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl (820.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 820.2/820.2 MB 12.7 MB/s  0:01:02
+Downloading triton-3.6.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (188.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.1/188.1 MB 13.4 MB/s  0:00:14
+Downloading cuda_bindings-12.9.4-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 17.8 MB/s  0:00:00
+Downloading cuda_pathfinder-1.2.2-py3-none-any.whl (23 kB)
+Downloading setuptools-70.2.0-py3-none-any.whl (930 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 930.8/930.8 kB 32.7 MB/s  0:00:00
+Downloading torchvision-0.26.0%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl (8.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.1/8.1 MB 14.8 MB/s  0:00:00
+Downloading fsspec-2026.2.0-py3-none-any.whl (202 kB)
+Downloading networkx-3.4.2-py3-none-any.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 8.2 MB/s  0:00:00
+Downloading pillow-12.1.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.0/7.0 MB 30.6 MB/s  0:00:00
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 13.3 MB/s  0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 24.6 MB/s  0:00:00
+Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading filelock-3.25.2-py3-none-any.whl (26 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 16.6 MB/s  0:00:00
+Installing collected packages: nvidia-cusparselt-cu12, mpmath, cuda-toolkit, typing-extensions, triton, sympy, setuptools, pillow, nvidia-nvtx-cu12, nvidia-nvshmem-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, networkx, MarkupSafe, fsspec, filelock, cuda-pathfinder, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, jinja2, cuda-bindings, nvidia-cusolver-cu12, torch, torchvision
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 82.0.1
+    Uninstalling setuptools-82.0.1:
+      Successfully uninstalled setuptools-82.0.1
+
+Successfully installed MarkupSafe-3.0.3 cuda-bindings-12.9.4 cuda-pathfinder-1.2.2 cuda-toolkit-12.8.1 filelock-3.25.2 fsspec-2026.2.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.4.2 numpy-2.2.6 nvidia-cublas-cu12-12.8.4.1 nvidia-cuda-cupti-cu12-12.8.90 nvidia-cuda-nvrtc-cu12-12.8.93 nvidia-cuda-runtime-cu12-12.8.90 nvidia-cudnn-cu12-9.19.0.56 nvidia-cufft-cu12-11.3.3.83 nvidia-cufile-cu12-1.13.1.3 nvidia-curand-cu12-10.3.9.90 nvidia-cusolver-cu12-11.7.3.90 nvidia-cusparse-cu12-12.5.8.93 nvidia-cusparselt-cu12-0.7.1 nvidia-nccl-cu12-2.28.9 nvidia-nvjitlink-cu12-12.8.93 nvidia-nvshmem-cu12-3.4.5 nvidia-nvtx-cu12-12.8.90 pillow-12.1.1 setuptools-70.2.0 sympy-1.14.0 torch-2.11.0+cu128 torchvision-0.26.0+cu128 triton-3.6.0 typing-extensions-4.15.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Looking in indexes: https://mirror.nju.edu.cn/pypi/web/simple
+Ignoring colorama: markers 'sys_platform == "win32"' don't match your environment
+Collecting annotated-types==0.7.0 (from -r requirements.txt (line 3))
+  Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Collecting anyio==4.8.0 (from -r requirements.txt (line 4))
+  Downloading anyio-4.8.0-py3-none-any.whl (96 kB)
+Collecting attrs==25.1.0 (from -r requirements.txt (line 5))
+  Downloading attrs-25.1.0-py3-none-any.whl (63 kB)
+Collecting blobfile==3.0.0 (from -r requirements.txt (line 6))
+  Downloading blobfile-3.0.0-py3-none-any.whl (75 kB)
+Collecting cachetools==5.5.2 (from -r requirements.txt (line 7))
+  Downloading cachetools-5.5.2-py3-none-any.whl (10 kB)
+Collecting certifi==2025.1.31 (from -r requirements.txt (line 8))
+  Downloading certifi-2025.1.31-py3-none-any.whl (166 kB)
+Collecting charset-normalizer==3.4.1 (from -r requirements.txt (line 9))
+  Downloading charset_normalizer-3.4.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (146 kB)
+Collecting click==8.1.8 (from -r requirements.txt (line 10))
+  Downloading click-8.1.8-py3-none-any.whl (98 kB)
+Collecting distro==1.9.0 (from -r requirements.txt (line 12))
+  Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Collecting durationpy==0.9 (from -r requirements.txt (line 13))
+  Downloading durationpy-0.9-py3-none-any.whl (3.5 kB)
+Collecting exceptiongroup==1.2.2 (from -r requirements.txt (line 14))
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Collecting filelock==3.17.0 (from -r requirements.txt (line 15))
+  Downloading filelock-3.17.0-py3-none-any.whl (16 kB)
+Collecting fire==0.7.0 (from -r requirements.txt (line 16))
+  Downloading fire-0.7.0.tar.gz (87 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting fsspec==2024.12.0 (from -r requirements.txt (line 17))
+  Downloading fsspec-2024.12.0-py3-none-any.whl (183 kB)
+Collecting google-auth==2.38.0 (from -r requirements.txt (line 18))
+  Downloading google_auth-2.38.0-py2.py3-none-any.whl (210 kB)
+Collecting h11==0.16.0 (from -r requirements.txt (line 19))
+  Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Collecting httpcore==1.0.9 (from -r requirements.txt (line 20))
+  Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Collecting httpx==0.28.1 (from -r requirements.txt (line 21))
+  Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Collecting huggingface-hub==0.29.0 (from -r requirements.txt (line 22))
+  Downloading huggingface_hub-0.29.0-py3-none-any.whl (468 kB)
+Collecting idna==3.10 (from -r requirements.txt (line 23))
+  Downloading idna-3.10-py3-none-any.whl (70 kB)
+Requirement already satisfied: jinja2==3.1.6 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from -r requirements.txt (line 24)) (3.1.6)
+Collecting jiter==0.8.2 (from -r requirements.txt (line 25))
+  Downloading jiter-0.8.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (345 kB)
+Collecting jsonschema==4.23.0 (from -r requirements.txt (line 26))
+  Downloading jsonschema-4.23.0-py3-none-any.whl (88 kB)
+Collecting jsonschema-specifications==2024.10.1 (from -r requirements.txt (line 27))
+  Downloading jsonschema_specifications-2024.10.1-py3-none-any.whl (18 kB)
+Collecting kubernetes==32.0.1 (from -r requirements.txt (line 28))
+  Downloading kubernetes-32.0.1-py2.py3-none-any.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 29.0 MB/s  0:00:00
+Collecting llama-stack-client==0.2.7 (from -r requirements.txt (line 29))
+  Downloading llama_stack_client-0.2.7-py3-none-any.whl (292 kB)
+Collecting lxml==5.3.1 (from -r requirements.txt (line 30))
+  Downloading lxml-5.3.1-cp310-cp310-manylinux_2_28_x86_64.whl (5.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 40.9 MB/s  0:00:00
+Collecting markdown-it-py==3.0.0 (from -r requirements.txt (line 31))
+  Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Collecting markupsafe==3.0.2 (from -r requirements.txt (line 32))
+  Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+Collecting mdurl==0.1.2 (from -r requirements.txt (line 33))
+  Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Collecting numpy==2.2.3 (from -r requirements.txt (line 34))
+  Downloading numpy-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 18.5 MB/s  0:00:00
+Collecting oauthlib==3.2.2 (from -r requirements.txt (line 35))
+  Downloading oauthlib-3.2.2-py3-none-any.whl (151 kB)
+Collecting openai==1.71.0 (from -r requirements.txt (line 36))
+  Downloading openai-1.71.0-py3-none-any.whl (598 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 599.0/599.0 kB 44.5 MB/s  0:00:00
+Collecting packaging==24.2 (from -r requirements.txt (line 37))
+  Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Collecting pandas==2.2.3 (from -r requirements.txt (line 38))
+  Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 15.1 MB/s  0:00:00
+Collecting pillow==11.1.0 (from -r requirements.txt (line 39))
+  Downloading pillow-11.1.0-cp310-cp310-manylinux_2_28_x86_64.whl (4.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 12.1 MB/s  0:00:00
+Collecting prompt-toolkit==3.0.50 (from -r requirements.txt (line 40))
+  Downloading prompt_toolkit-3.0.50-py3-none-any.whl (387 kB)
+Collecting pyaml==25.1.0 (from -r requirements.txt (line 41))
+  Downloading pyaml-25.1.0-py3-none-any.whl (26 kB)
+Collecting pyasn1==0.6.1 (from -r requirements.txt (line 42))
+  Downloading pyasn1-0.6.1-py3-none-any.whl (83 kB)
+Collecting pyasn1-modules==0.4.2 (from -r requirements.txt (line 43))
+  Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+Collecting pycryptodomex==3.21.0 (from -r requirements.txt (line 44))
+  Downloading pycryptodomex-3.21.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 11.6 MB/s  0:00:00
+Collecting pydantic==2.10.6 (from -r requirements.txt (line 45))
+  Downloading pydantic-2.10.6-py3-none-any.whl (431 kB)
+Collecting pydantic-core==2.27.2 (from -r requirements.txt (line 46))
+  Downloading pydantic_core-2.27.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 12.5 MB/s  0:00:00
+Collecting pygments==2.19.1 (from -r requirements.txt (line 47))
+  Downloading pygments-2.19.1-py3-none-any.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 13.8 MB/s  0:00:00
+Collecting python-dateutil==2.9.0.post0 (from -r requirements.txt (line 48))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Collecting python-dotenv==1.0.1 (from -r requirements.txt (line 49))
+  Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+Collecting pytz==2025.1 (from -r requirements.txt (line 50))
+  Downloading pytz-2025.1-py2.py3-none-any.whl (507 kB)
+Collecting pyyaml==6.0.2 (from -r requirements.txt (line 51))
+  Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 13.0 MB/s  0:00:00
+Collecting referencing==0.36.2 (from -r requirements.txt (line 52))
+  Downloading referencing-0.36.2-py3-none-any.whl (26 kB)
+Collecting regex==2024.11.6 (from -r requirements.txt (line 53))
+  Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (781 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 781.7/781.7 kB 7.8 MB/s  0:00:00
+Collecting requests==2.32.3 (from -r requirements.txt (line 54))
+  Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+Collecting requests-oauthlib==2.0.0 (from -r requirements.txt (line 55))
+  Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl (24 kB)
+Collecting rich==13.9.4 (from -r requirements.txt (line 56))
+  Downloading rich-13.9.4-py3-none-any.whl (242 kB)
+Collecting rpds-py==0.22.3 (from -r requirements.txt (line 57))
+  Downloading rpds_py-0.22.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (381 kB)
+Collecting rsa==4.9 (from -r requirements.txt (line 58))
+  Downloading rsa-4.9-py3-none-any.whl (34 kB)
+Collecting setuptools==75.8.0 (from -r requirements.txt (line 59))
+  Downloading setuptools-75.8.0-py3-none-any.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 9.0 MB/s  0:00:00
+Collecting six==1.17.0 (from -r requirements.txt (line 60))
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Collecting sniffio==1.3.1 (from -r requirements.txt (line 61))
+  Using cached sniffio-1.3.1-py3-none-any.whl (10 kB)
+Collecting termcolor==2.5.0 (from -r requirements.txt (line 62))
+  Downloading termcolor-2.5.0-py3-none-any.whl (7.8 kB)
+Collecting tiktoken==0.9.0 (from -r requirements.txt (line 63))
+  Downloading tiktoken-0.9.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 10.7 MB/s  0:00:00
+Collecting tqdm==4.67.1 (from -r requirements.txt (line 64))
+  Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+Collecting typing-extensions==4.12.2 (from -r requirements.txt (line 65))
+  Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Collecting tzdata==2025.1 (from -r requirements.txt (line 66))
+  Downloading tzdata-2025.1-py2.py3-none-any.whl (346 kB)
+Collecting urllib3==2.3.0 (from -r requirements.txt (line 67))
+  Downloading urllib3-2.3.0-py3-none-any.whl (128 kB)
+Collecting wcwidth==0.2.13 (from -r requirements.txt (line 68))
+  Downloading wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+Collecting websocket-client==1.8.0 (from -r requirements.txt (line 69))
+  Downloading websocket_client-1.8.0-py3-none-any.whl (58 kB)
+Building wheels for collected packages: fire
+  Building wheel for fire (pyproject.toml): started
+  Building wheel for fire (pyproject.toml): finished with status 'done'
+  Created wheel for fire: filename=fire-0.7.0-py3-none-any.whl size=114331 sha256=6796189851dc2a37b2cd82cb4443326c80e6f66b1b24319f802355b7f6c65328
+  Stored in directory: /root/.cache/pip/wheels/28/56/35/8063bc76825c1975f02eae68b62ce5f97e7986ffb9528273dc
+Successfully built fire
+Installing collected packages: wcwidth, pytz, durationpy, websocket-client, urllib3, tzdata, typing-extensions, tqdm, termcolor, sniffio, six, setuptools, rpds-py, regex, pyyaml, python-dotenv, pygments, pycryptodomex, pyasn1, prompt-toolkit, pillow, packaging, oauthlib, numpy, mdurl, markupsafe, lxml, jiter, idna, h11, fsspec, filelock, exceptiongroup, distro, click, charset-normalizer, certifi, cachetools, attrs, annotated-types, rsa, requests, referencing, python-dateutil, pydantic-core, pyasn1-modules, pyaml, markdown-it-py, httpcore, fire, blobfile, anyio, tiktoken, rich, requests-oauthlib, pydantic, pandas, jsonschema-specifications, huggingface-hub, httpx, google-auth, openai, llama-stack-client, kubernetes, jsonschema
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing_extensions 4.15.0
+    Uninstalling typing_extensions-4.15.0:
+      Successfully uninstalled typing_extensions-4.15.0
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 70.2.0
+    Uninstalling setuptools-70.2.0:
+      Successfully uninstalled setuptools-70.2.0
+  Attempting uninstall: pillow
+    Found existing installation: pillow 12.1.1
+    Uninstalling pillow-12.1.1:
+      Successfully uninstalled pillow-12.1.1
+  Attempting uninstall: packaging
+    Found existing installation: packaging 26.0
+    Uninstalling packaging-26.0:
+      Successfully uninstalled packaging-26.0
+  Attempting uninstall: numpy
+    Found existing installation: numpy 2.2.6
+    Uninstalling numpy-2.2.6:
+      Successfully uninstalled numpy-2.2.6
+  Attempting uninstall: markupsafe
+    Found existing installation: MarkupSafe 3.0.3
+    Uninstalling MarkupSafe-3.0.3:
+      Successfully uninstalled MarkupSafe-3.0.3
+  Attempting uninstall: fsspec
+    Found existing installation: fsspec 2026.2.0
+    Uninstalling fsspec-2026.2.0:
+      Successfully uninstalled fsspec-2026.2.0
+  Attempting uninstall: filelock
+    Found existing installation: filelock 3.25.2
+    Uninstalling filelock-3.25.2:
+      Successfully uninstalled filelock-3.25.2
+
+Successfully installed annotated-types-0.7.0 anyio-4.8.0 attrs-25.1.0 blobfile-3.0.0 cachetools-5.5.2 certifi-2025.1.31 charset-normalizer-3.4.1 click-8.1.8 distro-1.9.0 durationpy-0.9 exceptiongroup-1.2.2 filelock-3.17.0 fire-0.7.0 fsspec-2024.12.0 google-auth-2.38.0 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-0.29.0 idna-3.10 jiter-0.8.2 jsonschema-4.23.0 jsonschema-specifications-2024.10.1 kubernetes-32.0.1 llama-stack-client-0.2.7 lxml-5.3.1 markdown-it-py-3.0.0 markupsafe-3.0.2 mdurl-0.1.2 numpy-2.2.3 oauthlib-3.2.2 openai-1.71.0 packaging-24.2 pandas-2.2.3 pillow-11.1.0 prompt-toolkit-3.0.50 pyaml-25.1.0 pyasn1-0.6.1 pyasn1-modules-0.4.2 pycryptodomex-3.21.0 pydantic-2.10.6 pydantic-core-2.27.2 pygments-2.19.1 python-dateutil-2.9.0.post0 python-dotenv-1.0.1 pytz-2025.1 pyyaml-6.0.2 referencing-0.36.2 regex-2024.11.6 requests-2.32.3 requests-oauthlib-2.0.0 rich-13.9.4 rpds-py-0.22.3 rsa-4.9 setuptools-75.8.0 six-1.17.0 sniffio-1.3.1 termcolor-2.5.0 tiktoken-0.9.0 tqdm-4.67.1 typing-extensions-4.12.2 tzdata-2025.1 urllib3-2.3.0 wcwidth-0.2.13 websocket-client-1.8.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Looking in indexes: https://mirror.nju.edu.cn/pypi/web/simple
+Collecting opencv-python
+  Downloading opencv_python-4.13.0.92-cp37-abi3-manylinux_2_28_x86_64.whl (72.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.9/72.9 MB 14.0 MB/s  0:00:05
+Collecting matplotlib
+  Downloading matplotlib-3.10.9-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.8/8.8 MB 8.8 MB/s  0:00:01
+Collecting scipy
+  Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 14.9 MB/s  0:00:02
+Collecting timm
+  Downloading timm-1.0.26-py3-none-any.whl (2.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 MB 11.5 MB/s  0:00:00
+Collecting addict
+  Downloading addict-2.4.0-py3-none-any.whl (3.8 kB)
+Collecting yapf
+  Downloading yapf-0.43.0-py3-none-any.whl (256 kB)
+Collecting pycocotools
+  Downloading pycocotools-2.0.11-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (472 kB)
+Collecting supervision
+  Downloading supervision-0.28.0-py3-none-any.whl (251 kB)
+Collecting transformers
+  Downloading transformers-5.8.0-py3-none-any.whl (10.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.6/10.6 MB 12.3 MB/s  0:00:00
+Collecting nltk
+  Downloading nltk-3.9.4-py3-none-any.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 12.2 MB/s  0:00:00
+Collecting fairscale
+  Downloading fairscale-0.4.13.tar.gz (266 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting gradio
+  Downloading gradio-6.14.0-py3-none-any.whl (19.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.7/19.7 MB 14.0 MB/s  0:00:01
+Collecting diffusers
+  Downloading diffusers-0.38.0-py3-none-any.whl (5.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 15.0 MB/s  0:00:00
+Collecting onnxruntime
+  Downloading onnxruntime-1.23.2-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (17.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.4/17.4 MB 15.1 MB/s  0:00:01
+Collecting litellm
+  Downloading litellm-1.83.14-py3-none-any.whl (16.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.5/16.5 MB 15.5 MB/s  0:00:01
+Requirement already satisfied: numpy>=2 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from opencv-python) (2.2.3)
+Collecting contourpy>=1.0.1 (from matplotlib)
+  Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+Collecting cycler>=0.10 (from matplotlib)
+  Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting fonttools>=4.22.0 (from matplotlib)
+  Downloading fonttools-4.62.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 15.2 MB/s  0:00:00
+Collecting kiwisolver>=1.3.1 (from matplotlib)
+  Downloading kiwisolver-1.5.0-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 13.3 MB/s  0:00:00
+Requirement already satisfied: packaging>=20.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from matplotlib) (24.2)
+Requirement already satisfied: pillow>=8 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from matplotlib) (11.1.0)
+Collecting pyparsing>=3 (from matplotlib)
+  Downloading pyparsing-3.3.2-py3-none-any.whl (122 kB)
+Requirement already satisfied: python-dateutil>=2.7 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from matplotlib) (2.9.0.post0)
+Requirement already satisfied: torch in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from timm) (2.11.0+cu128)
+Requirement already satisfied: torchvision in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from timm) (0.26.0+cu128)
+Requirement already satisfied: pyyaml in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from timm) (6.0.2)
+Requirement already satisfied: huggingface_hub in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from timm) (0.29.0)
+Collecting safetensors (from timm)
+  Downloading safetensors-0.7.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (507 kB)
+Collecting platformdirs>=3.5.1 (from yapf)
+  Downloading platformdirs-4.9.6-py3-none-any.whl (21 kB)
+Collecting tomli>=2.0.1 (from yapf)
+  Downloading tomli-2.4.1-py3-none-any.whl (14 kB)
+Collecting defusedxml>=0.7.1 (from supervision)
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Collecting pydeprecate<0.8,>=0.7 (from supervision)
+  Downloading pydeprecate-0.7.0-py3-none-any.whl (63 kB)
+Requirement already satisfied: requests>=2.26 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from supervision) (2.32.3)
+Requirement already satisfied: tqdm>=4.62.3 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from supervision) (4.67.1)
+Collecting huggingface_hub (from timm)
+  Downloading huggingface_hub-1.14.0-py3-none-any.whl (661 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 661.5/661.5 kB 11.3 MB/s  0:00:00
+Collecting regex>=2025.10.22 (from transformers)
+  Downloading regex-2026.4.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (793 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 793.6/793.6 kB 13.5 MB/s  0:00:00
+Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers)
+  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 14.6 MB/s  0:00:00
+Collecting typer (from transformers)
+  Downloading typer-0.25.1-py3-none-any.whl (58 kB)
+Requirement already satisfied: filelock>=3.10.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from huggingface_hub->timm) (3.17.0)
+Requirement already satisfied: fsspec>=2023.5.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from huggingface_hub->timm) (2024.12.0)
+Collecting hf-xet<2.0.0,>=1.4.3 (from huggingface_hub->timm)
+  Downloading hf_xet-1.5.0-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 15.5 MB/s  0:00:00
+Requirement already satisfied: httpx<1,>=0.23.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from huggingface_hub->timm) (0.28.1)
+Requirement already satisfied: typing-extensions>=4.1.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from huggingface_hub->timm) (4.12.2)
+Requirement already satisfied: anyio in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from httpx<1,>=0.23.0->huggingface_hub->timm) (4.8.0)
+Requirement already satisfied: certifi in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from httpx<1,>=0.23.0->huggingface_hub->timm) (2025.1.31)
+Requirement already satisfied: httpcore==1.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from httpx<1,>=0.23.0->huggingface_hub->timm) (1.0.9)
+Requirement already satisfied: idna in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from httpx<1,>=0.23.0->huggingface_hub->timm) (3.10)
+Requirement already satisfied: h11>=0.16 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface_hub->timm) (0.16.0)
+Requirement already satisfied: click in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from nltk) (8.1.8)
+Collecting joblib (from nltk)
+  Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+Collecting brotli>=1.1.0 (from gradio)
+  Downloading brotli-1.2.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 15.7 MB/s  0:00:00
+Collecting fastapi<1.0,>=0.115.2 (from gradio)
+  Downloading fastapi-0.136.1-py3-none-any.whl (117 kB)
+Collecting gradio-client==2.5.0 (from gradio)
+  Downloading gradio_client-2.5.0-py3-none-any.whl (59 kB)
+Collecting groovy~=0.1 (from gradio)
+  Downloading groovy-0.1.2-py3-none-any.whl (14 kB)
+Collecting hf-gradio<1.0,>=0.4.1 (from gradio)
+  Downloading hf_gradio-0.4.1-py3-none-any.whl (4.5 kB)
+Requirement already satisfied: jinja2<4.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from gradio) (3.1.6)
+Requirement already satisfied: markupsafe<4.0,>=2.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from gradio) (3.0.2)
+Collecting orjson~=3.0 (from gradio)
+  Downloading orjson-3.11.9-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (134 kB)
+Requirement already satisfied: pandas<4.0,>=1.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from gradio) (2.2.3)
+Requirement already satisfied: pydantic<=3.0,>=2.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from gradio) (2.10.6)
+Collecting pydub<1.0 (from gradio)
+  Downloading pydub-0.25.1-py2.py3-none-any.whl (32 kB)
+Collecting python-multipart<1.0,>=0.0.18 (from gradio)
+  Downloading python_multipart-0.0.27-py3-none-any.whl (29 kB)
+Requirement already satisfied: pytz>=2017.2 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from gradio) (2025.1)
+Collecting safehttpx<0.2.0,>=0.1.7 (from gradio)
+  Downloading safehttpx-0.1.7-py3-none-any.whl (9.0 kB)
+Collecting semantic-version~=2.0 (from gradio)
+  Downloading semantic_version-2.10.0-py2.py3-none-any.whl (15 kB)
+Collecting starlette<2.0,>=0.40.0 (from gradio)
+  Downloading starlette-1.0.0-py3-none-any.whl (72 kB)
+Collecting tomlkit<0.15.0,>=0.12.0 (from gradio)
+  Downloading tomlkit-0.14.0-py3-none-any.whl (39 kB)
+Collecting uvicorn>=0.14.0 (from gradio)
+  Downloading uvicorn-0.46.0-py3-none-any.whl (70 kB)
+Requirement already satisfied: exceptiongroup>=1.0.2 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from anyio->httpx<1,>=0.23.0->huggingface_hub->timm) (1.2.2)
+Requirement already satisfied: sniffio>=1.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from anyio->httpx<1,>=0.23.0->huggingface_hub->timm) (1.3.1)
+Collecting typing-inspection>=0.4.2 (from fastapi<1.0,>=0.115.2->gradio)
+  Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+Collecting annotated-doc>=0.0.2 (from fastapi<1.0,>=0.115.2->gradio)
+  Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+Requirement already satisfied: tzdata>=2022.7 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from pandas<4.0,>=1.0->gradio) (2025.1)
+Requirement already satisfied: annotated-types>=0.6.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from pydantic<=3.0,>=2.0->gradio) (0.7.0)
+Requirement already satisfied: pydantic-core==2.27.2 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from pydantic<=3.0,>=2.0->gradio) (2.27.2)
+Collecting click (from nltk)
+  Downloading click-8.3.3-py3-none-any.whl (110 kB)
+Collecting shellingham>=1.3.0 (from typer->transformers)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Requirement already satisfied: rich>=13.8.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from typer->transformers) (13.9.4)
+Collecting importlib_metadata (from diffusers)
+  Downloading importlib_metadata-9.0.0-py3-none-any.whl (27 kB)
+Collecting safetensors (from timm)
+  Downloading safetensors-0.8.0rc0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (509 kB)
+Collecting coloredlogs (from onnxruntime)
+  Downloading coloredlogs-15.0.1-py2.py3-none-any.whl (46 kB)
+Collecting flatbuffers (from onnxruntime)
+  Downloading flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+Collecting protobuf (from onnxruntime)
+  Downloading protobuf-7.34.1-cp310-abi3-manylinux2014_x86_64.whl (324 kB)
+Requirement already satisfied: sympy in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from onnxruntime) (1.14.0)
+Collecting fastuuid==0.14.0 (from litellm)
+  Downloading fastuuid-0.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (280 kB)
+Collecting openai==2.24.0 (from litellm)
+  Downloading openai-2.24.0-py3-none-any.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 12.4 MB/s  0:00:00
+Collecting python-dotenv==1.2.2 (from litellm)
+  Downloading python_dotenv-1.2.2-py3-none-any.whl (22 kB)
+Collecting tiktoken==0.12.0 (from litellm)
+  Downloading tiktoken-0.12.0-cp310-cp310-manylinux_2_28_x86_64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 12.8 MB/s  0:00:00
+Collecting importlib_metadata (from diffusers)
+  Downloading importlib_metadata-8.5.0-py3-none-any.whl (26 kB)
+INFO: pip is looking at multiple versions of litellm to determine which version is compatible with other requirements. This could take a while.
+Collecting litellm
+  Downloading litellm-1.83.13-py3-none-any.whl (16.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 15.9 MB/s  0:00:01
+Requirement already satisfied: python-dotenv==1.0.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from litellm) (1.0.1)
+  Downloading litellm-1.83.12-py3-none-any.whl (16.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 16.4 MB/s  0:00:00
+  Downloading litellm-1.83.11-py3-none-any.whl (16.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 17.0 MB/s  0:00:00
+  Downloading litellm-1.83.10-py3-none-any.whl (16.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 16.6 MB/s  0:00:00
+  Downloading litellm-1.83.9-py3-none-any.whl (16.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 13.8 MB/s  0:00:01
+  Downloading litellm-1.83.8-py3-none-any.whl (16.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 15.4 MB/s  0:00:01
+  Downloading litellm-1.83.7-py3-none-any.whl (16.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 16.5 MB/s  0:00:00
+Collecting aiohttp==3.13.5 (from litellm)
+  Downloading aiohttp-3.13.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 13.3 MB/s  0:00:00
+INFO: pip is still looking at multiple versions of litellm to determine which version is compatible with other requirements. This could take a while.
+Collecting litellm
+  Downloading litellm-1.83.6-py3-none-any.whl (16.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.0/16.0 MB 17.2 MB/s  0:00:00
+  Downloading litellm-1.83.5-py3-none-any.whl (16.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.0/16.0 MB 15.8 MB/s  0:00:00
+  Downloading litellm-1.83.4-py3-none-any.whl (16.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.0/16.0 MB 13.6 MB/s  0:00:01
+  Downloading litellm-1.83.3-py3-none-any.whl (16.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.0/16.0 MB 14.3 MB/s  0:00:01
+  Downloading litellm-1.83.2-py3-none-any.whl (15.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.6/15.6 MB 14.9 MB/s  0:00:01
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Downloading litellm-1.83.1-py3-none-any.whl (15.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.6/15.6 MB 15.2 MB/s  0:00:01
+  Downloading litellm-1.83.0-py3-none-any.whl (15.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.6/15.6 MB 15.7 MB/s  0:00:00
+Requirement already satisfied: jsonschema<5.0.0,>=4.23.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from litellm) (4.23.0)
+Collecting openai>=2.8.0 (from litellm)
+  Downloading openai-2.35.1-py3-none-any.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 14.0 MB/s  0:00:00
+Requirement already satisfied: tiktoken>=0.7.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from litellm) (0.9.0)
+Requirement already satisfied: attrs>=22.2.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from jsonschema<5.0.0,>=4.23.0->litellm) (25.1.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from jsonschema<5.0.0,>=4.23.0->litellm) (2024.10.1)
+Requirement already satisfied: referencing>=0.28.4 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from jsonschema<5.0.0,>=4.23.0->litellm) (0.36.2)
+Requirement already satisfied: rpds-py>=0.7.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from jsonschema<5.0.0,>=4.23.0->litellm) (0.22.3)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp==3.13.5->litellm)
+  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp==3.13.5->litellm)
+  Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Collecting async-timeout<6.0,>=4.0 (from aiohttp==3.13.5->litellm)
+  Downloading async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp==3.13.5->litellm)
+  Downloading frozenlist-1.8.0-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (219 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp==3.13.5->litellm)
+  Downloading multidict-6.7.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (243 kB)
+Collecting propcache>=0.2.0 (from aiohttp==3.13.5->litellm)
+  Downloading propcache-0.4.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (196 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp==3.13.5->litellm)
+  Downloading yarl-1.23.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (102 kB)
+Collecting zipp>=3.20 (from importlib_metadata->diffusers)
+  Downloading zipp-3.23.1-py3-none-any.whl (10 kB)
+Requirement already satisfied: distro<2,>=1.7.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from openai>=2.8.0->litellm) (1.9.0)
+Collecting jiter<1,>=0.10.0 (from openai>=2.8.0->litellm)
+  Downloading jiter-0.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (358 kB)
+Collecting typing-extensions>=4.1.0 (from huggingface_hub->timm)
+  Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Requirement already satisfied: six>=1.5 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from python-dateutil>=2.7->matplotlib) (1.17.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from requests>=2.26->supervision) (3.4.1)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from requests>=2.26->supervision) (2.3.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from rich>=13.8.0->typer->transformers) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from rich>=13.8.0->typer->transformers) (2.19.1)
+Requirement already satisfied: mdurl~=0.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers) (0.1.2)
+Requirement already satisfied: setuptools<82 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->timm) (75.8.0)
+Requirement already satisfied: networkx>=2.5.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->timm) (3.4.2)
+Requirement already satisfied: cuda-toolkit==12.8.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (12.8.1)
+Requirement already satisfied: cuda-bindings<13,>=12.9.4 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->timm) (12.9.4)
+Requirement already satisfied: nvidia-cudnn-cu12==9.19.0.56 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->timm) (9.19.0.56)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->timm) (0.7.1)
+Requirement already satisfied: nvidia-nccl-cu12==2.28.9 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->timm) (2.28.9)
+Requirement already satisfied: nvidia-nvshmem-cu12==3.4.5 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->timm) (3.4.5)
+Requirement already satisfied: triton==3.6.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->timm) (3.6.0)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.90.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (12.8.90)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.93.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (12.8.93)
+Requirement already satisfied: nvidia-cufile-cu12==1.13.1.3.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (1.13.1.3)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.3.83.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (11.3.3.83)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.93.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (12.8.93)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.90.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (12.8.90)
+Requirement already satisfied: nvidia-curand-cu12==10.3.9.90.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (10.3.9.90)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.8.93.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (12.5.8.93)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.3.90.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (11.7.3.90)
+Requirement already satisfied: nvidia-cublas-cu12==12.8.4.1.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (12.8.4.1)
+Requirement already satisfied: nvidia-nvtx-cu12==12.8.90.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->timm) (12.8.90)
+Requirement already satisfied: cuda-pathfinder~=1.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-bindings<13,>=12.9.4->torch->timm) (1.2.2)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from sympy->onnxruntime) (1.3.0)
+Collecting humanfriendly>=9.1 (from coloredlogs->onnxruntime)
+  Downloading humanfriendly-10.0-py2.py3-none-any.whl (86 kB)
+Building wheels for collected packages: fairscale
+  Building wheel for fairscale (pyproject.toml): started
+  Building wheel for fairscale (pyproject.toml): finished with status 'done'
+  Created wheel for fairscale: filename=fairscale-0.4.13-py3-none-any.whl size=332207 sha256=1fe69d16f2b588ac36152626852114bb81819f4bb653149f62f64ff2f402c8f1
+  Stored in directory: /root/.cache/pip/wheels/b4/37/00/47f3d4950823759179649526577c4625d8f9126314d416252c
+Successfully built fairscale
+Installing collected packages: pydub, flatbuffers, brotli, addict, zipp, typing-extensions, tomlkit, tomli, shellingham, semantic-version, scipy, safetensors, regex, python-multipart, pyparsing, pydeprecate, pycocotools, protobuf, propcache, platformdirs, orjson, opencv-python, kiwisolver, joblib, jiter, humanfriendly, hf-xet, groovy, frozenlist, fonttools, fastuuid, defusedxml, cycler, contourpy, click, async-timeout, annotated-doc, aiohappyeyeballs, yapf, uvicorn, typing-inspection, nltk, multidict, matplotlib, importlib_metadata, coloredlogs, aiosignal, yarl, typer, supervision, starlette, onnxruntime, safehttpx, openai, huggingface_hub, fastapi, aiohttp, tokenizers, gradio-client, fairscale, diffusers, transformers, timm, litellm, hf-gradio, gradio
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing_extensions 4.12.2
+    Uninstalling typing_extensions-4.12.2:
+      Successfully uninstalled typing_extensions-4.12.2
+  Attempting uninstall: regex
+    Found existing installation: regex 2024.11.6
+    Uninstalling regex-2024.11.6:
+      Successfully uninstalled regex-2024.11.6
+  Attempting uninstall: jiter
+    Found existing installation: jiter 0.8.2
+    Uninstalling jiter-0.8.2:
+      Successfully uninstalled jiter-0.8.2
+  Attempting uninstall: click
+    Found existing installation: click 8.1.8
+    Uninstalling click-8.1.8:
+      Successfully uninstalled click-8.1.8
+  Attempting uninstall: openai
+    Found existing installation: openai 1.71.0
+    Uninstalling openai-1.71.0:
+      Successfully uninstalled openai-1.71.0
+  Attempting uninstall: huggingface_hub
+    Found existing installation: huggingface-hub 0.29.0
+    Uninstalling huggingface-hub-0.29.0:
+      Successfully uninstalled huggingface-hub-0.29.0
+
+Successfully installed addict-2.4.0 aiohappyeyeballs-2.6.1 aiohttp-3.13.5 aiosignal-1.4.0 annotated-doc-0.0.4 async-timeout-5.0.1 brotli-1.2.0 click-8.3.3 coloredlogs-15.0.1 contourpy-1.3.2 cycler-0.12.1 defusedxml-0.7.1 diffusers-0.38.0 fairscale-0.4.13 fastapi-0.136.1 fastuuid-0.14.0 flatbuffers-25.12.19 fonttools-4.62.1 frozenlist-1.8.0 gradio-6.14.0 gradio-client-2.5.0 groovy-0.1.2 hf-gradio-0.4.1 hf-xet-1.5.0 huggingface_hub-1.14.0 humanfriendly-10.0 importlib_metadata-9.0.0 jiter-0.14.0 joblib-1.5.3 kiwisolver-1.5.0 litellm-1.83.0 matplotlib-3.10.9 multidict-6.7.1 nltk-3.9.4 onnxruntime-1.23.2 openai-2.35.1 opencv-python-4.13.0.92 orjson-3.11.9 platformdirs-4.9.6 propcache-0.4.1 protobuf-7.34.1 pycocotools-2.0.11 pydeprecate-0.7.0 pydub-0.25.1 pyparsing-3.3.2 python-multipart-0.0.27 regex-2026.4.4 safehttpx-0.1.7 safetensors-0.8.0rc0 scipy-1.15.3 semantic-version-2.10.0 shellingham-1.5.4 starlette-1.0.0 supervision-0.28.0 timm-1.0.26 tokenizers-0.22.2 tomli-2.4.1 tomlkit-0.14.0 transformers-5.8.0 typer-0.25.1 typing-extensions-4.15.0 typing-inspection-0.4.2 uvicorn-0.46.0 yapf-0.43.0 yarl-1.23.0 zipp-3.23.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Looking in indexes: https://mirror.nju.edu.cn/pypi/web/simple
+Obtaining file:///root/autodl-tmp/Image_Analysis_Workflow/Grounded-Segment-Anything/segment_anything
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: segment_anything
+  Building editable for segment_anything (pyproject.toml): started
+  Building editable for segment_anything (pyproject.toml): finished with status 'done'
+  Created wheel for segment_anything: filename=segment_anything-1.0-0.editable-py3-none-any.whl size=9583 sha256=b9e19b50e93dbf4091c32c5786a928cf2b1635acbd6632c6f279571117f80701
+  Stored in directory: /tmp/pip-ephem-wheel-cache-kowd5zz0/wheels/f0/a0/9b/2b096144d32cc3fb1dfd7ca67655531019a4b0c39701996d0a
+Successfully built segment_anything
+Installing collected packages: segment_anything
+Successfully installed segment_anything-1.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Looking in indexes: https://mirror.nju.edu.cn/pypi/web/simple
+Obtaining file:///root/autodl-tmp/Image_Analysis_Workflow/Grounded-Segment-Anything/GroundingDINO
+  Installing build dependencies: started
+  Installing build dependencies: still running...
+  Installing build dependencies: still running...
+  Installing build dependencies: still running...
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: torch in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from groundingdino==0.1.0) (2.11.0+cu128)
+Requirement already satisfied: torchvision in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from groundingdino==0.1.0) (0.26.0+cu128)
+Requirement already satisfied: transformers in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from groundingdino==0.1.0) (5.8.0)
+Requirement already satisfied: addict in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from groundingdino==0.1.0) (2.4.0)
+Requirement already satisfied: yapf in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from groundingdino==0.1.0) (0.43.0)
+Requirement already satisfied: timm in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from groundingdino==0.1.0) (1.0.26)
+Requirement already satisfied: numpy in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from groundingdino==0.1.0) (2.2.3)
+Requirement already satisfied: opencv-python in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from groundingdino==0.1.0) (4.13.0.92)
+Requirement already satisfied: supervision in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from groundingdino==0.1.0) (0.28.0)
+Requirement already satisfied: pycocotools in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from groundingdino==0.1.0) (2.0.11)
+Requirement already satisfied: defusedxml>=0.7.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from supervision->groundingdino==0.1.0) (0.7.1)
+Requirement already satisfied: matplotlib>=3.6 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from supervision->groundingdino==0.1.0) (3.10.9)
+Requirement already satisfied: pillow>=9.4 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from supervision->groundingdino==0.1.0) (11.1.0)
+Requirement already satisfied: pydeprecate<0.8,>=0.7 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from supervision->groundingdino==0.1.0) (0.7.0)
+Requirement already satisfied: pyyaml>=5.3 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from supervision->groundingdino==0.1.0) (6.0.2)
+Requirement already satisfied: requests>=2.26 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from supervision->groundingdino==0.1.0) (2.32.3)
+Requirement already satisfied: scipy>=1.10 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from supervision->groundingdino==0.1.0) (1.15.3)
+Requirement already satisfied: tqdm>=4.62.3 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from supervision->groundingdino==0.1.0) (4.67.1)
+Requirement already satisfied: contourpy>=1.0.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from matplotlib>=3.6->supervision->groundingdino==0.1.0) (1.3.2)
+Requirement already satisfied: cycler>=0.10 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from matplotlib>=3.6->supervision->groundingdino==0.1.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from matplotlib>=3.6->supervision->groundingdino==0.1.0) (4.62.1)
+Requirement already satisfied: kiwisolver>=1.3.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from matplotlib>=3.6->supervision->groundingdino==0.1.0) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from matplotlib>=3.6->supervision->groundingdino==0.1.0) (24.2)
+Requirement already satisfied: pyparsing>=3 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from matplotlib>=3.6->supervision->groundingdino==0.1.0) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from matplotlib>=3.6->supervision->groundingdino==0.1.0) (2.9.0.post0)
+Requirement already satisfied: six>=1.5 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from python-dateutil>=2.7->matplotlib>=3.6->supervision->groundingdino==0.1.0) (1.17.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from requests>=2.26->supervision->groundingdino==0.1.0) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from requests>=2.26->supervision->groundingdino==0.1.0) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from requests>=2.26->supervision->groundingdino==0.1.0) (2.3.0)
+Requirement already satisfied: certifi>=2017.4.17 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from requests>=2.26->supervision->groundingdino==0.1.0) (2025.1.31)
+Requirement already satisfied: huggingface_hub in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from timm->groundingdino==0.1.0) (1.14.0)
+Requirement already satisfied: safetensors in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from timm->groundingdino==0.1.0) (0.8.0rc0)
+Requirement already satisfied: filelock>=3.10.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from huggingface_hub->timm->groundingdino==0.1.0) (3.17.0)
+Requirement already satisfied: fsspec>=2023.5.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from huggingface_hub->timm->groundingdino==0.1.0) (2024.12.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.4.3 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from huggingface_hub->timm->groundingdino==0.1.0) (1.5.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from huggingface_hub->timm->groundingdino==0.1.0) (0.28.1)
+Requirement already satisfied: typer>=0.20.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from huggingface_hub->timm->groundingdino==0.1.0) (0.25.1)
+Requirement already satisfied: typing-extensions>=4.1.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from huggingface_hub->timm->groundingdino==0.1.0) (4.15.0)
+Requirement already satisfied: anyio in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from httpx<1,>=0.23.0->huggingface_hub->timm->groundingdino==0.1.0) (4.8.0)
+Requirement already satisfied: httpcore==1.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from httpx<1,>=0.23.0->huggingface_hub->timm->groundingdino==0.1.0) (1.0.9)
+Requirement already satisfied: h11>=0.16 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface_hub->timm->groundingdino==0.1.0) (0.16.0)
+Requirement already satisfied: click>=8.2.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from typer>=0.20.0->huggingface_hub->timm->groundingdino==0.1.0) (8.3.3)
+Requirement already satisfied: shellingham>=1.3.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from typer>=0.20.0->huggingface_hub->timm->groundingdino==0.1.0) (1.5.4)
+Requirement already satisfied: rich>=13.8.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from typer>=0.20.0->huggingface_hub->timm->groundingdino==0.1.0) (13.9.4)
+Requirement already satisfied: annotated-doc>=0.0.2 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from typer>=0.20.0->huggingface_hub->timm->groundingdino==0.1.0) (0.0.4)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from rich>=13.8.0->typer>=0.20.0->huggingface_hub->timm->groundingdino==0.1.0) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from rich>=13.8.0->typer>=0.20.0->huggingface_hub->timm->groundingdino==0.1.0) (2.19.1)
+Requirement already satisfied: mdurl~=0.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich>=13.8.0->typer>=0.20.0->huggingface_hub->timm->groundingdino==0.1.0) (0.1.2)
+Requirement already satisfied: exceptiongroup>=1.0.2 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from anyio->httpx<1,>=0.23.0->huggingface_hub->timm->groundingdino==0.1.0) (1.2.2)
+Requirement already satisfied: sniffio>=1.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from anyio->httpx<1,>=0.23.0->huggingface_hub->timm->groundingdino==0.1.0) (1.3.1)
+Requirement already satisfied: setuptools<82 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->groundingdino==0.1.0) (75.8.0)
+Requirement already satisfied: sympy>=1.13.3 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->groundingdino==0.1.0) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->groundingdino==0.1.0) (3.4.2)
+Requirement already satisfied: jinja2 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->groundingdino==0.1.0) (3.1.6)
+Requirement already satisfied: cuda-toolkit==12.8.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (12.8.1)
+Requirement already satisfied: cuda-bindings<13,>=12.9.4 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->groundingdino==0.1.0) (12.9.4)
+Requirement already satisfied: nvidia-cudnn-cu12==9.19.0.56 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->groundingdino==0.1.0) (9.19.0.56)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->groundingdino==0.1.0) (0.7.1)
+Requirement already satisfied: nvidia-nccl-cu12==2.28.9 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->groundingdino==0.1.0) (2.28.9)
+Requirement already satisfied: nvidia-nvshmem-cu12==3.4.5 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->groundingdino==0.1.0) (3.4.5)
+Requirement already satisfied: triton==3.6.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from torch->groundingdino==0.1.0) (3.6.0)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.93.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (12.8.93)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.3.83.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (11.3.3.83)
+Requirement already satisfied: nvidia-cufile-cu12==1.13.1.3.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (1.13.1.3)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.90.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (12.8.90)
+Requirement already satisfied: nvidia-nvtx-cu12==12.8.90.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (12.8.90)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.8.93.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (12.5.8.93)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.90.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (12.8.90)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.3.90.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (11.7.3.90)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.93.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (12.8.93)
+Requirement already satisfied: nvidia-curand-cu12==10.3.9.90.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (10.3.9.90)
+Requirement already satisfied: nvidia-cublas-cu12==12.8.4.1.* in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.8.1; platform_system == "Linux"->torch->groundingdino==0.1.0) (12.8.4.1)
+Requirement already satisfied: cuda-pathfinder~=1.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from cuda-bindings<13,>=12.9.4->torch->groundingdino==0.1.0) (1.2.2)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from sympy>=1.13.3->torch->groundingdino==0.1.0) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from jinja2->torch->groundingdino==0.1.0) (3.0.2)
+Requirement already satisfied: regex>=2025.10.22 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from transformers->groundingdino==0.1.0) (2026.4.4)
+Requirement already satisfied: tokenizers<=0.23.0,>=0.22.0 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from transformers->groundingdino==0.1.0) (0.22.2)
+Requirement already satisfied: platformdirs>=3.5.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from yapf->groundingdino==0.1.0) (4.9.6)
+Requirement already satisfied: tomli>=2.0.1 in /root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages (from yapf->groundingdino==0.1.0) (2.4.1)
+Building wheels for collected packages: groundingdino
+  Building editable for groundingdino (pyproject.toml): started
+  Building editable for groundingdino (pyproject.toml): finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × Building editable for groundingdino (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [69 lines of output]
+      /tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/torch/_subclasses/functional_tensor.py:307: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+        cpu = _conversion_method_template(device=torch.device("cpu"))
+      fatal: not a git repository (or any parent up to mount point /root)
+      Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+      Building wheel groundingdino-0.1.0
+      Compiling with CUDA
+      running editable_wheel
+      creating /tmp/pip-ephem-wheel-cache-mue27n8n/wheels/3d/06/0d/b8ad4437ab39b31a746ec8f9a9ddba2d1fd46ca5755880f54a/tmpyi_0su5j/.tmp-8w_e_6rh/groundingdino.egg-info
+      writing /tmp/pip-ephem-wheel-cache-mue27n8n/wheels/3d/06/0d/b8ad4437ab39b31a746ec8f9a9ddba2d1fd46ca5755880f54a/tmpyi_0su5j/.tmp-8w_e_6rh/groundingdino.egg-info/PKG-INFO
+      writing dependency_links to /tmp/pip-ephem-wheel-cache-mue27n8n/wheels/3d/06/0d/b8ad4437ab39b31a746ec8f9a9ddba2d1fd46ca5755880f54a/tmpyi_0su5j/.tmp-8w_e_6rh/groundingdino.egg-info/dependency_links.txt
+      writing requirements to /tmp/pip-ephem-wheel-cache-mue27n8n/wheels/3d/06/0d/b8ad4437ab39b31a746ec8f9a9ddba2d1fd46ca5755880f54a/tmpyi_0su5j/.tmp-8w_e_6rh/groundingdino.egg-info/requires.txt
+      writing top-level names to /tmp/pip-ephem-wheel-cache-mue27n8n/wheels/3d/06/0d/b8ad4437ab39b31a746ec8f9a9ddba2d1fd46ca5755880f54a/tmpyi_0su5j/.tmp-8w_e_6rh/groundingdino.egg-info/top_level.txt
+      writing manifest file '/tmp/pip-ephem-wheel-cache-mue27n8n/wheels/3d/06/0d/b8ad4437ab39b31a746ec8f9a9ddba2d1fd46ca5755880f54a/tmpyi_0su5j/.tmp-8w_e_6rh/groundingdino.egg-info/SOURCES.txt'
+      reading manifest file '/tmp/pip-ephem-wheel-cache-mue27n8n/wheels/3d/06/0d/b8ad4437ab39b31a746ec8f9a9ddba2d1fd46ca5755880f54a/tmpyi_0su5j/.tmp-8w_e_6rh/groundingdino.egg-info/SOURCES.txt'
+      adding license file 'LICENSE'
+      writing manifest file '/tmp/pip-ephem-wheel-cache-mue27n8n/wheels/3d/06/0d/b8ad4437ab39b31a746ec8f9a9ddba2d1fd46ca5755880f54a/tmpyi_0su5j/.tmp-8w_e_6rh/groundingdino.egg-info/SOURCES.txt'
+      creating '/tmp/pip-ephem-wheel-cache-mue27n8n/wheels/3d/06/0d/b8ad4437ab39b31a746ec8f9a9ddba2d1fd46ca5755880f54a/tmpyi_0su5j/.tmp-8w_e_6rh/groundingdino-0.1.0.dist-info'
+      creating /tmp/pip-ephem-wheel-cache-mue27n8n/wheels/3d/06/0d/b8ad4437ab39b31a746ec8f9a9ddba2d1fd46ca5755880f54a/tmpyi_0su5j/.tmp-8w_e_6rh/groundingdino-0.1.0.dist-info/WHEEL
+      running build_py
+      running build_ext
+      Traceback (most recent call last):
+        File "/root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 389, in <module>
+          main()
+        File "/root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 373, in main
+          json_out["return_val"] = hook(**hook_input["kwargs"])
+        File "/root/autodl-tmp/conda_envs/image_analysis/lib/python3.10/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 303, in build_editable
+          return hook(wheel_directory, config_settings, metadata_directory)
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/build_meta.py", line 474, in build_editable
+          return self._build_with_temp_dir(
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/build_meta.py", line 410, in _build_with_temp_dir
+          self.run_setup()
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/build_meta.py", line 317, in run_setup
+          exec(code, locals())
+        File "<string>", line 200, in <module>
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/__init__.py", line 117, in setup
+          return distutils.core.setup(**attrs)  # type: ignore[return-value]
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 186, in setup
+          return run_commands(dist)
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 202, in run_commands
+          dist.run_commands()
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1000, in run_commands
+          self.run_command(cmd)
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/dist.py", line 1107, in run_command
+          super().run_command(command)
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1019, in run_command
+          cmd_obj.run()
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/command/editable_wheel.py", line 140, in run
+          self._create_wheel_file(bdist_wheel)
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/command/editable_wheel.py", line 350, in _create_wheel_file
+          files, mapping = self._run_build_commands(dist_name, unpacked, lib, tmp)
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/command/editable_wheel.py", line 273, in _run_build_commands
+          self._run_build_subcommands()
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/command/editable_wheel.py", line 300, in _run_build_subcommands
+          self.run_command(name)
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/_distutils/cmd.py", line 341, in run_command
+          self.distribution.run_command(command)
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/dist.py", line 1107, in run_command
+          super().run_command(command)
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1019, in run_command
+          cmd_obj.run()
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/command/build_ext.py", line 97, in run
+          _build_ext.run(self)
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 367, in run
+          self.build_extensions()
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 716, in build_extensions
+          _check_cuda_version(compiler_name, compiler_version)
+        File "/tmp/pip-build-env-7ukxqipm/overlay/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 545, in _check_cuda_version
+          raise RuntimeError(CUDA_MISMATCH_MESSAGE, cuda_str_version, torch.version.cuda)
+      RuntimeError: ('The detected CUDA version (%s) mismatches the version that was used to compilePyTorch (%s). Please make sure to use the same CUDA versions.', '12.8', '13.0')
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building editable for groundingdino
+Failed to build groundingdino
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> groundingdino

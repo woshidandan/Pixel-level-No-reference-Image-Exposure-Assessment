@@ -1,0 +1,30 @@
+{
+  "semantic_regions": [
+    {
+      "region_id": 0,
+      "mask_filename": "a0001-jmac_DSC1459_N1_grounded_000_d4dd92ce.png",
+      "semantic_label": "Rock Formation and Foreground Terrain",
+      "exposure_score": 11.488692899140661,
+      "exposure_trend": "Exposure Mostly Normal",
+      "exposure_comment": "The large red butte and the surrounding desert floor are well-exposed, with the 'Exposure Mostly Normal' rating reflecting a good balance between the sunlit surfaces and natural shadows. Texture in the sandstone and scrubby vegetation is clearly visible.",
+      "local_adjustment_suggestion": "As the exposure is already mostly normal, only very minor adjustments are needed. A slight boost to the shadows within the deep crevices of the rock formation could reveal more hidden details."
+    },
+    {
+      "region_id": 1,
+      "mask_filename": "a0001-jmac_DSC1459_N1_grounded_001_d4dd92ce.png",
+      "semantic_label": "Sky",
+      "exposure_score": -3.74504281855279,
+      "exposure_trend": "Exposure Mostly Normal",
+      "exposure_comment": "The 'Sky' region is accurately exposed, maintaining a rich blue color and distinct white cloud formations without significant highlight clipping.",
+      "local_adjustment_suggestion": "The current exposure is excellent. To add more drama, one could slightly lower the highlights to further accentuate the texture and volume of the clouds against the blue background."
+    }
+  ],
+  "global_saliency_analysis": {
+    "primary_distortion_region_id": 0,
+    "primary_distortion_reason": "Although both regions are categorized as 'Exposure Mostly Normal', the 'Rock Formation and Foreground Terrain' is the visual anchor of the image. Its slightly higher positive exposure score indicates a very mild leaning toward underexposure in its shadowed areas compared to the sky, though it does not significantly degrade image quality."
+  },
+  "global_exposure_strategy": {
+    "global_exposure_suggestion": "The overall image is well-captured with a balanced exposure that reflects the bright, high-contrast environment of a desert landscape.",
+    "regional_balance_strategy": "Continue to balance the 'Sky' and 'Rock Formation and Foreground Terrain' as they are; the natural luminance difference between the bright sky and the earthy tones of the rocks provides a realistic sense of depth."
+  }
+}

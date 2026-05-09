@@ -1,0 +1,1092 @@
+import argparse
+import json
+import os
+from dataclasses import dataclass
+from typing import Dict, List, Optional, Tuple
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from PIL import Image
+from torch.utils.data import DataLoader, Dataset
+from torchvision import transforms
+
+from rule_rag import RuleRAGRetriever
+
+
+SPECIAL_TOKENS = ["<pad>", "<bos>", "<eos>", "<unk>"]
+
+
+class SimpleTokenizer:
+    def __init__(self, vocab: Optional[Dict[str, int]] = None):
+        self.token_to_id = vocab or {token: idx for idx, token in enumerate(SPECIAL_TOKENS)}
+        self.id_to_token = {idx: token for token, idx in self.token_to_id.items()}
+
+    @property
+    def pad_id(self) -> int:
+        return self.token_to_id["<pad>"]
+
+    @property
+    def bos_id(self) -> int:
+        return self.token_to_id["<bos>"]
+
+    @property
+    def eos_id(self) -> int:
+        return self.token_to_id["<eos>"]
+
+    @property
+    def unk_id(self) -> int:
+        return self.token_to_id["<unk>"]
+
+    def __len__(self) -> int:
+        return len(self.token_to_id)
+
+    def tokenize(self, text: str) -> List[str]:
+        text = text.lower().strip()
+        tokens: List[str] = []
+        current = []
+        for char in text:
+            if char.isalnum() or char in {"_", "-"}:
+                current.append(char)
+            else:
+                if current:
+                    tokens.append("".join(current))
+                    current = []
+                if char.strip():
+                    tokens.append(char)
+        if current:
+            tokens.append("".join(current))
+        return tokens
+
+    def build(self, texts: List[str], min_freq: int = 1, max_vocab: int = 12000) -> None:
+        counts: Dict[str, int] = {}
+        for text in texts:
+            for token in self.tokenize(text):
+                counts[token] = counts.get(token, 0) + 1
+
+        sorted_items = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+        for token, count in sorted_items:
+            if count < min_freq:
+                continue
+            if token not in self.token_to_id:
+                self.token_to_id[token] = len(self.token_to_id)
+            if len(self.token_to_id) >= max_vocab:
+                break
+        self.id_to_token = {idx: token for token, idx in self.token_to_id.items()}
+
+    def encode(self, text: str, max_len: int) -> torch.Tensor:
+        ids = [self.bos_id]
+        ids.extend(self.token_to_id.get(token, self.unk_id) for token in self.tokenize(text))
+        ids.append(self.eos_id)
+        ids = ids[:max_len]
+        ids.extend([self.pad_id] * (max_len - len(ids)))
+        return torch.tensor(ids, dtype=torch.long)
+
+    def decode(self, ids: List[int]) -> str:
+        words = []
+        for idx in ids:
+            token = self.id_to_token.get(int(idx), "<unk>")
+            if token in {"<pad>", "<bos>"}:
+                continue
+            if token == "<eos>":
+                break
+            words.append(token)
+        return " ".join(words).replace(" ,", ",").replace(" .", ".").replace(" :", ":")
+
+    def to_dict(self) -> Dict[str, int]:
+        return dict(self.token_to_id)
+
+
+@dataclass
+class SamplePaths:
+    image_path: str
+    mask_path: Optional[str]
+    question: str
+    rule_context: str
+    text: str
+    segmentation_paths: Optional[List[str]] = None
+
+
+class ReasoningGroundingDataset(Dataset):
+    """
+    JSONL schema:
+    {"image": "images/a.jpg", "mask": "masks/a.png", "question": "Assess the person.", "text": "..."}
+
+    Optional RAG fields:
+    - "rule_context": preformatted rule text appended to the question
+    - "rules": list of rule dicts with rule_id/title/condition/guidance fields
+    - "grounding_records": list of exposure/region records for automatic RuleRAGRetriever lookup
+
+    The mask is optional. If omitted, the segmentation loss uses an empty mask.
+    The question is optional. If omitted, a default exposure-assessment prompt is used.
+    """
+
+    DEFAULT_QUESTION = "Assess image exposure quality and segment the relevant region."
+
+    def __init__(
+        self,
+        jsonl_path: Optional[str],
+        image_root: str = "",
+        tokenizer: Optional[SimpleTokenizer] = None,
+        image_size: int = 256,
+        max_text_len: int = 128,
+        max_question_len: int = 64,
+        rules_path: str = "",
+        rag_top_k: int = 5,
+        dataset_format: str = "auto",
+        dataset_root: str = "",
+        analysis_dir: str = "analysis_only",
+        segmentation_dir: str = "segmentations",
+        image_extensions: str = ".jpg,.jpeg,.png,.tif,.tiff,.bmp",
+    ):
+        self.jsonl_path = jsonl_path
+        self.image_root = image_root
+        self.image_size = image_size
+        self.max_text_len = max_text_len
+        self.max_question_len = max_question_len
+        self.rule_rag = RuleRAGRetriever(rules_path=rules_path or None)
+        self.rag_top_k = rag_top_k
+        self.dataset_format = dataset_format
+        self.dataset_root = dataset_root
+        self.analysis_dir = analysis_dir
+        self.segmentation_dir = segmentation_dir
+        self.image_extensions = [ext.strip() for ext in image_extensions.split(",") if ext.strip()]
+        self.samples = self._load_samples(jsonl_path)
+        self.tokenizer = tokenizer or SimpleTokenizer()
+
+        self.image_transform = transforms.Compose([
+            transforms.Resize((image_size, image_size)),
+            transforms.ToTensor(),
+        ])
+        self.mask_transform = transforms.Compose([
+            transforms.Resize((image_size, image_size), interpolation=transforms.InterpolationMode.NEAREST),
+            transforms.ToTensor(),
+        ])
+
+    def _load_samples(self, jsonl_path: Optional[str]) -> List[SamplePaths]:
+        if self.dataset_format not in {"auto", "jsonl", "dataset_example"}:
+            raise ValueError("dataset_format must be one of: auto, jsonl, dataset_example")
+
+        if self.dataset_format == "dataset_example":
+            return self._load_dataset_example(self.dataset_root or jsonl_path)
+
+        if self.dataset_format == "auto":
+            candidate_root = self.dataset_root or jsonl_path
+            if candidate_root and os.path.isdir(candidate_root):
+                analysis_path = os.path.join(candidate_root, self.analysis_dir)
+                segmentation_path = os.path.join(candidate_root, self.segmentation_dir)
+                if os.path.isdir(analysis_path) and os.path.isdir(segmentation_path):
+                    return self._load_dataset_example(candidate_root)
+
+        if not jsonl_path:
+            raise ValueError("A JSONL path is required unless --dataset-format dataset_example is used")
+
+        samples: List[SamplePaths] = []
+        with open(jsonl_path, "r", encoding="utf-8") as f:
+            for line_no, line in enumerate(f, 1):
+                if not line.strip():
+                    continue
+                item = json.loads(line)
+                text = item.get("text") or item.get("report") or item.get("answer")
+                question = item.get("question") or item.get("query") or self.DEFAULT_QUESTION
+                if not item.get("image") or not text:
+                    raise ValueError(f"Line {line_no} must contain image and text/report/answer")
+                rule_context = self._build_rule_context(item, question)
+                samples.append(SamplePaths(item["image"], item.get("mask"), question, rule_context, text))
+        return samples
+
+    def _load_dataset_example(self, dataset_root: Optional[str]) -> List[SamplePaths]:
+        if not dataset_root:
+            raise ValueError("--dataset-root or --train-jsonl must point to the Dataset Example directory")
+
+        analysis_root = os.path.join(dataset_root, self.analysis_dir)
+        segmentation_root = os.path.join(dataset_root, self.segmentation_dir)
+        if not os.path.isdir(analysis_root):
+            raise FileNotFoundError(f"analysis directory not found: {analysis_root}")
+        if not os.path.isdir(segmentation_root):
+            raise FileNotFoundError(f"segmentation directory not found: {segmentation_root}")
+
+        samples: List[SamplePaths] = []
+        for filename in sorted(os.listdir(analysis_root)):
+            if not filename.lower().endswith(".json"):
+                continue
+            json_path = os.path.join(analysis_root, filename)
+            sample_id = os.path.splitext(filename)[0]
+            with open(json_path, "r", encoding="utf-8") as f:
+                item = json.load(f)
+
+            global_saliency = item.get("global_saliency_analysis", {})
+            global_strategy = item.get("global_exposure_strategy", {})
+            image_path = item.get("image") or item.get("image_filename") or sample_id
+
+            for region in item.get("semantic_regions", []):
+                mask_filename = region.get("mask_filename")
+                mask_path = os.path.abspath(os.path.join(segmentation_root, sample_id, mask_filename)) if mask_filename else None
+                if mask_filename and (not mask_path or not os.path.exists(mask_path)):
+                    print(f"Skipping region with missing mask: {mask_path}")
+                    continue
+                label = region.get("semantic_label", "region")
+                question = (
+                    f"Assess the exposure quality of the {label} region and segment that region."
+                )
+                text = self._compose_dataset_example_text(region, global_saliency, global_strategy)
+                rule_context = self._build_rule_context({
+                    "grounding_records": [self._region_to_grounding_record(region)]
+                }, question)
+                segmentation_paths = [mask_path] if mask_path and os.path.exists(mask_path) else None
+                samples.append(SamplePaths(image_path, mask_path, question, rule_context, text, segmentation_paths=segmentation_paths))
+
+        if not samples:
+            raise ValueError(f"No region samples were found in: {analysis_root}")
+        return samples
+
+    def _compose_dataset_example_text(
+        self,
+        region: Dict[str, object],
+        global_saliency: Dict[str, object],
+        global_strategy: Dict[str, object],
+    ) -> str:
+        label = region.get("semantic_label", "region")
+        trend = region.get("exposure_trend", "Unknown exposure trend")
+        score = region.get("exposure_score", "N/A")
+        comment = region.get("exposure_comment", "")
+        local_suggestion = region.get("local_adjustment_suggestion", "")
+        primary_reason = global_saliency.get("primary_distortion_reason", "")
+        global_suggestion = global_strategy.get("global_exposure_suggestion", "")
+        balance_strategy = global_strategy.get("regional_balance_strategy", "")
+        return (
+            f"Region: {label}. Exposure trend: {trend}. Exposure score: {score}. "
+            f"Regional analysis: {comment} Local adjustment: {local_suggestion} "
+            f"Global saliency: {primary_reason} Global exposure strategy: {global_suggestion} "
+            f"Regional balance strategy: {balance_strategy}"
+        )
+
+    def _region_to_grounding_record(self, region: Dict[str, object]) -> Dict[str, object]:
+        trend = str(region.get("exposure_trend", ""))
+        score = region.get("exposure_score")
+        try:
+            score_value = float(score)
+        except (TypeError, ValueError):
+            score_value = None
+
+        record = {
+            "label": region.get("semantic_label", "region"),
+            "average_exposure_score": score_value,
+            "exposure_trend": trend,
+        }
+        if "under" in trend.lower():
+            record["exposure_std"] = 0.3
+        elif "over" in trend.lower():
+            record["exposure_std"] = 0.3
+        return record
+
+    def build_tokenizer(self, min_freq: int = 1, max_vocab: int = 12000) -> SimpleTokenizer:
+        self.tokenizer.build(
+            [self.compose_question(sample.question, sample.rule_context) for sample in self.samples]
+            + [sample.text for sample in self.samples],
+            min_freq=min_freq,
+            max_vocab=max_vocab,
+        )
+        return self.tokenizer
+
+    def _build_rule_context(self, item: Dict[str, object], question: str) -> str:
+        if item.get("rule_context"):
+            return str(item["rule_context"])
+
+        if item.get("rules"):
+            rules = item["rules"]
+            if not isinstance(rules, list):
+                raise ValueError("'rules' must be a list when provided")
+            return RuleRAGRetriever.format_rules_for_prompt(rules)
+
+        grounding_records = item.get("grounding_records") or []
+        if not isinstance(grounding_records, list):
+            raise ValueError("'grounding_records' must be a list when provided")
+
+        retrieved_rules = self.rule_rag.retrieve(
+            user_query=question,
+            grounding_records=grounding_records,
+            top_k=self.rag_top_k,
+        )
+        return RuleRAGRetriever.format_rules_for_prompt(retrieved_rules)
+
+    @staticmethod
+    def compose_question(question: str, rule_context: str) -> str:
+        if not rule_context.strip():
+            return question
+        return f"{question}\n\nRetrieved exposure rules:\n{rule_context}"
+
+    def _resolve(self, path: Optional[str]) -> Optional[str]:
+        if not path:
+            return None
+        if os.path.isabs(path):
+            return path
+        return os.path.join(self.image_root, path)
+
+    def _resolve_image(self, path: Optional[str]) -> Optional[str]:
+        resolved = self._resolve(path)
+        if not resolved:
+            return None
+        if os.path.exists(resolved):
+            return resolved
+        base, ext = os.path.splitext(resolved)
+        if ext:
+            return resolved
+        for candidate_ext in self.image_extensions:
+            candidate = resolved + candidate_ext
+            if os.path.exists(candidate):
+                return candidate
+        return resolved
+
+    def _load_image_tensor(self, sample: SamplePaths, image_path: Optional[str]) -> torch.Tensor:
+        if image_path and os.path.exists(image_path):
+            image = Image.open(image_path).convert("RGB")
+        elif sample.segmentation_paths:
+            image = self._compose_segmentations(sample.segmentation_paths).convert("RGB")
+        else:
+            raise FileNotFoundError(
+                f"Input image not found: {image_path}. Provide source images or segmentation_paths for pseudo input."
+            )
+        return self.image_transform(image)
+
+    def _load_mask_tensor(self, sample: SamplePaths, mask_path: Optional[str]) -> torch.Tensor:
+        if sample.segmentation_paths:
+            mask = self._build_union_mask(sample.segmentation_paths)
+            return self.mask_transform(mask)
+
+        if mask_path and os.path.exists(mask_path):
+            mask = Image.open(mask_path).convert("L")
+            mask_tensor = self.mask_transform(mask)
+            return (mask_tensor > 0.5).float()
+
+        return torch.zeros(1, self.image_size, self.image_size)
+
+    def _compose_segmentations(self, segmentation_paths: List[str]) -> Image.Image:
+        canvas: Optional[Image.Image] = None
+        for path in segmentation_paths:
+            segment = Image.open(path).convert("RGBA")
+            if canvas is None:
+                canvas = Image.new("RGBA", segment.size, (0, 0, 0, 255))
+            canvas.alpha_composite(segment)
+        if canvas is None:
+            raise ValueError("No segmentation images were provided")
+        return canvas
+
+    def _build_union_mask(self, segmentation_paths: List[str]) -> Image.Image:
+        union_mask: Optional[Image.Image] = None
+        for path in segmentation_paths:
+            segment = Image.open(path).convert("RGBA")
+            if segment.getextrema()[3][1] > 0:
+                mask = segment.getchannel("A")
+            else:
+                mask = segment.convert("L").point(lambda value: 255 if value > 5 else 0)
+            mask = mask.point(lambda value: 255 if value > 0 else 0)
+            if union_mask is None:
+                union_mask = Image.new("L", mask.size, 0)
+            union_mask = Image.composite(Image.new("L", mask.size, 255), union_mask, mask)
+        if union_mask is None:
+            return Image.new("L", (self.image_size, self.image_size), 0)
+        return union_mask
+
+    def __len__(self) -> int:
+        return len(self.samples)
+
+    def __getitem__(self, index: int) -> Dict[str, torch.Tensor]:
+        sample = self.samples[index]
+        image_path = self._resolve_image(sample.image_path)
+        if image_path is None:
+            raise ValueError("Image path is missing")
+
+        image_tensor = self._load_image_tensor(sample, image_path)
+
+        mask_path = self._resolve(sample.mask_path)
+        mask_tensor = self._load_mask_tensor(sample, mask_path)
+
+        token_ids = self.tokenizer.encode(sample.text, self.max_text_len)
+        question_with_rules = self.compose_question(sample.question, sample.rule_context)
+        question_ids = self.tokenizer.encode(question_with_rules, self.max_question_len)
+        decoder_input = token_ids[:-1]
+        decoder_target = token_ids[1:]
+
+        return {
+            "image": image_tensor,
+            "mask": mask_tensor,
+            "question_ids": question_ids,
+            "decoder_input": decoder_input,
+            "decoder_target": decoder_target,
+        }
+
+
+class DatasetExampleDataset(ReasoningGroundingDataset):
+    """
+    Supports the provided Dataset Example directory:
+
+    Dataset Example/
+      analysis_only/<sample_id>.json
+      segmentations/<sample_id>/<region_mask_pngs>
+
+    Source images are optional for format checking. If a source image is not
+    found, the dataset composes the segmented PNGs into a pseudo input image.
+    """
+
+    IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".bmp", ".webp", ".tif", ".tiff"]
+
+    def __init__(
+        self,
+        dataset_root: str,
+        source_image_root: str = "",
+        tokenizer: Optional[SimpleTokenizer] = None,
+        image_size: int = 256,
+        max_text_len: int = 128,
+        max_question_len: int = 64,
+        rules_path: str = "",
+        rag_top_k: int = 5,
+    ):
+        self.dataset_root = dataset_root
+        self.source_image_root = source_image_root
+        super().__init__(
+            jsonl_path="",
+            image_root=source_image_root or dataset_root,
+            tokenizer=tokenizer,
+            image_size=image_size,
+            max_text_len=max_text_len,
+            max_question_len=max_question_len,
+            rules_path=rules_path,
+            rag_top_k=rag_top_k,
+        )
+
+    def _load_samples(self, jsonl_path: str) -> List[SamplePaths]:
+        analysis_dir = os.path.join(self.dataset_root, "analysis_only")
+        segmentation_root = os.path.join(self.dataset_root, "segmentations")
+        if not os.path.isdir(analysis_dir):
+            raise FileNotFoundError(f"Missing analysis_only directory: {analysis_dir}")
+        if not os.path.isdir(segmentation_root):
+            raise FileNotFoundError(f"Missing segmentations directory: {segmentation_root}")
+
+        samples: List[SamplePaths] = []
+        for filename in sorted(os.listdir(analysis_dir)):
+            if not filename.lower().endswith(".json"):
+                continue
+            sample_id = os.path.splitext(filename)[0]
+            json_path = os.path.join(analysis_dir, filename)
+            with open(json_path, "r", encoding="utf-8") as f:
+                item = json.load(f)
+
+            segmentation_dir = os.path.join(segmentation_root, sample_id)
+            segmentation_paths = self._collect_segmentation_paths(segmentation_dir, item)
+            source_image_path = self._find_source_image(sample_id)
+            question = self._build_dataset_question(item)
+            grounding_records = self._build_grounding_records(item)
+            text = self._analysis_json_to_text(item)
+            rule_context = RuleRAGRetriever.format_rules_for_prompt(
+                self.rule_rag.retrieve(question, grounding_records, top_k=self.rag_top_k)
+            )
+
+            samples.append(
+                SamplePaths(
+                    image_path=source_image_path or os.path.join(self.source_image_root or self.dataset_root, f"{sample_id}.jpg"),
+                    mask_path=None,
+                    question=question,
+                    rule_context=rule_context,
+                    text=text,
+                    segmentation_paths=segmentation_paths,
+                )
+            )
+        if not samples:
+            raise ValueError(f"No JSON analysis files found in: {analysis_dir}")
+        return samples
+
+    def _collect_segmentation_paths(self, segmentation_dir: str, item: Dict[str, object]) -> List[str]:
+        if not os.path.isdir(segmentation_dir):
+            raise FileNotFoundError(f"Missing segmentation directory: {segmentation_dir}")
+
+        region_files = []
+        for region in item.get("semantic_regions", []):
+            if isinstance(region, dict) and region.get("mask_filename"):
+                path = os.path.join(segmentation_dir, str(region["mask_filename"]))
+                if os.path.exists(path):
+                    region_files.append(path)
+
+        if region_files:
+            return region_files
+
+        return [
+            os.path.join(segmentation_dir, name)
+            for name in sorted(os.listdir(segmentation_dir))
+            if name.lower().endswith((".png", ".jpg", ".jpeg", ".bmp", ".webp"))
+        ]
+
+    def _find_source_image(self, sample_id: str) -> Optional[str]:
+        search_roots = []
+        if self.source_image_root:
+            search_roots.append(self.source_image_root)
+        search_roots.extend([
+            os.path.join(self.dataset_root, "images"),
+            os.path.join(self.dataset_root, "source_images"),
+            self.dataset_root,
+        ])
+
+        for root in search_roots:
+            if not root or not os.path.isdir(root):
+                continue
+            for ext in self.IMAGE_EXTENSIONS:
+                path = os.path.join(root, sample_id + ext)
+                if os.path.exists(path):
+                    return path
+        return None
+
+    def _build_dataset_question(self, item: Dict[str, object]) -> str:
+        labels = []
+        for region in item.get("semantic_regions", []):
+            if isinstance(region, dict) and region.get("semantic_label"):
+                labels.append(str(region["semantic_label"]))
+        if labels:
+            return "Assess exposure quality and segment these regions: " + ", ".join(labels) + "."
+        return self.DEFAULT_QUESTION
+
+    def _build_grounding_records(self, item: Dict[str, object]) -> List[Dict[str, object]]:
+        records = []
+        for region in item.get("semantic_regions", []):
+            if not isinstance(region, dict):
+                continue
+            records.append({
+                "label": region.get("semantic_label", "region"),
+                "average_exposure_score": region.get("exposure_score"),
+                "exposure_trend": region.get("exposure_trend"),
+                "mask_path": region.get("mask_filename"),
+            })
+        return records
+
+    def _analysis_json_to_text(self, item: Dict[str, object]) -> str:
+        parts: List[str] = []
+        for region in item.get("semantic_regions", []):
+            if not isinstance(region, dict):
+                continue
+            label = region.get("semantic_label", f"region {region.get('region_id', '')}")
+            trend = region.get("exposure_trend", "unknown exposure")
+            score = region.get("exposure_score", "unknown")
+            comment = region.get("exposure_comment", "")
+            suggestion = region.get("local_adjustment_suggestion", "")
+            parts.append(
+                f"Region {region.get('region_id', '?')} ({label}) has trend {trend} "
+                f"with exposure score {score}. {comment} Suggestion: {suggestion}"
+            )
+
+        saliency = item.get("global_saliency_analysis", {})
+        if isinstance(saliency, dict):
+            reason = saliency.get("primary_distortion_reason")
+            if reason:
+                parts.append(f"Primary distortion: {reason}")
+
+        strategy = item.get("global_exposure_strategy", {})
+        if isinstance(strategy, dict):
+            global_suggestion = strategy.get("global_exposure_suggestion")
+            regional_strategy = strategy.get("regional_balance_strategy")
+            if global_suggestion:
+                parts.append(f"Global exposure suggestion: {global_suggestion}")
+            if regional_strategy:
+                parts.append(f"Regional balance strategy: {regional_strategy}")
+
+        return " ".join(str(part).strip() for part in parts if str(part).strip())
+
+
+class VisualEncoder(nn.Module):
+    """Converts an input image into dense visual tokens plus a feature map for segmentation."""
+
+    def __init__(self, hidden_dim: int = 256):
+        super().__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 32, 3, stride=2, padding=1),
+            nn.BatchNorm2d(32),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(32, 64, 3, stride=2, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(64, 128, 3, stride=2, padding=1),
+            nn.BatchNorm2d(128),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(128, hidden_dim, 3, stride=2, padding=1),
+            nn.BatchNorm2d(hidden_dim),
+            nn.ReLU(inplace=True),
+        )
+        self.token_norm = nn.LayerNorm(hidden_dim)
+
+    def forward(self, image: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
+        feature_map = self.features(image)
+        visual_tokens = feature_map.flatten(2).transpose(1, 2)
+        return feature_map, self.token_norm(visual_tokens)
+
+
+class QualityEncoder(nn.Module):
+    """
+    Produces compact quality tokens from RGB, luminance, and local contrast.
+
+    This is a trainable approximation of the paper's quality encoder: it feeds
+    exposure-oriented evidence to the backbone instead of relying on semantics alone.
+    """
+
+    def __init__(self, hidden_dim: int = 256, token_grid: int = 2):
+        super().__init__()
+        self.encoder = nn.Sequential(
+            nn.Conv2d(5, 32, 3, stride=2, padding=1),
+            nn.BatchNorm2d(32),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(32, 64, 3, stride=2, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(64, hidden_dim, 3, stride=2, padding=1),
+            nn.BatchNorm2d(hidden_dim),
+            nn.ReLU(inplace=True),
+        )
+        self.pool = nn.AdaptiveAvgPool2d((token_grid, token_grid))
+        self.token_norm = nn.LayerNorm(hidden_dim)
+
+    def forward(self, image: torch.Tensor) -> torch.Tensor:
+        luminance = image.mean(dim=1, keepdim=True)
+        local_mean = F.avg_pool2d(luminance, kernel_size=7, stride=1, padding=3)
+        local_contrast = (luminance - local_mean).abs()
+        quality_input = torch.cat([image, luminance, local_contrast], dim=1)
+        quality_map = self.encoder(quality_input)
+        quality_tokens = self.pool(quality_map).flatten(2).transpose(1, 2)
+        return self.token_norm(quality_tokens)
+
+
+class QuestionEncoder(nn.Module):
+    """Encodes question tokens before multimodal fusion."""
+
+    def __init__(self, vocab_size: int, hidden_dim: int = 256, num_layers: int = 2, num_heads: int = 4, pad_id: int = 0):
+        super().__init__()
+        self.pad_id = pad_id
+        self.embedding = nn.Embedding(vocab_size, hidden_dim, padding_idx=pad_id)
+        self.position = nn.Embedding(256, hidden_dim)
+        layer = nn.TransformerEncoderLayer(
+            d_model=hidden_dim,
+            nhead=num_heads,
+            dim_feedforward=hidden_dim * 4,
+            dropout=0.1,
+            batch_first=True,
+        )
+        self.encoder = nn.TransformerEncoder(layer, num_layers=num_layers)
+        self.norm = nn.LayerNorm(hidden_dim)
+
+    def forward(self, question_ids: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
+        positions = torch.arange(question_ids.shape[1], device=question_ids.device).unsqueeze(0)
+        pad_mask = question_ids.eq(self.pad_id)
+        tokens = self.embedding(question_ids) + self.position(positions)
+        tokens = self.encoder(tokens, src_key_padding_mask=pad_mask)
+        return self.norm(tokens), pad_mask
+
+
+class LLMBackbone(nn.Module):
+    """Compact Transformer backbone for visual, quality, and question token fusion."""
+
+    def __init__(self, hidden_dim: int = 256, num_layers: int = 4, num_heads: int = 4, max_tokens: int = 1024):
+        super().__init__()
+        self.position = nn.Embedding(max_tokens, hidden_dim)
+        self.type_embedding = nn.Embedding(3, hidden_dim)
+        layer = nn.TransformerEncoderLayer(
+            d_model=hidden_dim,
+            nhead=num_heads,
+            dim_feedforward=hidden_dim * 4,
+            dropout=0.1,
+            batch_first=True,
+        )
+        self.encoder = nn.TransformerEncoder(layer, num_layers=num_layers)
+        self.norm = nn.LayerNorm(hidden_dim)
+
+    def forward(
+        self,
+        visual_tokens: torch.Tensor,
+        quality_tokens: torch.Tensor,
+        question_tokens: torch.Tensor,
+        question_pad_mask: torch.Tensor,
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        tokens = torch.cat([visual_tokens, quality_tokens, question_tokens], dim=1)
+        batch_size = tokens.shape[0]
+        visual_len = visual_tokens.shape[1]
+        quality_len = quality_tokens.shape[1]
+        question_len = question_tokens.shape[1]
+
+        type_ids = torch.cat([
+            torch.zeros(visual_len, dtype=torch.long, device=tokens.device),
+            torch.ones(quality_len, dtype=torch.long, device=tokens.device),
+            torch.full((question_len,), 2, dtype=torch.long, device=tokens.device),
+        ]).unsqueeze(0).expand(batch_size, -1)
+        positions = torch.arange(tokens.shape[1], device=tokens.device).unsqueeze(0).expand(batch_size, -1)
+        tokens = tokens + self.position(positions) + self.type_embedding(type_ids)
+
+        prefix_pad = torch.zeros(batch_size, visual_len + quality_len, dtype=torch.bool, device=tokens.device)
+        memory_pad_mask = torch.cat([prefix_pad, question_pad_mask], dim=1)
+        memory = self.encoder(tokens, src_key_padding_mask=memory_pad_mask)
+        return self.norm(memory), memory_pad_mask
+
+
+class TextGenerationHead(nn.Module):
+    """Autoregressive text head that decodes the final report from fused tokens."""
+
+    def __init__(self, vocab_size: int, hidden_dim: int = 256, num_layers: int = 2, num_heads: int = 4, pad_id: int = 0):
+        super().__init__()
+        self.pad_id = pad_id
+        self.embedding = nn.Embedding(vocab_size, hidden_dim, padding_idx=pad_id)
+        self.position = nn.Embedding(256, hidden_dim)
+        layer = nn.TransformerDecoderLayer(
+            d_model=hidden_dim,
+            nhead=num_heads,
+            dim_feedforward=hidden_dim * 4,
+            dropout=0.1,
+            batch_first=True,
+        )
+        self.decoder = nn.TransformerDecoder(layer, num_layers=num_layers)
+        self.output = nn.Linear(hidden_dim, vocab_size)
+
+    def forward(self, decoder_input: torch.Tensor, memory: torch.Tensor, memory_pad_mask: torch.Tensor) -> torch.Tensor:
+        positions = torch.arange(decoder_input.shape[1], device=decoder_input.device).unsqueeze(0)
+        target = self.embedding(decoder_input) + self.position(positions)
+        causal_mask = nn.Transformer.generate_square_subsequent_mask(decoder_input.shape[1], device=decoder_input.device)
+        target_pad_mask = decoder_input.eq(self.pad_id)
+        decoded = self.decoder(
+            target,
+            memory,
+            tgt_mask=causal_mask,
+            tgt_key_padding_mask=target_pad_mask,
+            memory_key_padding_mask=memory_pad_mask,
+        )
+        return self.output(decoded)
+
+
+class SegmentationHead(nn.Module):
+    """Mask head conditioned by the multimodal backbone state."""
+
+    def __init__(self, hidden_dim: int = 256):
+        super().__init__()
+        self.condition = nn.Linear(hidden_dim, hidden_dim)
+        self.head = nn.Sequential(
+            nn.Conv2d(hidden_dim, hidden_dim // 2, 3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(hidden_dim // 2, 1, 1),
+        )
+
+    def forward(
+        self,
+        visual_map: torch.Tensor,
+        memory: torch.Tensor,
+        memory_pad_mask: torch.Tensor,
+        output_size: Tuple[int, int],
+    ) -> torch.Tensor:
+        valid = (~memory_pad_mask).float().unsqueeze(-1)
+        pooled = (memory * valid).sum(dim=1) / valid.sum(dim=1).clamp_min(1.0)
+        condition = self.condition(pooled).unsqueeze(-1).unsqueeze(-1)
+        conditioned_map = visual_map + condition
+        seg_logits = self.head(conditioned_map)
+        return F.interpolate(seg_logits, size=output_size, mode="bilinear", align_corners=False)
+
+
+class ReasoningGroundingModel(nn.Module):
+    """
+    Similar-in-spirit architecture to the paper:
+    Quality Encoder + Visual Encoder + Question Encoder -> LLM Backbone -> text and mask heads.
+    """
+
+    def __init__(
+        self,
+        vocab_size: int,
+        hidden_dim: int = 256,
+        num_layers: int = 4,
+        num_heads: int = 4,
+        pad_id: int = 0,
+        max_tokens: int = 1024,
+    ):
+        super().__init__()
+        self.visual_encoder = VisualEncoder(hidden_dim=hidden_dim)
+        self.quality_encoder = QualityEncoder(hidden_dim=hidden_dim)
+        self.question_encoder = QuestionEncoder(
+            vocab_size=vocab_size,
+            hidden_dim=hidden_dim,
+            num_layers=max(1, num_layers // 2),
+            num_heads=num_heads,
+            pad_id=pad_id,
+        )
+        self.llm_backbone = LLMBackbone(
+            hidden_dim=hidden_dim,
+            num_layers=num_layers,
+            num_heads=num_heads,
+            max_tokens=max_tokens,
+        )
+        self.text_head = TextGenerationHead(
+            vocab_size=vocab_size,
+            hidden_dim=hidden_dim,
+            num_layers=max(1, num_layers // 2),
+            num_heads=num_heads,
+            pad_id=pad_id,
+        )
+        self.segmentation_head = SegmentationHead(hidden_dim=hidden_dim)
+
+    def encode_context(self, image: torch.Tensor, question_ids: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        visual_map, visual_tokens = self.visual_encoder(image)
+        quality_tokens = self.quality_encoder(image)
+        question_tokens, question_pad_mask = self.question_encoder(question_ids)
+        memory, memory_pad_mask = self.llm_backbone(
+            visual_tokens=visual_tokens,
+            quality_tokens=quality_tokens,
+            question_tokens=question_tokens,
+            question_pad_mask=question_pad_mask,
+        )
+        return visual_map, memory, memory_pad_mask
+
+    def forward(
+        self,
+        image: torch.Tensor,
+        question_ids: torch.Tensor,
+        decoder_input: torch.Tensor,
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        visual_map, memory, memory_pad_mask = self.encode_context(image, question_ids)
+        seg_logits = self.segmentation_head(visual_map, memory, memory_pad_mask, output_size=image.shape[-2:])
+        text_logits = self.text_head(decoder_input, memory, memory_pad_mask)
+        return seg_logits, text_logits
+
+    @torch.no_grad()
+    def generate(
+        self,
+        image: torch.Tensor,
+        question_ids: torch.Tensor,
+        tokenizer: SimpleTokenizer,
+        max_len: int = 96,
+    ) -> Tuple[torch.Tensor, List[int]]:
+        self.eval()
+        visual_map, memory, memory_pad_mask = self.encode_context(image, question_ids)
+        seg_logits = self.segmentation_head(visual_map, memory, memory_pad_mask, output_size=image.shape[-2:])
+        current = torch.tensor([[tokenizer.bos_id]], device=image.device)
+        generated: List[int] = []
+
+        for _ in range(max_len):
+            logits = self.text_head(current, memory, memory_pad_mask)
+            next_id = int(torch.argmax(logits[:, -1, :], dim=-1).item())
+            if next_id == tokenizer.eos_id:
+                break
+            generated.append(next_id)
+            current = torch.cat([current, torch.tensor([[next_id]], device=image.device)], dim=1)
+
+        return seg_logits, generated
+
+
+def train(args: argparse.Namespace) -> None:
+    device = torch.device(args.device if args.device else ("cuda" if torch.cuda.is_available() else "cpu"))
+    if not args.train_jsonl and not args.dataset_root:
+        raise ValueError("Provide --train-jsonl for JSONL data or --dataset-root for Dataset Example data")
+
+    dataset = ReasoningGroundingDataset(
+        args.train_jsonl,
+        image_root=args.image_root,
+        image_size=args.image_size,
+        max_text_len=args.max_text_len,
+        max_question_len=args.max_question_len,
+        rules_path=args.rules_path,
+        rag_top_k=args.rag_top_k,
+        dataset_format=args.dataset_format,
+        dataset_root=args.dataset_root,
+        analysis_dir=args.analysis_dir,
+        segmentation_dir=args.segmentation_dir,
+        image_extensions=args.image_extensions,
+    )
+    tokenizer = dataset.build_tokenizer(min_freq=args.min_freq, max_vocab=args.max_vocab)
+    loader = DataLoader(dataset, batch_size=args.batch_size, shuffle=True, num_workers=args.num_workers)
+
+    model = ReasoningGroundingModel(
+        vocab_size=len(tokenizer),
+        hidden_dim=args.hidden_dim,
+        num_layers=args.num_layers,
+        num_heads=args.num_heads,
+        pad_id=tokenizer.pad_id,
+    ).to(device)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    ce_loss = nn.CrossEntropyLoss(ignore_index=tokenizer.pad_id)
+    bce_loss = nn.BCEWithLogitsLoss()
+
+    os.makedirs(args.output_dir, exist_ok=True)
+    for epoch in range(1, args.epochs + 1):
+        model.train()
+        total_loss = 0.0
+        for batch in loader:
+            image = batch["image"].to(device)
+            mask = batch["mask"].to(device)
+            question_ids = batch["question_ids"].to(device)
+            decoder_input = batch["decoder_input"].to(device)
+            decoder_target = batch["decoder_target"].to(device)
+
+            seg_logits, text_logits = model(image, question_ids, decoder_input)
+            loss_seg = bce_loss(seg_logits, mask)
+            loss_text = ce_loss(text_logits.reshape(-1, text_logits.shape[-1]), decoder_target.reshape(-1))
+            loss = args.seg_loss_weight * loss_seg + args.text_loss_weight * loss_text
+
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            total_loss += float(loss.item())
+
+        avg_loss = total_loss / max(len(loader), 1)
+        print(f"epoch={epoch} loss={avg_loss:.4f}")
+
+        checkpoint = {
+            "model_state": model.state_dict(),
+            "tokenizer": tokenizer.to_dict(),
+            "image_size": args.image_size,
+            "max_text_len": args.max_text_len,
+            "max_question_len": args.max_question_len,
+            "hidden_dim": args.hidden_dim,
+            "num_layers": args.num_layers,
+            "num_heads": args.num_heads,
+            "rules_path": args.rules_path,
+            "rag_top_k": args.rag_top_k,
+            "architecture": "quality_visual_question_to_llm_backbone",
+        }
+        torch.save(checkpoint, os.path.join(args.output_dir, "reasoning_grounding_model.pt"))
+
+
+def load_checkpoint(path: str, device: torch.device) -> Tuple[ReasoningGroundingModel, SimpleTokenizer, int, int, int]:
+    checkpoint = torch.load(path, map_location=device)
+    tokenizer = SimpleTokenizer(checkpoint["tokenizer"])
+    model = ReasoningGroundingModel(
+        vocab_size=len(tokenizer),
+        hidden_dim=checkpoint.get("hidden_dim", 256),
+        num_layers=checkpoint.get("num_layers", 4),
+        num_heads=checkpoint.get("num_heads", 4),
+        pad_id=tokenizer.pad_id,
+    )
+    model.load_state_dict(checkpoint["model_state"])
+    model.to(device)
+    model.eval()
+    return (
+        model,
+        tokenizer,
+        checkpoint.get("image_size", 256),
+        checkpoint.get("max_text_len", 128),
+        checkpoint.get("max_question_len", 64),
+    )
+
+
+def save_segmented_image(image_path: str, mask_logits: torch.Tensor, output_path: str, threshold: float = 0.5) -> None:
+    image = Image.open(image_path).convert("RGBA")
+    original_size = image.size
+    mask = torch.sigmoid(mask_logits[0, 0]).detach().cpu()
+    mask_image = transforms.ToPILImage()(mask)
+    mask_image = mask_image.resize(original_size, Image.Resampling.BILINEAR)
+    alpha = mask_image.point(lambda value: 255 if value / 255.0 >= threshold else 0)
+    image.putalpha(alpha)
+    os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+    image.save(output_path)
+
+
+def infer(args: argparse.Namespace) -> None:
+    device = torch.device(args.device if args.device else ("cuda" if torch.cuda.is_available() else "cpu"))
+    model, tokenizer, image_size, max_text_len, max_question_len = load_checkpoint(args.checkpoint, device)
+    image = Image.open(args.image).convert("RGB")
+    transform = transforms.Compose([
+        transforms.Resize((image_size, image_size)),
+        transforms.ToTensor(),
+    ])
+    image_tensor = transform(image).unsqueeze(0).to(device)
+    question = args.question or ReasoningGroundingDataset.DEFAULT_QUESTION
+    rule_context = build_inference_rule_context(
+        question=question,
+        rules_path=args.rules_path,
+        rule_context=args.rule_context,
+        grounding_records_json=args.grounding_records_json,
+        rag_top_k=args.rag_top_k,
+    )
+    question_with_rules = ReasoningGroundingDataset.compose_question(question, rule_context)
+    question_ids = tokenizer.encode(question_with_rules, max_question_len).unsqueeze(0).to(device)
+
+    seg_logits, ids = model.generate(image_tensor, question_ids, tokenizer, max_len=args.max_text_len or max_text_len)
+    text = tokenizer.decode(ids)
+    save_segmented_image(args.image, seg_logits, args.output_image, threshold=args.threshold)
+
+    os.makedirs(os.path.dirname(args.output_text) or ".", exist_ok=True)
+    with open(args.output_text, "w", encoding="utf-8") as f:
+        f.write(text + "\n")
+    print(text)
+    print(f"segmented image saved to: {args.output_image}")
+    print(f"text saved to: {args.output_text}")
+
+
+def build_inference_rule_context(
+    question: str,
+    rules_path: str = "",
+    rule_context: str = "",
+    grounding_records_json: str = "",
+    rag_top_k: int = 5,
+) -> str:
+    if rule_context:
+        return rule_context
+
+    grounding_records = []
+    if grounding_records_json:
+        if os.path.exists(grounding_records_json):
+            with open(grounding_records_json, "r", encoding="utf-8") as f:
+                grounding_records = json.load(f)
+        else:
+            grounding_records = json.loads(grounding_records_json)
+        if not isinstance(grounding_records, list):
+            raise ValueError("grounding records must be a JSON list")
+
+    retriever = RuleRAGRetriever(rules_path=rules_path or None)
+    retrieved_rules = retriever.retrieve(
+        user_query=question,
+        grounding_records=grounding_records,
+        top_k=rag_top_k,
+    )
+    return RuleRAGRetriever.format_rules_for_prompt(retrieved_rules)
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Train a reasoning-grounding model with quality, visual, and question encoders.")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    train_parser = subparsers.add_parser("train")
+    train_parser.add_argument("--train-jsonl", default="")
+    train_parser.add_argument("--dataset-format", choices=["auto", "jsonl", "dataset_example"], default="auto")
+    train_parser.add_argument("--dataset-root", default="")
+    train_parser.add_argument("--analysis-dir", default="analysis_only")
+    train_parser.add_argument("--segmentation-dir", default="segmentations")
+    train_parser.add_argument("--image-extensions", default=".jpg,.jpeg,.png,.tif,.tiff,.bmp")
+    train_parser.add_argument("--image-root", default="")
+    train_parser.add_argument("--output-dir", default="reasoning_grounding_runs")
+    train_parser.add_argument("--epochs", type=int, default=10)
+    train_parser.add_argument("--batch-size", type=int, default=4)
+    train_parser.add_argument("--num-workers", type=int, default=0)
+    train_parser.add_argument("--image-size", type=int, default=256)
+    train_parser.add_argument("--max-text-len", type=int, default=128)
+    train_parser.add_argument("--max-question-len", type=int, default=64)
+    train_parser.add_argument("--rules-path", default="")
+    train_parser.add_argument("--rag-top-k", type=int, default=5)
+    train_parser.add_argument("--hidden-dim", type=int, default=256)
+    train_parser.add_argument("--num-layers", type=int, default=4)
+    train_parser.add_argument("--num-heads", type=int, default=4)
+    train_parser.add_argument("--lr", type=float, default=1e-4)
+    train_parser.add_argument("--weight-decay", type=float, default=1e-4)
+    train_parser.add_argument("--seg-loss-weight", type=float, default=1.0)
+    train_parser.add_argument("--text-loss-weight", type=float, default=1.0)
+    train_parser.add_argument("--min-freq", type=int, default=1)
+    train_parser.add_argument("--max-vocab", type=int, default=12000)
+    train_parser.add_argument("--device", default="")
+    train_parser.set_defaults(func=train)
+
+    infer_parser = subparsers.add_parser("infer")
+    infer_parser.add_argument("--checkpoint", required=True)
+    infer_parser.add_argument("--image", required=True)
+    infer_parser.add_argument("--question", default="")
+    infer_parser.add_argument("--rules-path", default="")
+    infer_parser.add_argument("--rule-context", default="")
+    infer_parser.add_argument("--grounding-records-json", default="")
+    infer_parser.add_argument("--rag-top-k", type=int, default=5)
+    infer_parser.add_argument("--output-image", default="reasoning_grounding_output/segmented.png")
+    infer_parser.add_argument("--output-text", default="reasoning_grounding_output/report.txt")
+    infer_parser.add_argument("--threshold", type=float, default=0.5)
+    infer_parser.add_argument("--max-text-len", type=int, default=96)
+    infer_parser.add_argument("--device", default="")
+    infer_parser.set_defaults(func=infer)
+    return parser
+
+
+if __name__ == "__main__":
+    cli_args = build_parser().parse_args()
+    cli_args.func(cli_args)

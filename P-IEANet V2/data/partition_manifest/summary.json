@@ -1,0 +1,14 @@
+{
+  "train": {
+    "json_files": 34984,
+    "region_rows": 91302
+  },
+  "val": {
+    "json_files": 4383,
+    "region_rows": 11362
+  },
+  "test": {
+    "json_files": 4372,
+    "region_rows": 11287
+  }
+}

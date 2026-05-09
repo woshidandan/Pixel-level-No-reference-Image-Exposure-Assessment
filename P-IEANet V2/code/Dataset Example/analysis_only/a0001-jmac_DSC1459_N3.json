@@ -1,0 +1,30 @@
+{
+  "semantic_regions": [
+    {
+      "region_id": 1,
+      "mask_filename": "a0001-jmac_DSC1459_N3_grounded_000_1ce78a62.png",
+      "semantic_label": "Rock Formations and Ground",
+      "exposure_score": 90.29033303622073,
+      "exposure_trend": "Slightly Underexposed",
+      "exposure_comment": "The 'Rock Formations and Ground' area is noticeably dark, causing the intricate textures of the buttes and the desert vegetation to be lost in deep shadows.",
+      "local_adjustment_suggestion": "Significantly lift shadows and midtones to recover the geological details and the natural red tones of the landscape."
+    },
+    {
+      "region_id": 2,
+      "mask_filename": "a0001-jmac_DSC1459_N3_grounded_001_1ce78a62.png",
+      "semantic_label": "Sky",
+      "exposure_score": 90.86800804828974,
+      "exposure_trend": "Slightly Underexposed",
+      "exposure_comment": "The 'Sky' region is underexposed, making the blue tones appear murky and the clouds look dull instead of bright and airy.",
+      "local_adjustment_suggestion": "Increase the exposure for the sky while selectively boosting highlights to make the clouds more prominent against the blue background."
+    }
+  ],
+  "global_saliency_analysis": {
+    "primary_distortion_region_id": 1,
+    "primary_distortion_reason": "The 'Rock Formations and Ground' region is the primary subject of this landscape. Its underexposed state creates a heavy, muddy appearance that hides the dramatic visual appeal of the iconic desert monuments."
+  },
+  "global_exposure_strategy": {
+    "global_exposure_suggestion": "Increase the overall exposure of the entire image to brighten the scene and move away from the current dark, heavy aesthetic.",
+    "regional_balance_strategy": "The primary focus should be on brightening the 'Rock Formations and Ground' to reveal detail. While adjusting the 'Sky', ensure that the increase in brightness preserves the definition in the clouds to maintain a balanced and natural high-dynamic-range look."
+  }
+}

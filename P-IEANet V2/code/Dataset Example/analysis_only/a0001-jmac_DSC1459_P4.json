@@ -1,0 +1,30 @@
+{
+  "semantic_regions": [
+    {
+      "region_id": 0,
+      "mask_filename": "a0001-jmac_DSC1459_P4_grounded_000_ece53aa4.png",
+      "semantic_label": "Rock Formation",
+      "exposure_score": -130.5589312742668,
+      "exposure_trend": "Severely Overexposed",
+      "exposure_comment": "The 'Rock Formation' is almost entirely washed out by extreme brightness, causing nearly all geological textures and the characteristic red tones to be lost in a white glare.",
+      "local_adjustment_suggestion": "Apply a drastic reduction in highlights and overall exposure to recover the color and structural detail of the butte."
+    },
+    {
+      "region_id": 1,
+      "mask_filename": "a0001-jmac_DSC1459_P4_grounded_001_ece53aa4.png",
+      "semantic_label": "Desert Vegetation",
+      "exposure_score": -129.00760115072976,
+      "exposure_trend": "Severely Overexposed",
+      "exposure_comment": "The 'Desert Vegetation' in the foreground is severely overexposed, appearing as bright, colorless shapes where individual leaf and branch details are no longer visible.",
+      "local_adjustment_suggestion": "Significantly lower the exposure and highlights to restore the natural green and brown colors of the bushes and improve foreground contrast."
+    }
+  ],
+  "global_saliency_analysis": {
+    "primary_distortion_region_id": 0,
+    "primary_distortion_reason": "The 'Rock Formation' is the central subject of the landscape; its severe overexposure results in a total loss of image focus and depth, as it blends into the overexposed sky."
+  },
+  "global_exposure_strategy": {
+    "global_exposure_suggestion": "The entire image requires a massive global reduction in exposure and highlights to bring the signal back into a viewable range.",
+    "regional_balance_strategy": "Prioritize darkening the 'Rock Formation' to re-establish the subject, while ensuring the 'Desert Vegetation' is recovered enough to provide a sense of scale and foreground detail."
+  }
+}

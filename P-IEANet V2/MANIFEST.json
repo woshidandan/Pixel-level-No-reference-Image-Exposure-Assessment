@@ -1,0 +1,2309 @@
+{
+  "created_at": "2026-05-09 14:24:43 +0800",
+  "root": "IEA_Reasoning_Code_PartitionManifest_NoWeights_20260509",
+  "weights_included": false,
+  "full_dataset_included": false,
+  "partition_manifest_only": true,
+  "weight_like_files": [],
+  "entry_count": 476,
+  "entries": [
+    {
+      "path": "README_REPRODUCE.md",
+      "type": "file",
+      "size": 2207
+    },
+    {
+      "path": "code",
+      "type": "dir"
+    },
+    {
+      "path": "code/.DS_Store",
+      "type": "file",
+      "size": 6148
+    },
+    {
+      "path": "code/Dataset Example",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/Input",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/Input/a0001-jmac_DSC1459.png",
+      "type": "file",
+      "size": 128806
+    },
+    {
+      "path": "code/Dataset Example/Input/a0001-jmac_DSC1459_N1.png",
+      "type": "file",
+      "size": 123400
+    },
+    {
+      "path": "code/Dataset Example/Input/a0001-jmac_DSC1459_N2.png",
+      "type": "file",
+      "size": 113472
+    },
+    {
+      "path": "code/Dataset Example/Input/a0001-jmac_DSC1459_N3.png",
+      "type": "file",
+      "size": 92194
+    },
+    {
+      "path": "code/Dataset Example/Input/a0001-jmac_DSC1459_N4.png",
+      "type": "file",
+      "size": 65447
+    },
+    {
+      "path": "code/Dataset Example/Input/a0001-jmac_DSC1459_P0.png",
+      "type": "file",
+      "size": 126454
+    },
+    {
+      "path": "code/Dataset Example/Input/a0001-jmac_DSC1459_P1.png",
+      "type": "file",
+      "size": 123519
+    },
+    {
+      "path": "code/Dataset Example/Input/a0001-jmac_DSC1459_P2.png",
+      "type": "file",
+      "size": 109566
+    },
+    {
+      "path": "code/Dataset Example/Input/a0001-jmac_DSC1459_P3.png",
+      "type": "file",
+      "size": 92402
+    },
+    {
+      "path": "code/Dataset Example/Input/a0001-jmac_DSC1459_P4.png",
+      "type": "file",
+      "size": 70782
+    },
+    {
+      "path": "code/Dataset Example/analysis_only",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/analysis_only/a0001-jmac_DSC1459_N1.json",
+      "type": "file",
+      "size": 2352
+    },
+    {
+      "path": "code/Dataset Example/analysis_only/a0001-jmac_DSC1459_N2.json",
+      "type": "file",
+      "size": 2134
+    },
+    {
+      "path": "code/Dataset Example/analysis_only/a0001-jmac_DSC1459_N3.json",
+      "type": "file",
+      "size": 1999
+    },
+    {
+      "path": "code/Dataset Example/analysis_only/a0001-jmac_DSC1459_N4.json",
+      "type": "file",
+      "size": 1518
+    },
+    {
+      "path": "code/Dataset Example/analysis_only/a0001-jmac_DSC1459_P0.json",
+      "type": "file",
+      "size": 3015
+    },
+    {
+      "path": "code/Dataset Example/analysis_only/a0001-jmac_DSC1459_P1.json",
+      "type": "file",
+      "size": 4207
+    },
+    {
+      "path": "code/Dataset Example/analysis_only/a0001-jmac_DSC1459_P2.json",
+      "type": "file",
+      "size": 3056
+    },
+    {
+      "path": "code/Dataset Example/analysis_only/a0001-jmac_DSC1459_P3.json",
+      "type": "file",
+      "size": 1332
+    },
+    {
+      "path": "code/Dataset Example/analysis_only/a0001-jmac_DSC1459_P4.json",
+      "type": "file",
+      "size": 1963
+    },
+    {
+      "path": "code/Dataset Example/pixel label",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/pixel label/a0001-jmac_DSC1459_N1.npy",
+      "type": "file",
+      "size": 131200
+    },
+    {
+      "path": "code/Dataset Example/pixel label/a0001-jmac_DSC1459_N2.npy",
+      "type": "file",
+      "size": 131200
+    },
+    {
+      "path": "code/Dataset Example/pixel label/a0001-jmac_DSC1459_N3.npy",
+      "type": "file",
+      "size": 131200
+    },
+    {
+      "path": "code/Dataset Example/pixel label/a0001-jmac_DSC1459_N4.npy",
+      "type": "file",
+      "size": 131200
+    },
+    {
+      "path": "code/Dataset Example/pixel label/a0001-jmac_DSC1459_P0.npy",
+      "type": "file",
+      "size": 131200
+    },
+    {
+      "path": "code/Dataset Example/pixel label/a0001-jmac_DSC1459_P1.npy",
+      "type": "file",
+      "size": 131200
+    },
+    {
+      "path": "code/Dataset Example/pixel label/a0001-jmac_DSC1459_P2.npy",
+      "type": "file",
+      "size": 131200
+    },
+    {
+      "path": "code/Dataset Example/pixel label/a0001-jmac_DSC1459_P3.npy",
+      "type": "file",
+      "size": 131200
+    },
+    {
+      "path": "code/Dataset Example/pixel label/a0001-jmac_DSC1459_P4.npy",
+      "type": "file",
+      "size": 131200
+    },
+    {
+      "path": "code/Dataset Example/segmentations",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_N1",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_N1/a0001-jmac_DSC1459_N1_grounded_000_d4dd92ce.png",
+      "type": "file",
+      "size": 142237
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_N1/a0001-jmac_DSC1459_N1_grounded_001_d4dd92ce.png",
+      "type": "file",
+      "size": 141483
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_N2",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_N2/a0001-jmac_DSC1459_N2_grounded_000_51930e7a.png",
+      "type": "file",
+      "size": 130500
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_N2/a0001-jmac_DSC1459_N2_grounded_001_51930e7a.png",
+      "type": "file",
+      "size": 129836
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_N3",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_N3/a0001-jmac_DSC1459_N3_grounded_000_1ce78a62.png",
+      "type": "file",
+      "size": 104855
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_N3/a0001-jmac_DSC1459_N3_grounded_001_1ce78a62.png",
+      "type": "file",
+      "size": 104590
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_N4",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_N4/a0001-jmac_DSC1459_N4_grounded_000_dca4c6e7.png",
+      "type": "file",
+      "size": 72860
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P0",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P0/a0001-jmac_DSC1459_P0_grounded_000_c7a15809.png",
+      "type": "file",
+      "size": 144510
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P0/a0001-jmac_DSC1459_P0_grounded_001_c7a15809.png",
+      "type": "file",
+      "size": 144832
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P0/a0001-jmac_DSC1459_P0_grounded_002_c7a15809.png",
+      "type": "file",
+      "size": 145272
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P0/a0001-jmac_DSC1459_P0_grounded_003_c7a15809.png",
+      "type": "file",
+      "size": 144541
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P1",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P1/a0001-jmac_DSC1459_P1_grounded_000_5cefc908.png",
+      "type": "file",
+      "size": 140860
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P1/a0001-jmac_DSC1459_P1_grounded_001_5cefc908.png",
+      "type": "file",
+      "size": 140829
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P1/a0001-jmac_DSC1459_P1_grounded_002_5cefc908.png",
+      "type": "file",
+      "size": 140869
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P1/a0001-jmac_DSC1459_P1_grounded_003_5cefc908.png",
+      "type": "file",
+      "size": 141085
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P1/a0001-jmac_DSC1459_P1_grounded_004_5cefc908.png",
+      "type": "file",
+      "size": 140800
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P1/a0001-jmac_DSC1459_P1_grounded_005_5cefc908.png",
+      "type": "file",
+      "size": 140829
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P2",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P2/a0001-jmac_DSC1459_P2_grounded_000_773860d0.png",
+      "type": "file",
+      "size": 124935
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P2/a0001-jmac_DSC1459_P2_grounded_001_773860d0.png",
+      "type": "file",
+      "size": 124874
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P2/a0001-jmac_DSC1459_P2_grounded_002_773860d0.png",
+      "type": "file",
+      "size": 125783
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P2/a0001-jmac_DSC1459_P2_grounded_003_773860d0.png",
+      "type": "file",
+      "size": 124896
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P4",
+      "type": "dir"
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P4/a0001-jmac_DSC1459_P4_grounded_000_ece53aa4.png",
+      "type": "file",
+      "size": 81118
+    },
+    {
+      "path": "code/Dataset Example/segmentations/a0001-jmac_DSC1459_P4/a0001-jmac_DSC1459_P4_grounded_001_ece53aa4.png",
+      "type": "file",
+      "size": 81079
+    },
+    {
+      "path": "code/Grounded-Segment-Anything",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/.gitignore",
+      "type": "file",
+      "size": 1836
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/.gitmodules",
+      "type": "file",
+      "size": 191
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/CITATION.cff",
+      "type": "file",
+      "size": 275
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/Dockerfile",
+      "type": "file",
+      "size": 1140
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/EdgeSAM",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/EdgeSAM/common.py",
+      "type": "file",
+      "size": 3642
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/EdgeSAM/rep_vit.py",
+      "type": "file",
+      "size": 12019
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/EdgeSAM/setup_edge_sam.py",
+      "type": "file",
+      "size": 2473
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/FastSAM",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/FastSAM/tools.py",
+      "type": "file",
+      "size": 14586
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/LightHQSAM",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/LightHQSAM/example_light_hqsam.png",
+      "type": "file",
+      "size": 2324039
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/LightHQSAM/grounded_light_hqsam_annotated_image.jpg",
+      "type": "file",
+      "size": 583936
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/LightHQSAM/setup_light_hqsam.py",
+      "type": "file",
+      "size": 1676
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/LightHQSAM/tiny_vit_sam.py",
+      "type": "file",
+      "size": 25091
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/MobileSAM",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/MobileSAM/setup_mobile_sam.py",
+      "type": "file",
+      "size": 1642
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/MobileSAM/tiny_vit_sam.py",
+      "type": "file",
+      "size": 24771
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/README.md",
+      "type": "file",
+      "size": 10245
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/RepViTSAM",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/RepViTSAM/repvit.py",
+      "type": "file",
+      "size": 13003
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/RepViTSAM/setup_repvit_sam.py",
+      "type": "file",
+      "size": 1765
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/grounded_edge_sam.py",
+      "type": "file",
+      "size": 3349
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/grounded_efficient_sam.py",
+      "type": "file",
+      "size": 3914
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/grounded_fast_sam.py",
+      "type": "file",
+      "size": 4274
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/grounded_light_hqsam.py",
+      "type": "file",
+      "size": 3438
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/grounded_mobile_sam.py",
+      "type": "file",
+      "size": 4963
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/EfficientSAM/grounded_repvit_sam.py",
+      "type": "file",
+      "size": 3367
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/.asset",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/.asset/COCO.png",
+      "type": "file",
+      "size": 261907
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/.asset/GD_GLIGEN.png",
+      "type": "file",
+      "size": 1227831
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/.asset/GD_SD.png",
+      "type": "file",
+      "size": 1161495
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/.asset/ODinW.png",
+      "type": "file",
+      "size": 292914
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/.asset/arch.png",
+      "type": "file",
+      "size": 568439
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/.asset/cats.png",
+      "type": "file",
+      "size": 381659
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/.asset/hero_figure.png",
+      "type": "file",
+      "size": 2977749
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/LICENSE",
+      "type": "file",
+      "size": 11354
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/README.md",
+      "type": "file",
+      "size": 6754
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/demo",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/demo/gradio_app.py",
+      "type": "file",
+      "size": 4463
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/demo/inference_on_a_image.py",
+      "type": "file",
+      "size": 6001
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/_C.cpython-310-x86_64-linux-gnu.so",
+      "type": "file",
+      "size": 1194768
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/_C.cpython-39-x86_64-linux-gnu.so",
+      "type": "file",
+      "size": 899560
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/__init__.py",
+      "type": "file",
+      "size": 0
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/config",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/config/GroundingDINO_SwinB.py",
+      "type": "file",
+      "size": 1007
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py",
+      "type": "file",
+      "size": 1081
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py.bak_before_local_bert",
+      "type": "file",
+      "size": 1006
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/datasets",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/datasets/__init__.py",
+      "type": "file",
+      "size": 0
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/datasets/transforms.py",
+      "type": "file",
+      "size": 9711
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/__init__.py",
+      "type": "file",
+      "size": 823
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/backbone",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/backbone/__init__.py",
+      "type": "file",
+      "size": 37
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/backbone/backbone.py",
+      "type": "file",
+      "size": 7972
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/backbone/position_encoding.py",
+      "type": "file",
+      "size": 6866
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/backbone/swin_transformer.py",
+      "type": "file",
+      "size": 29354
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/bertwarper.py",
+      "type": "file",
+      "size": 12242
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/csrc",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/csrc/MsDeformAttn",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/csrc/MsDeformAttn/ms_deform_attn.h",
+      "type": "file",
+      "size": 1883
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/csrc/MsDeformAttn/ms_deform_attn_cpu.cpp",
+      "type": "file",
+      "size": 1311
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/csrc/MsDeformAttn/ms_deform_attn_cpu.h",
+      "type": "file",
+      "size": 1194
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/csrc/MsDeformAttn/ms_deform_attn_cuda.cu",
+      "type": "file",
+      "size": 7367
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/csrc/MsDeformAttn/ms_deform_attn_cuda.cu.bak_before_torch211",
+      "type": "file",
+      "size": 7367
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/csrc/MsDeformAttn/ms_deform_attn_cuda.h",
+      "type": "file",
+      "size": 1195
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/csrc/MsDeformAttn/ms_deform_im2col_cuda.cuh",
+      "type": "file",
+      "size": 54694
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/csrc/cuda_version.cu",
+      "type": "file",
+      "size": 140
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/csrc/vision.cpp",
+      "type": "file",
+      "size": 1419
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/fuse_modules.py",
+      "type": "file",
+      "size": 11825
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/groundingdino.py",
+      "type": "file",
+      "size": 16937
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/ms_deform_attn.py",
+      "type": "file",
+      "size": 15482
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/transformer.py",
+      "type": "file",
+      "size": 36865
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/transformer_vanilla.py",
+      "type": "file",
+      "size": 4020
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/GroundingDINO/utils.py",
+      "type": "file",
+      "size": 10203
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/__init__.py",
+      "type": "file",
+      "size": 754
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/models/registry.py",
+      "type": "file",
+      "size": 2143
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/__init__.py",
+      "type": "file",
+      "size": 71
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/box_ops.py",
+      "type": "file",
+      "size": 3905
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/get_tokenlizer.py",
+      "type": "file",
+      "size": 1777
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/inference.py",
+      "type": "file",
+      "size": 8705
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/logger.py",
+      "type": "file",
+      "size": 3303
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/misc.py",
+      "type": "file",
+      "size": 23348
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/slconfig.py",
+      "type": "file",
+      "size": 14401
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/slio.py",
+      "type": "file",
+      "size": 5377
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/time_counter.py",
+      "type": "file",
+      "size": 1567
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/utils.py",
+      "type": "file",
+      "size": 17712
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/visualizer.py",
+      "type": "file",
+      "size": 12047
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/util/vl_utils.py",
+      "type": "file",
+      "size": 3489
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino/version.py",
+      "type": "file",
+      "size": 22
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino.egg-info",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino.egg-info/PKG-INFO",
+      "type": "file",
+      "size": 13558
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino.egg-info/SOURCES.txt",
+      "type": "file",
+      "size": 2853
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino.egg-info/dependency_links.txt",
+      "type": "file",
+      "size": 1
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino.egg-info/requires.txt",
+      "type": "file",
+      "size": 92
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/groundingdino.egg-info/top_level.txt",
+      "type": "file",
+      "size": 14
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/pyproject.toml",
+      "type": "file",
+      "size": 118
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/requirements.txt",
+      "type": "file",
+      "size": 91
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/GroundingDINO/setup.py",
+      "type": "file",
+      "size": 7646
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/LICENSE",
+      "type": "file",
+      "size": 11350
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/Makefile",
+      "type": "file",
+      "size": 1469
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/README.md",
+      "type": "file",
+      "size": 46283
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/VISAM",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/annotated_image.jpg",
+      "type": "file",
+      "size": 746133
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/Grounded-SAM_logo.png",
+      "type": "file",
+      "size": 66589
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/acoustics",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/acoustics/det_voice.mp3",
+      "type": "file",
+      "size": 81408
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/acoustics/gsam_whisper_inpainting_demo.png",
+      "type": "file",
+      "size": 1197658
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/acoustics/gsam_whisper_inpainting_pipeline.png",
+      "type": "file",
+      "size": 1183914
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/acoustics/inpaint_voice.mp3",
+      "type": "file",
+      "size": 132096
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/acoustics/prompt_speech_file.mp3",
+      "type": "file",
+      "size": 142848
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/annotated_image.jpg",
+      "type": "file",
+      "size": 720441
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/automatic_label_output",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/automatic_label_output/demo1.jpg",
+      "type": "file",
+      "size": 358906
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/automatic_label_output/demo2.jpg",
+      "type": "file",
+      "size": 253119
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/automatic_label_output/demo4.jpg",
+      "type": "file",
+      "size": 188482
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/automatic_label_output/demo8.jpg",
+      "type": "file",
+      "size": 255764
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/automatic_label_output/demo9_tag2text.jpg",
+      "type": "file",
+      "size": 467401
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/automatic_label_output/demo9_tag2text_ram.jpg",
+      "type": "file",
+      "size": 544131
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/automatic_label_output_demo3.jpg",
+      "type": "file",
+      "size": 192448
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car/frame_0001.png",
+      "type": "file",
+      "size": 2843592
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car/frame_0002.png",
+      "type": "file",
+      "size": 2894549
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car/frame_0003.png",
+      "type": "file",
+      "size": 2909743
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car/frame_0004.png",
+      "type": "file",
+      "size": 2913389
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car/frame_0005.png",
+      "type": "file",
+      "size": 2947134
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car/frame_0006.png",
+      "type": "file",
+      "size": 2957613
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car/frame_0007.png",
+      "type": "file",
+      "size": 2977497
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car/frame_0008.png",
+      "type": "file",
+      "size": 2981546
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car/frame_0009.png",
+      "type": "file",
+      "size": 2998614
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car/frame_0010.png",
+      "type": "file",
+      "size": 3018876
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/car/frame_0011.png",
+      "type": "file",
+      "size": 3054217
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/chatbot_demo.png",
+      "type": "file",
+      "size": 362859
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/demo1.jpg",
+      "type": "file",
+      "size": 376329
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/demo2.jpg",
+      "type": "file",
+      "size": 221810
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/demo3.jpg",
+      "type": "file",
+      "size": 500692
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/demo4.jpg",
+      "type": "file",
+      "size": 448722
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/demo5.jpg",
+      "type": "file",
+      "size": 387642
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/demo6.jpg",
+      "type": "file",
+      "size": 158279
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/demo7.jpg",
+      "type": "file",
+      "size": 335061
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/demo8.jpg",
+      "type": "file",
+      "size": 277103
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/demo9.jpg",
+      "type": "file",
+      "size": 5701095
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/gradio_auto_label.png",
+      "type": "file",
+      "size": 237422
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/gradio_demo.png",
+      "type": "file",
+      "size": 2938908
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/grounded_sam2.png",
+      "type": "file",
+      "size": 625026
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/grounded_sam_annotated_image.jpg",
+      "type": "file",
+      "size": 698177
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/grounded_sam_demo3_demo4.png",
+      "type": "file",
+      "size": 1734661
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/grounded_sam_inpainting_demo.png",
+      "type": "file",
+      "size": 3420030
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/grounded_sam_new_demo_image.png",
+      "type": "file",
+      "size": 1213073
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/grounded_sam_output_demo1.jpg",
+      "type": "file",
+      "size": 69736
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/grounded_sam_whisper_output.jpg",
+      "type": "file",
+      "size": 196696
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/grounding_dino_output_demo1.jpg",
+      "type": "file",
+      "size": 349000
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/groundingdino_annotated_image.jpg",
+      "type": "file",
+      "size": 767226
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/inpaint_demo.jpg",
+      "type": "file",
+      "size": 404753
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/mask_3dbox.png",
+      "type": "file",
+      "size": 1951860
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/multi-gpu.png",
+      "type": "file",
+      "size": 25846
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/n015-2018-08-02-17-16-37+0800__CAM_BACK_LEFT__1533201470447423.jpg",
+      "type": "file",
+      "size": 138849
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/osx",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/osx/grounded_sam_osx_demo.png",
+      "type": "file",
+      "size": 1541635
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/osx/grounded_sam_osx_output.jpg",
+      "type": "file",
+      "size": 297529
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/osx/grounded_sam_osx_output1.jpg",
+      "type": "file",
+      "size": 271614
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/osx/grounded_sam_osx_output2.jpg",
+      "type": "file",
+      "size": 274550
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/osx/grouned_sam_osx_demo.gif",
+      "type": "file",
+      "size": 6104943
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/assets/ram_grounded_sam_new.png",
+      "type": "file",
+      "size": 2791192
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/automatic_label_demo.py",
+      "type": "file",
+      "size": 11886
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/automatic_label_ram_demo.py",
+      "type": "file",
+      "size": 11594
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/automatic_label_simple_demo.py",
+      "type": "file",
+      "size": 5004
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/automatic_label_tag2text_demo.py",
+      "type": "file",
+      "size": 12862
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/chatbot.py",
+      "type": "file",
+      "size": 81786
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/cog.yaml",
+      "type": "file",
+      "size": 634
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/gradio_app.py",
+      "type": "file",
+      "size": 15582
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded-sam-osx",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam.ipynb",
+      "type": "file",
+      "size": 2224017
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam_3d_box.ipynb",
+      "type": "file",
+      "size": 2080873
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam_annotated_image.jpg",
+      "type": "file",
+      "size": 432508
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam_colab_demo.ipynb",
+      "type": "file",
+      "size": 2882292
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam_demo.py",
+      "type": "file",
+      "size": 8480
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam_inpainting_demo.py",
+      "type": "file",
+      "size": 7789
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam_multi_gpu_demo.py",
+      "type": "file",
+      "size": 10785
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam_osx_demo.py",
+      "type": "file",
+      "size": 10825
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam_simple_demo.py",
+      "type": "file",
+      "size": 4057
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam_visam.py",
+      "type": "file",
+      "size": 10520
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam_whisper_demo.py",
+      "type": "file",
+      "size": 8907
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounded_sam_whisper_inpainting_demo.py",
+      "type": "file",
+      "size": 11022
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/grounding_dino_demo.py",
+      "type": "file",
+      "size": 891
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/groundingdino_annotated_image.jpg",
+      "type": "file",
+      "size": 442854
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/outputs",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/outputs/grounded_sam_output.jpg",
+      "type": "file",
+      "size": 145902
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/outputs/mask.jpg",
+      "type": "file",
+      "size": 81219
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/outputs/mask.json",
+      "type": "file",
+      "size": 177
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/outputs/raw_image.jpg",
+      "type": "file",
+      "size": 105451
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/outputs_1",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/outputs_1/grounded_sam_output.jpg",
+      "type": "file",
+      "size": 117196
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/outputs_1/mask.jpg",
+      "type": "file",
+      "size": 65752
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/outputs_1/mask.json",
+      "type": "file",
+      "size": 167
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/outputs_1/raw_image.jpg",
+      "type": "file",
+      "size": 105451
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/DeepFloyd",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/DeepFloyd/README.md",
+      "type": "file",
+      "size": 8745
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/DeepFloyd/dream.py",
+      "type": "file",
+      "size": 1715
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/DeepFloyd/inpaint.py",
+      "type": "file",
+      "size": 1916
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/DeepFloyd/style_transfer.py",
+      "type": "file",
+      "size": 1221
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/.assets",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/.assets/bird_audio.wav",
+      "type": "file",
+      "size": 882078
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/.assets/bird_image.jpg",
+      "type": "file",
+      "size": 114755
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/.assets/car_audio.wav",
+      "type": "file",
+      "size": 441044
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/.assets/car_image.jpg",
+      "type": "file",
+      "size": 59333
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/.assets/dog_audio.wav",
+      "type": "file",
+      "size": 460518
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/.assets/dog_image.jpg",
+      "type": "file",
+      "size": 86102
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/README.md",
+      "type": "file",
+      "size": 3067
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/audio_referring_seg_demo.py",
+      "type": "file",
+      "size": 2795
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/bpe",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/bpe/bpe_simple_vocab_16e6.txt.gz",
+      "type": "file",
+      "size": 1356917
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/data.py",
+      "type": "file",
+      "size": 12567
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/demo.py",
+      "type": "file",
+      "size": 4202
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/image_referring_seg_demo.py",
+      "type": "file",
+      "size": 3085
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/models",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/models/__init__.py",
+      "type": "file",
+      "size": 0
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/models/helpers.py",
+      "type": "file",
+      "size": 3983
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/models/imagebind_model.py",
+      "type": "file",
+      "size": 16446
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/models/multimodal_preprocessors.py",
+      "type": "file",
+      "size": 23094
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/models/transformer.py",
+      "type": "file",
+      "size": 9748
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/text_referring_seg_demo.py",
+      "type": "file",
+      "size": 2759
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/ImageBind_SAM/utils.py",
+      "type": "file",
+      "size": 932
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/LaMa",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/LaMa/README.md",
+      "type": "file",
+      "size": 4319
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/LaMa/lama_inpaint_demo.py",
+      "type": "file",
+      "size": 896
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/LaMa/sam_lama.py",
+      "type": "file",
+      "size": 2579
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/PaintByExample",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/PaintByExample/README.md",
+      "type": "file",
+      "size": 4837
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/PaintByExample/paint_by_example.py",
+      "type": "file",
+      "size": 1592
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/PaintByExample/sam_paint_by_example.py",
+      "type": "file",
+      "size": 2377
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/README.md",
+      "type": "file",
+      "size": 995
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/RePaint",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/RePaint/README.md",
+      "type": "file",
+      "size": 2776
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/playground/RePaint/repaint.py",
+      "type": "file",
+      "size": 1356
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/predict.py",
+      "type": "file",
+      "size": 9127
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/requirements.txt",
+      "type": "file",
+      "size": 215
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/.flake8",
+      "type": "file",
+      "size": 211
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/CODE_OF_CONDUCT.md",
+      "type": "file",
+      "size": 3541
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/CONTRIBUTING.md",
+      "type": "file",
+      "size": 1400
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/LICENSE",
+      "type": "file",
+      "size": 11357
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/README.md",
+      "type": "file",
+      "size": 5657
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/assets",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/assets/masks1.png",
+      "type": "file",
+      "size": 3703371
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/assets/masks2.jpg",
+      "type": "file",
+      "size": 133278
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/assets/model_diagram.png",
+      "type": "file",
+      "size": 581875
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/assets/notebook1.png",
+      "type": "file",
+      "size": 874274
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/assets/notebook2.png",
+      "type": "file",
+      "size": 1221706
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/linter.sh",
+      "type": "file",
+      "size": 564
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/notebooks",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/notebooks/automatic_mask_generator_example.ipynb",
+      "type": "file",
+      "size": 4381140
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/notebooks/images",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/notebooks/images/dog.jpg",
+      "type": "file",
+      "size": 99846
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/notebooks/images/groceries.jpg",
+      "type": "file",
+      "size": 168066
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/notebooks/images/truck.jpg",
+      "type": "file",
+      "size": 271475
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/notebooks/onnx_model_example.ipynb",
+      "type": "file",
+      "size": 22507
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/notebooks/predictor_example.ipynb",
+      "type": "file",
+      "size": 8381065
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/pyproject.toml",
+      "type": "file",
+      "size": 591
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/scripts",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/scripts/amg.py",
+      "type": "file",
+      "size": 7038
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/scripts/export_onnx_model.py",
+      "type": "file",
+      "size": 6296
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/__init__.py",
+      "type": "file",
+      "size": 574
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/automatic_mask_generator.py",
+      "type": "file",
+      "size": 15132
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/build_sam.py",
+      "type": "file",
+      "size": 2929
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/build_sam_hq.py",
+      "type": "file",
+      "size": 3380
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/modeling",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/modeling/__init__.py",
+      "type": "file",
+      "size": 428
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/modeling/common.py",
+      "type": "file",
+      "size": 1479
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/modeling/image_encoder.py",
+      "type": "file",
+      "size": 14548
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/modeling/mask_decoder.py",
+      "type": "file",
+      "size": 6684
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/modeling/mask_decoder_hq.py",
+      "type": "file",
+      "size": 9783
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/modeling/prompt_encoder.py",
+      "type": "file",
+      "size": 8594
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/modeling/sam.py",
+      "type": "file",
+      "size": 7225
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/modeling/transformer.py",
+      "type": "file",
+      "size": 8396
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/predictor.py",
+      "type": "file",
+      "size": 11934
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/utils",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/utils/__init__.py",
+      "type": "file",
+      "size": 197
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/utils/amg.py",
+      "type": "file",
+      "size": 12711
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/utils/onnx.py",
+      "type": "file",
+      "size": 5790
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything/utils/transforms.py",
+      "type": "file",
+      "size": 3994
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything.egg-info",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything.egg-info/PKG-INFO",
+      "type": "file",
+      "size": 6307
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything.egg-info/SOURCES.txt",
+      "type": "file",
+      "size": 916
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything.egg-info/dependency_links.txt",
+      "type": "file",
+      "size": 1
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything.egg-info/requires.txt",
+      "type": "file",
+      "size": 92
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/segment_anything.egg-info/top_level.txt",
+      "type": "file",
+      "size": 32
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/setup.cfg",
+      "type": "file",
+      "size": 371
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/segment_anything/setup.py",
+      "type": "file",
+      "size": 541
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/test_images_LHY",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/test_images_LHY/53235674110_d41237f9ac_k.jpg",
+      "type": "file",
+      "size": 235506
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/README.md",
+      "type": "file",
+      "size": 4097
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/__init__.py",
+      "type": "file",
+      "size": 0
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/config.yaml",
+      "type": "file",
+      "size": 1545
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/images",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/images/image_boxes1.png",
+      "type": "file",
+      "size": 1924189
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/images/image_boxes2.png",
+      "type": "file",
+      "size": 1633421
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/images/image_boxes3.png",
+      "type": "file",
+      "size": 1282465
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/images/mask_box.png",
+      "type": "file",
+      "size": 1951860
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/images/sam-voxelnext.png",
+      "type": "file",
+      "size": 1764881
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/model.py",
+      "type": "file",
+      "size": 6391
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/models",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/models/__init__.py",
+      "type": "file",
+      "size": 0
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/models/data_processor.py",
+      "type": "file",
+      "size": 8514
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/models/mean_vfe.py",
+      "type": "file",
+      "size": 827
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/models/spconv_backbone_voxelnext.py",
+      "type": "file",
+      "size": 12210
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/models/voxelnext_head.py",
+      "type": "file",
+      "size": 7275
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/requirements.txt",
+      "type": "file",
+      "size": 93
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/utils",
+      "type": "dir"
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/utils/centernet_utils.py",
+      "type": "file",
+      "size": 4915
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/utils/config.py",
+      "type": "file",
+      "size": 960
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/voxelnext_3d_box/utils/image_projection.py",
+      "type": "file",
+      "size": 4465
+    },
+    {
+      "path": "code/Grounded-Segment-Anything/wget-log",
+      "type": "file",
+      "size": 2748
+    },
+    {
+      "path": "code/P-IEANet",
+      "type": "dir"
+    },
+    {
+      "path": "code/P-IEANet/.DS_Store",
+      "type": "file",
+      "size": 6148
+    },
+    {
+      "path": "code/P-IEANet/FFA.py",
+      "type": "file",
+      "size": 5209
+    },
+    {
+      "path": "code/P-IEANet/dataset.py",
+      "type": "file",
+      "size": 1980
+    },
+    {
+      "path": "code/P-IEANet/heat_map_input",
+      "type": "dir"
+    },
+    {
+      "path": "code/P-IEANet/heat_map_input/portrait_1.jpg",
+      "type": "file",
+      "size": 393477
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output",
+      "type": "dir"
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_exposure.png",
+      "type": "file",
+      "size": 85209
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_double.png",
+      "type": "file",
+      "size": 520524
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_double_channel_0.png",
+      "type": "file",
+      "size": 520524
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_double_channel_0_colormap.png",
+      "type": "file",
+      "size": 1165117
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_double_heatmap_style.png",
+      "type": "file",
+      "size": 203827
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_double_heatmap_style_colormap.png",
+      "type": "file",
+      "size": 359838
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_single.png",
+      "type": "file",
+      "size": 1680609
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_single_channel_0.png",
+      "type": "file",
+      "size": 559800
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_single_channel_0_colormap.png",
+      "type": "file",
+      "size": 1237297
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_single_channel_1.png",
+      "type": "file",
+      "size": 636535
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_single_channel_1_colormap.png",
+      "type": "file",
+      "size": 1561951
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_single_channel_2.png",
+      "type": "file",
+      "size": 627226
+    },
+    {
+      "path": "code/P-IEANet/heat_map_output/portrait_1_output_single_channel_2_colormap.png",
+      "type": "file",
+      "size": 1505856
+    },
+    {
+      "path": "code/P-IEANet/img_to_pred",
+      "type": "dir"
+    },
+    {
+      "path": "code/P-IEANet/img_to_pred/test1_high.jpg",
+      "type": "file",
+      "size": 87438
+    },
+    {
+      "path": "code/P-IEANet/img_to_pred/test1_high_exposure.png",
+      "type": "file",
+      "size": 99534
+    },
+    {
+      "path": "code/P-IEANet/img_to_pred/test_low.jpg",
+      "type": "file",
+      "size": 45660
+    },
+    {
+      "path": "code/P-IEANet/img_to_pred/test_low_exposure.png",
+      "type": "file",
+      "size": 127264
+    },
+    {
+      "path": "code/P-IEANet/inference.py",
+      "type": "file",
+      "size": 8634
+    },
+    {
+      "path": "code/P-IEANet/inference_output",
+      "type": "dir"
+    },
+    {
+      "path": "code/P-IEANet/inference_output/portrait_1_output.png",
+      "type": "file",
+      "size": 39063
+    },
+    {
+      "path": "code/P-IEANet/log_test.txt",
+      "type": "file",
+      "size": 0
+    },
+    {
+      "path": "code/P-IEANet/make_heatmap.py",
+      "type": "file",
+      "size": 2431
+    },
+    {
+      "path": "code/P-IEANet/option.py",
+      "type": "file",
+      "size": 1327
+    },
+    {
+      "path": "code/P-IEANet/readme.txt",
+      "type": "file",
+      "size": 515
+    },
+    {
+      "path": "code/P-IEANet/structure_model.py",
+      "type": "file",
+      "size": 5776
+    },
+    {
+      "path": "code/P-IEANet/train_256.csv",
+      "type": "file",
+      "size": 1930459
+    },
+    {
+      "path": "code/P-IEANet/train_256_2ev.csv",
+      "type": "file",
+      "size": 1072458
+    },
+    {
+      "path": "code/P-IEANet/train_wavelet.py",
+      "type": "file",
+      "size": 4933
+    },
+    {
+      "path": "code/P-IEANet/util.py",
+      "type": "file",
+      "size": 2973
+    },
+    {
+      "path": "code/P-IEANet/utils.py",
+      "type": "file",
+      "size": 580
+    },
+    {
+      "path": "code/P-IEANet/valid_256_2ev.csv",
+      "type": "file",
+      "size": 241427
+    },
+    {
+      "path": "code/P-IEANet/wavelet_network.py",
+      "type": "file",
+      "size": 3711
+    },
+    {
+      "path": "code/README.md",
+      "type": "file",
+      "size": 8126
+    },
+    {
+      "path": "code/README.zh.md",
+      "type": "file",
+      "size": 4530
+    },
+    {
+      "path": "code/dual_grounding.py",
+      "type": "file",
+      "size": 6526
+    },
+    {
+      "path": "code/exposure_heatmaps",
+      "type": "dir"
+    },
+    {
+      "path": "code/exposure_heatmaps/a0001-jmac_DSC1459_N1_grounded_000_084b0232_exposure_heatmap.png",
+      "type": "file",
+      "size": 42917
+    },
+    {
+      "path": "code/exposure_scorer.py",
+      "type": "file",
+      "size": 6960
+    },
+    {
+      "path": "code/exposure_tool.py",
+      "type": "file",
+      "size": 3608
+    },
+    {
+      "path": "code/grounded_sam_outputs",
+      "type": "dir"
+    },
+    {
+      "path": "code/grounded_sam_outputs/a0001-jmac_DSC1459_N1_grounded_000_084b0232.png",
+      "type": "file",
+      "size": 141484
+    },
+    {
+      "path": "code/grounded_sam_segmenter.py",
+      "type": "file",
+      "size": 9030
+    },
+    {
+      "path": "code/grounded_sam_tool.py",
+      "type": "file",
+      "size": 9713
+    },
+    {
+      "path": "code/image_analysis_workflow.py",
+      "type": "file",
+      "size": 45726
+    },
+    {
+      "path": "code/requirements.txt",
+      "type": "file",
+      "size": 1374
+    },
+    {
+      "path": "code/rule_rag.py",
+      "type": "file",
+      "size": 7554
+    },
+    {
+      "path": "code/setup_groundingdino_retry.log",
+      "type": "file",
+      "size": 49101
+    },
+    {
+      "path": "code/setup_groundingdino_retry2.log",
+      "type": "file",
+      "size": 125796
+    },
+    {
+      "path": "code/setup_image_analysis_env.log",
+      "type": "file",
+      "size": 89822
+    },
+    {
+      "path": "code/train_reasoning_grounding.py",
+      "type": "file",
+      "size": 84689
+    },
+    {
+      "path": "code/train_reasoning_grounding.py.bak_before_llama_backbone",
+      "type": "file",
+      "size": 46595
+    },
+    {
+      "path": "data",
+      "type": "dir"
+    },
+    {
+      "path": "data/partition_manifest",
+      "type": "dir"
+    },
+    {
+      "path": "data/partition_manifest/summary.json",
+      "type": "file",
+      "size": 201
+    },
+    {
+      "path": "data/partition_manifest/test_manifest.csv",
+      "type": "file",
+      "size": 2732048
+    },
+    {
+      "path": "data/partition_manifest/test_sample_ids.txt",
+      "type": "file",
+      "size": 93576
+    },
+    {
+      "path": "data/partition_manifest/train_manifest.csv",
+      "type": "file",
+      "size": 22464733
+    },
+    {
+      "path": "data/partition_manifest/train_sample_ids.txt",
+      "type": "file",
+      "size": 749372
+    },
+    {
+      "path": "data/partition_manifest/val_manifest.csv",
+      "type": "file",
+      "size": 2728496
+    },
+    {
+      "path": "data/partition_manifest/val_sample_ids.txt",
+      "type": "file",
+      "size": 93974
+    },
+    {
+      "path": "docs",
+      "type": "dir"
+    },
+    {
+      "path": "docs/environment_summary.txt",
+      "type": "file",
+      "size": 121
+    },
+    {
+      "path": "docs/pip_freeze_image_analysis.txt",
+      "type": "file",
+      "size": 3189
+    },
+    {
+      "path": "scripts",
+      "type": "dir"
+    },
+    {
+      "path": "scripts/evaluate_epoch10_with_rebuilt_partition.sh",
+      "type": "file",
+      "size": 808
+    },
+    {
+      "path": "scripts/rebuild_data_partitioning_from_manifest.py",
+      "type": "file",
+      "size": 2562
+    },
+    {
+      "path": "weights",
+      "type": "dir"
+    },
+    {
+      "path": "weights/README_WEIGHTS.md",
+      "type": "file",
+      "size": 497
+    },
+    {
+      "path": "weights/bert-base-uncased",
+      "type": "dir"
+    },
+    {
+      "path": "weights/bert-base-uncased/WEIGHTS_NOT_INCLUDED.txt",
+      "type": "file",
+      "size": 112
+    },
+    {
+      "path": "weights/best_checkpoint",
+      "type": "dir"
+    },
+    {
+      "path": "weights/best_checkpoint/WEIGHTS_NOT_INCLUDED.txt",
+      "type": "file",
+      "size": 112
+    },
+    {
+      "path": "weights/grounded_sam",
+      "type": "dir"
+    },
+    {
+      "path": "weights/grounded_sam/WEIGHTS_NOT_INCLUDED.txt",
+      "type": "file",
+      "size": 112
+    },
+    {
+      "path": "weights/llama8b_base",
+      "type": "dir"
+    },
+    {
+      "path": "weights/llama8b_base/WEIGHTS_NOT_INCLUDED.txt",
+      "type": "file",
+      "size": 112
+    }
+  ]
+}

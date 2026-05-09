@@ -1,0 +1,21 @@
+{
+  "semantic_regions": [
+    {
+      "region_id": 1,
+      "mask_filename": "a0001-jmac_DSC1459_N4_grounded_000_dca4c6e7.png",
+      "semantic_label": "Rock Formation and Foreground Terrain",
+      "exposure_score": 102.22613411379875,
+      "exposure_trend": "Slightly Underexposed",
+      "exposure_comment": "The 'Rock Formation and Foreground Terrain' area is significantly dark, making it difficult to see the intricate textures of the buttes and the sparse desert vegetation. The 'Slightly Underexposed' rating suggests that while data is present, the visual representation is currently too dim.",
+      "local_adjustment_suggestion": "Increase the exposure and shadows for this region to reveal the characteristic red color of the rocks and the details of the shrubs in the foreground."
+    }
+  ],
+  "global_saliency_analysis": {
+    "primary_distortion_region_id": 1,
+    "primary_distortion_reason": "The 'Rock Formation and Foreground Terrain' region occupies the majority of the frame and is the primary subject. Its underexposed state results in a loss of visual depth and detail across most of the image."
+  },
+  "global_exposure_strategy": {
+    "global_exposure_suggestion": "Lifting the overall exposure of the scene is necessary to brighten the dark landscape.",
+    "regional_balance_strategy": "Prioritize brightening the 'Rock Formation and Foreground Terrain' to bring out textures, while ensuring that the sky (though not masked) maintains its cloud detail and doesn't become overly flat."
+  }
+}

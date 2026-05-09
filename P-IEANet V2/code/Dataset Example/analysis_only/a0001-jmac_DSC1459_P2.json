@@ -1,0 +1,48 @@
+{
+  "semantic_regions": [
+    {
+      "region_id": 0,
+      "mask_filename": "a0001-jmac_DSC1459_P2_grounded_000_773860d0.png",
+      "semantic_label": "Sky",
+      "exposure_score": -101.19481037924152,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The 'Sky' region is quite bright, resulting in a loss of cloud definition and a slightly washed-out appearance in the upper portion of the frame.",
+      "local_adjustment_suggestion": "Decrease highlights and reduce exposure for the 'Sky' to recover textures and color in the clouds."
+    },
+    {
+      "region_id": 1,
+      "mask_filename": "a0001-jmac_DSC1459_P2_grounded_001_773860d0.png",
+      "semantic_label": "Trees",
+      "exposure_score": -93.81496598639455,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The 'Trees' on the left side are rendered a bit too brightly, which masks some of the natural contrast and foliage details.",
+      "local_adjustment_suggestion": "Slightly lower the exposure for the 'Trees' to enhance leaf detail and color saturation."
+    },
+    {
+      "region_id": 2,
+      "mask_filename": "a0001-jmac_DSC1459_P2_grounded_002_773860d0.png",
+      "semantic_label": "Large Rock Formation",
+      "exposure_score": -94.12902578844451,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The 'Large Rock Formation' exhibits high brightness on its surfaces, which slightly obscures the intricate textures and deep red tones of the rock face.",
+      "local_adjustment_suggestion": "Reduce exposure and highlights on the 'Large Rock Formation' to bring out more detail in its texture and emphasize its natural color."
+    },
+    {
+      "region_id": 3,
+      "mask_filename": "a0001-jmac_DSC1459_P2_grounded_003_773860d0.png",
+      "semantic_label": "Bushes",
+      "exposure_score": -88.91385153308231,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The 'Bushes' in the foreground are slightly too light, which makes the dry desert vegetation appear less defined against the sandy ground.",
+      "local_adjustment_suggestion": "Apply a mild exposure reduction to the 'Bushes' to improve their visual clarity and texture."
+    }
+  ],
+  "global_saliency_analysis": {
+    "primary_distortion_region_id": 0,
+    "primary_distortion_reason": "The 'Sky' region is the most negatively impactful because its significant area and high brightness level create a washed-out look that reduces the overall dynamic range and visual impact of the landscape."
+  },
+  "global_exposure_strategy": {
+    "global_exposure_suggestion": "The overall image is consistently overexposed across all semantic regions. A general reduction in global exposure and highlights is recommended to restore detail and color throughout the scene.",
+    "regional_balance_strategy": "Prioritize exposure reduction in the 'Sky' and 'Large Rock Formation' to recover highlight details, while more subtly adjusting the 'Bushes' and 'Trees' to maintain a balanced, natural desert sunlight feel."
+  }
+}

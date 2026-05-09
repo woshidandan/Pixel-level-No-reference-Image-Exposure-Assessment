@@ -1,0 +1,66 @@
+{
+  "semantic_regions": [
+    {
+      "region_id": 0,
+      "mask_filename": "a0001-jmac_DSC1459_P1_grounded_000_5cefc908.png",
+      "semantic_label": "Sky Area",
+      "exposure_score": -80.90778312700596,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The 'Sky Area' is notably bright, causing the subtle cloud textures to become washed out and reducing the overall contrast of the upper image.",
+      "local_adjustment_suggestion": "Decrease exposure and highlights specifically for the sky to recover more definition in the clouds and restore a deeper blue hue."
+    },
+    {
+      "region_id": 1,
+      "mask_filename": "a0001-jmac_DSC1459_P1_grounded_001_5cefc908.png",
+      "semantic_label": "Vegetation",
+      "exposure_score": -52.225398936170215,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The small shrubs on the right side of the frame appear a bit pale, with overexposure reducing the richness of their natural color.",
+      "local_adjustment_suggestion": "Slightly lower the exposure to improve the saturation and textural depth of the green vegetation."
+    },
+    {
+      "region_id": 2,
+      "mask_filename": "a0001-jmac_DSC1459_P1_grounded_002_5cefc908.png",
+      "semantic_label": "Main Rock Formation",
+      "exposure_score": -68.85910694731719,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The vertical faces of the 'Main Rock Formation' are a bit too bright, which flattens the appearance of its rugged crevices and geological textures.",
+      "local_adjustment_suggestion": "Reduce highlights and midtone brightness to enhance the contrast of the rock shadows and bring out the characteristic deep red tones."
+    },
+    {
+      "region_id": 3,
+      "mask_filename": "a0001-jmac_DSC1459_P1_grounded_003_5cefc908.png",
+      "semantic_label": "Landscape Ground and Rock",
+      "exposure_score": -59.293672063611595,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The foreground ground and the base of the rock formation are slightly overexposed, creating a somewhat hazy or washed-out look in the lower half of the scene.",
+      "local_adjustment_suggestion": "Moderately reduce the overall exposure to add more weight and definition to the foreground landscape."
+    },
+    {
+      "region_id": 4,
+      "mask_filename": "a0001-jmac_DSC1459_P1_grounded_004_5cefc908.png",
+      "semantic_label": "Tree",
+      "exposure_score": -50.83440308087292,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "The lone tree on the left side lacks silhouette strength because its branches are slightly overexposed against the bright background.",
+      "local_adjustment_suggestion": "Decrease exposure to darken the tree's structure, increasing its visual presence and separation from the sky."
+    },
+    {
+      "region_id": 5,
+      "mask_filename": "a0001-jmac_DSC1459_P1_grounded_005_5cefc908.png",
+      "semantic_label": "Vegetation",
+      "exposure_score": -52.22203728362184,
+      "exposure_trend": "Slightly Overexposed",
+      "exposure_comment": "Similar to other vegetation in the scene, these bushes show a loss of color intensity due to the high overall exposure level.",
+      "local_adjustment_suggestion": "Subtly lower the exposure to better define the individual leaves and branches within the bush."
+    }
+  ],
+  "global_saliency_analysis": {
+    "primary_distortion_region_id": 0,
+    "primary_distortion_reason": "The 'Sky Area' is the most significant source of distortion with the highest negative exposure score (-80.9). Its excessive brightness draws the eye away from the main subject and results in a loss of important atmospheric detail."
+  },
+  "global_exposure_strategy": {
+    "global_exposure_suggestion": "The image is consistently overexposed across all regions. A global reduction in exposure is recommended to restore saturation and detail.",
+    "regional_balance_strategy": "The primary focus should be on darkening the 'Sky Area' and the 'Main Rock Formation' to recover textural details and depth. The 'Vegetation' regions require more subtle adjustments to avoid becoming excessively dark."
+  }
+}

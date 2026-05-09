@@ -1,0 +1,3 @@
+Download the IEA data set locally and add the path of the IEA data set to the option.py and dataset.py files.
+Then run the python train_wavelet.py file to start training and testing the network, and the parameter file will be saved to the root directory.
+In order to test the network's prediction ability on multiple images, run the python make_heatmap.py file, which will read all jpg files in the img_to_pred folder for prediction, and then save the heat map of the prediction results in the img_to_pred folder.

@@ -2,7 +2,7 @@
 
 This lightweight package includes optimized code and **only the Data Partitioning split manifest**. It does not include model weights, source images, full labels, or mask PNG files.
 
-The model weights will be released publicly after the paper is accepted.
+**The model weights and all datasets will be released publicly after the paper is accepted.**
 
 ## Included
 

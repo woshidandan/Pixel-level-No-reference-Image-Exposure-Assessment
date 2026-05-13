@@ -69,3 +69,13 @@ best_threshold = 0.4
 mAcc           = 0.8098743888
 pixel_accuracy = 0.7972168769
 ```
+
+## Demo Presentation
+https://github.com/user-attachments/assets/f0da7fcd-8fda-488d-8a15-14b750cff5dd
+
+
+
+
+
+
+
